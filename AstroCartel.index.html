@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AstroCartel - Your hub for everything OG music and beyond.">
+    <title>AstroCartel - OG Music Hub</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.imgur.com/Uv8chjJ.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffcc00;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-family: 'Impact', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+        }
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .language-selector img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+            object-fit: cover;
+        }
+        .language-selector img:hover {
+            border: 2px solid #ffcc00;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            flex: 1;
+        }
+        .post {
+            background: rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .post img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        .post h2 {
+            font-size: 2rem;
+            font-family: 'Verdana', sans-serif;
+            color: #ffcc00;
+            margin: 0;
+        }
+        .post p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #f3f3f3;
+            margin: 0;
+        }
+        .post button {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .post button:hover {
+            background-color: #ffaa00;
+            transform: scale(1.05);
+        }
+        .full-article {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            color: #f3f3f3;
+            text-shadow: none;
+            position: relative;
+        }
+        .full-article img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+            object-fit: cover;
+        }
+        .full-article h3 {
+            margin-top: 20px;
+        }
+        .full-article a {
+            color: #ffaa00;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .full-article a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffcc00;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            nav a {
+                font-size: 1.2rem;
+            }
+            .post {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            .post img {
+                width: 100%;
+                max-width: 200px;
+                height: auto;
+            }
+            .post h2 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            .post p {
+                font-size: 1rem;
+                text-align: center;
+            }
+            .full-article img {
+                max-width: 300px;
+            }
+            .full-article h3 {
+                font-size: 1.8rem;
+            }
+            .full-article p {
+                font-size: 1rem;
+            }
+            .language-selector {
+                gap: 10px;
+                top: 15px;
+                right: 20px;
+            }
+            .language-selector img {
+                width: 25px;
+                height: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            nav a {
+                font-size: 1rem;
+            }
+            .post {
+                padding: 10px;
+            }
+            .post h2 {
+                font-size: 1.2rem;
+            }
+            .post p {
+                font-size: 0.9rem;
+            }
+            .post button {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            .full-article h3 {
+                font-size: 1.5rem;
+            }
+            .full-article p {
+                font-size: 0.9rem;
+            }
+            .language-selector {
+                gap: 8px;
+                top: 10px;
+                right: 15px;
+            }
+            .language-selector img {
+                width: 20px;
+                height: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AstroCartel</h1>
+        <p id="main-description" data-lang="en">Your ultimate destination for OG music insights, news, and culture.</p>
+        <p id="main-description" data-lang="es" class="hidden">Tu destino final para perspectivas de música OG, noticias y cultura.</p>
+        <p id="main-description" data-lang="pl" class="hidden">Twoje ostateczne miejsce dla wglądu w muzykę OG, wiadomości i kultury.</p>
+        <div class="language-selector">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="changeLanguage('en')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Español" onclick="changeLanguage('es')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg" alt="Polski" onclick="changeLanguage('pl')">
+        </div>
+    </header>
+    <nav>
+        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="en">Home</a>
+        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="es" class="hidden">Inicio</a>
+        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="pl" class="hidden">Strona główna</a>
+
+        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="en">About</a>
+        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="es" class="hidden">Acerca de</a>
+        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="pl" class="hidden">O nas</a>
+
+        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="en">Articles</a>
+        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="es" class="hidden">Artículos</a>
+        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="pl" class="hidden">Artykuły</a>
+
+        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="en">Contact</a>
+        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="es" class="hidden">Contacto</a>
+        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="pl" class="hidden">Kontakt</a>
+    </nav>
+    <main>
+        <section id="home" class="post">
+            <h2 data-lang="en">Welcome to AstroCartel</h2>
+            <h2 data-lang="es" class="hidden">Bienvenido a AstroCartel</h2>
+            <h2 data-lang="pl" class="hidden">Witamy w AstroCartel</h2>
+            <p data-lang="en">Your ultimate destination for OG music insights, news, and culture.</p>
+            <p data-lang="es" class="hidden">Tu destino final para noticias, cultura y perspectivas de música OG.</p>
+            <p data-lang="pl" class="hidden">Twoje ostateczne miejsce docelowe dla wiadomości, kultury i wglądu w muzykę OG.</p>
+        </section>
+        <section id="about" class="post hidden">
+            <h2 data-lang="en">About AstroCartel</h2>
+            <h2 data-lang="es" class="hidden">Acerca de AstroCartel</h2>
+            <h2 data-lang="pl" class="hidden">O AstroCartel</h2>
+            <p data-lang="en">Welcome to AstroCartel, a blog dedicated to exploring the depths of OG music. Here, we dive into the sounds that have defined generations and shaped cultures across the world.</p>
+            <p data-lang="es" class="hidden">Bienvenido a AstroCartel, un blog dedicado a explorar las profundidades de la música OG. Aquí profundizamos en los sonidos que han definido generaciones y han dado forma a las culturas en todo el mundo.</p>
+            <p data-lang="pl" class="hidden">Witamy w AstroCartel, blogu poświęconym zgłębianiu muzyki OG. Tutaj zagłębiamy się w dźwięki, które definiowały pokolenia i kształtowały kultury na całym świecie.</p>
+        </section>
+        <section id="articles" class="post hidden">
+            <h2 data-lang="en">Articles</h2>
+            <h2 data-lang="es" class="hidden">Artículos</h2>
+            <h2 data-lang="pl" class="hidden">Artykuły</h2>
+            <div id="articles-container"></div>
+        </section>
+        <section id="contact" class="post hidden">
+            <h2 data-lang="en">Contact</h2>
+            <h2 data-lang="es" class="hidden">Contacto</h2>
+            <h2 data-lang="pl" class="hidden">Kontakt</h2>
+            <p data-lang="en">Author: p3dr0G</p>
+            <p data-lang="es" class="hidden">Autor: p3dr0G</p>
+            <p data-lang="pl" class="hidden">Autor: p3dr0G</p>
+            <p>Instagram: <a href="https://www.instagram.com/pe_szew" target="_blank">@pe_szew</a></p>
+        </section>
+    </main>
+    <footer>
+        <p data-lang="en">&copy; 2025 AstroCartel. All Rights Reserved.</p>
+        <p data-lang="es" class="hidden">&copy; 2025 AstroCartel. Todos los derechos reservados.</p>
+        <p data-lang="pl" class="hidden">&copy; 2025 AstroCartel. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+    <script>
+        const articles = [
+            {
+                title: {
+                    en: "Back To The Future",
+                    es: "Back To The Future",
+                    pl: "Back To The Future"
+                },
+                artist: "A$AP Rocky",
+                content: {
+                    en: "A$AP Rocky's 'Back To The Future' dives deep into his signature style with mesmerizing beats and introspective lyrics, taking listeners on a journey through his creative mind.",
+                    es: "'Back To The Future' de A$AP Rocky se sumerge profundamente en su estilo característico con ritmos hipnotizantes y letras introspectivas, llevando a los oyentes en un viaje por su mente creativa.",
+                    pl: "'Back To The Future' A$AP Rocky'ego zagłębia się w jego charakterystyczny styl z hipnotyzującymi rytmami i introspektywnymi tekstami, zabierając słuchaczy w podróż po jego kreatywnym umyśle."
+                },
+                date: "2025-01-25",
+                image: "https://i.imgur.com/pu2774C.png",
+                link: "https://soundcloud.com/basedbook-level-9/asap-rocky-back-to-the-future"
+            },
+            {
+                title: {
+                    en: "Need To Feel Loved",
+                    es: "Need To Feel Loved",
+                    pl: "Need To Feel Loved"
+                },
+                artist: "Adam K & Soha (Vocal Mix)",
+                content: {
+                    en: "Adam K & Soha's 'Need To Feel Loved' (Vocal Mix) masterfully blends emotional depth with progressive house beats, creating a track that resonates with the heart and the dance floor alike.",
+                    es: "'Need To Feel Loved' (Vocal Mix) de Adam K & Soha combina magistralmente la profundidad emocional con ritmos progresivos de house, creando una pista que resuena tanto en el corazón como en la pista de baile.",
+                    pl: "'Need To Feel Loved' (Vocal Mix) Adama K & Soha łączy mistrzowsko głębię emocjonalną z progresywnymi rytmami house, tworząc utwór, który rezonuje zarówno z sercem, jak i parkietem tanecznym."
+                },
+                date: "2025-01-24",
+                image: "https://i.imgur.com/2Nw10zY.jpeg",
+                link: "https://soundcloud.com/search?q=need%20to%20feel%20loved"
+            }
+        ];
+
+        function changeLanguage(lang) {
+            localStorage.setItem('astrocartel-language', lang);
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+            renderArticles(lang);
+        }
+
+        function renderArticles(language) {
+            const container = document.getElementById('articles-container');
+            container.innerHTML = ''; // Clear previous content
+
+            articles.forEach((article, index) => {
+                const preview = article.content[language].split('. ').slice(0, 3).join('. ') + '...';
+                const articleElement = document.createElement('div');
+                articleElement.classList.add('post');
+                articleElement.innerHTML = `
+                    ${article.image ? `<img src="${article.image}" alt="Cover image">` : ''}
+                    <h3>${article.title[language]} - ${article.artist}</h3>
+                    <p><strong>Upload Date:</strong> ${article.date}</p>
+                    <p>${preview}</p>
+                    <button onclick="showFullArticle(${index}, '${language}')">Read More</button>
+                `;
+                container.appendChild(articleElement);
+            });
+        }
+  function showFullArticle(index, language) {
+            const article = articles[index];
+            const container = document.getElementById('articles-container');
+            container.innerHTML = `
+                <div class="post full-article">
+                    ${article.image ? `<img src="${article.image}" alt="Cover image">` : ''}
+                    <h3>${article.title[language]} - ${article.artist}</h3>
+                    <p><strong>Upload Date:</strong> ${article.date}</p>
+                    <p>${article.content[language]}</p>
+                    <a href="${article.link}" target="_blank">Listen on SoundCloud</a>
+                    <br>
+                    <button onclick="renderArticles('${language}')">Back to Articles</button>
+                </div>
+            `;
+        }
+function showSection(sectionId) {
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        // Initialize language preference
+        const savedLanguage = localStorage.getItem('astrocartel-language') || 'en';
+        changeLanguage(savedLanguage);
+
+        // Initial rendering
+        renderArticles(savedLanguage); // Default language
+        showSection('home');
+    </script>
+</body>
+</html>
+
