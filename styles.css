@@ -1,1 +1,281 @@
+/* Body and global styles */
+body {
+  font-family: Arial, sans-serif;
+  color: #ffcc00;
+  background: url('assets/background.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);  /* subtle shadow for text contrast */
+}
+
+/* Header (site title and language switcher) */
+header {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffcc00;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+}
+header h1 {
+  font-family: Impact, sans-serif;
+  font-size: 4rem;
+  margin: 0;
+  display: inline-block;
+}
+.language-selector {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+}
+.language-selector img {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  object-fit: cover;
+}
+.language-selector img:hover {
+  border-color: #ffcc00;
+}
+
+/* Navigation bar */
+nav {
+  background-color: rgba(0, 0, 0, 0.85);
+  text-align: center;
+  padding: 15px;
+}
+nav a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content sections (posts, about, contact) */
+main {
+  flex: 1;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+.post {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.post img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.post h2 {
+  font-size: 2rem;
+  font-family: Verdana, sans-serif;
+  color: #ffcc00;
+  margin: 0;
+}
+.post p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #f3f3f3;
+  margin: 0;
+}
+.post button {
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+.post button:hover {
+  background-color: #ffaa00;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #ffaa00;  /* neon-like glow on hover */
+}
+
+/* Full article view (when "Read More" is clicked) */
+.full-article {
+  background: rgba(0, 0, 0, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  color: #f3f3f3;
+  text-shadow: none;
+}
+.full-article img {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  object-fit: cover;
+}
+.full-article h3 {
+  margin-top: 20px;
+}
+.full-article a {
+  color: #ffaa00;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin: 15px 0;
+}
+.full-article a:hover {
+  text-decoration: underline;
+}
+
+/* Hidden class for language toggling */
+.hidden {
+  display: none;
+}
+
+/* Decorative spinning vinyl icon */
+.vinyl {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: #000;
+  border-radius: 50%;
+  position: relative;
+  animation: spin 5s linear infinite;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.8);  /* slight glow around the record */
+}
+.vinyl::after {  /* record label */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  margin: -25% 0 0 -25%;
+  background: #ffcc00;
+  border-radius: 50%;
+}
+.vinyl::before {  /* small center hole */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10%;
+  height: 10%;
+  margin: -5% 0 0 -5%;
+  background: #000;
+  border-radius: 50%;
+  z-index: 1;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Responsive Design: Tablet */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 3rem;
+  }
+  nav a {
+    font-size: 1.2rem;
+  }
+  .post {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .post img {
+    max-width: 200px;
+  }
+  .post h2, .post p {
+    text-align: center;
+  }
+  .post h2 {
+    font-size: 1.5rem;
+  }
+  .post p {
+    font-size: 1rem;
+  }
+  .full-article img {
+    max-width: 300px;
+  }
+  .full-article h3 {
+    font-size: 1.8rem;
+  }
+  .full-article p {
+    font-size: 1rem;
+  }
+  .language-selector {
+    top: 15px;
+    right: 20px;
+    gap: 10px;
+  }
+  .language-selector img {
+    width: 25px;
+    height: 15px;
+  }
+}
+
+/* Responsive Design: Mobile */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  nav a {
+    font-size: 1rem;
+  }
+  .post {
+    padding: 10px;
+  }
+  .post h2 {
+    font-size: 1.2rem;
+  }
+  .post p {
+    font-size: 0.9rem;
+  }
+  .post button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .full-article h3 {
+    font-size: 1.5rem;
+  }
+  .full-article p {
+    font-size: 0.9rem;
+  }
+  .language-selector {
+    top: 10px;
+    right: 15px;
+    gap: 8px;
+  }
+  .language-selector img {
+    width: 20px;
+    height: 12px;
+  }
+}
 /* placeholder for styles */
