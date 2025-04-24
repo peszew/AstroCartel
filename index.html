@@ -1,87 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AstroCartel - Your hub for everything OG music and beyond." />
-  <title>AstroCartel - OG Music Hub</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AstroCartel - Your hub for everything OG music and beyond.">
+    <title>AstroCartel - OG Music Hub</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.imgur.com/Uv8chjJ.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffcc00;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-family: 'Impact', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+        }
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .language-selector img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+            object-fit: cover;
+        }
+        .language-selector img:hover {
+            border: 2px solid #ffcc00;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            flex: 1;
+        }
+        .post {
+            background: rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .post img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        .post h2 {
+            font-size: 2rem;
+            font-family: 'Verdana', sans-serif;
+            color: #ffcc00;
+            margin: 0;
+        }
+        .post p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #f3f3f3;
+            margin: 0;
+        }
+        .post button {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .post button:hover {
+            background-color: #ffaa00;
+            transform: scale(1.05);
+        }
+        .full-article {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            color: #f3f3f3;
+            text-shadow: none;
+            position: relative;
+        }
+        .full-article img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+            object-fit: cover;
+        }
+        .full-article h3 {
+            margin-top: 20px;
+        }
+        .full-article a {
+            color: #ffaa00;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .full-article a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffcc00;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            nav a {
+                font-size: 1.2rem;
+            }
+            .post {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            .post img {
+                width: 100%;
+                max-width: 200px;
+                height: auto;
+            }
+            .post h2 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            .post p {
+                font-size: 1rem;
+                text-align: center;
+            }
+            .full-article img {
+                max-width: 300px;
+            }
+            .full-article h3 {
+                font-size: 1.8rem;
+            }
+            .full-article p {
+                font-size: 1rem;
+            }
+            .language-selector {
+                gap: 10px;
+                top: 15px;
+                right: 20px;
+            }
+            .language-selector img {
+                width: 25px;
+                height: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            nav a {
+                font-size: 1rem;
+            }
+            .post {
+                padding: 10px;
+            }
+            .post h2 {
+                font-size: 1.2rem;
+            }
+            .post p {
+                font-size: 0.9rem;
+            }
+            .post button {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            .full-article h3 {
+                font-size: 1.5rem;
+            }
+            .full-article p {
+                font-size: 0.9rem;
+            }
+            .language-selector {
+                gap: 8px;
+                top: 10px;
+                right: 15px;
+            }
+            .language-selector img {
+                width: 20px;
+                height: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <!-- Logo Title with spinning vinyl icon -->
-    <h1>
-      <span class="vinyl"></span> AstroCartel
-    </h1>
-    <!-- Multi-language tagline (one per language, others hidden) -->
-    <p data-lang="en">Chill old-school blog type shit page, with all the music you know. Sometimes straight from da hood, sometimes from the theater...</p>
-    <p data-lang="es" class="hidden">Música para todos los públicos, si quieres escuchar algo que no sean canciones españolas (aunque las tendré), ¡escucha!</p>
-    <p data-lang="pl" class="hidden">Luźna old-schoolowa stronka z dobrą muzą, każdego rodzaju, big poppa!.</p>
-    <!-- Language selector flags -->
-    <div class="language-selector">
-      <img src="assets/flag_en.svg" alt="English" data-lang="en" />
-      <img src="assets/flag_es.svg" alt="Español" data-lang="es" />
-      <img src="assets/flag_pl.svg" alt="Polski" data-lang="pl" />
-    </div>
-  </header>
+    <header>
+        <h1>AstroCartel</h1>
+        <p id="main-description" data-lang="en">Chill old-school blog type shit page, with all the music you know. Sometimes straight from da hood, sometimes from theater</p>
+        <p id="main-description" data-lang="es" class="hidden">Música para todos los públicos, si quieres escuchar algo que no sean canciones españolas (aunque las tendré), ¡escucha!</p>
+        <p id="main-description" data-lang="pl" class="hidden">Luźna old-schoolowa stronka z dobrą muzą, każdego rodzaju, big poppa!.</p>
+        <div class="language-selector">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="changeLanguage('en')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Español" onclick="changeLanguage('es')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg" alt="Polski" onclick="changeLanguage('pl')">
+        </div>
+    </header>
+    <nav>
+        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="en">Home</a>
+        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="es" class="hidden">Inicio</a>
+        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="pl" class="hidden">Strona główna</a>
 
-  <nav>
-    <!-- Navigation links (texts switch based on selected language) -->
-    <a href="#" data-section="home" data-lang="en">Home</a>
-    <a href="#" data-section="home" data-lang="es" class="hidden">Inicio</a>
-    <a href="#" data-section="home" data-lang="pl" class="hidden">Strona główna</a>
+        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="en">About</a>
+        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="es" class="hidden">Acerca de</a>
+        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="pl" class="hidden">O mnie</a>
 
-    <a href="#" data-section="about" data-lang="en">About</a>
-    <a href="#" data-section="about" data-lang="es" class="hidden">Acerca de</a>
-    <a href="#" data-section="about" data-lang="pl" class="hidden">O mnie</a>
+        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="en">Articles</a>
+        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="es" class="hidden">Artículos</a>
+        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="pl" class="hidden">Artykuły</a>
 
-    <a href="#" data-section="contact" data-lang="en">Contact</a>
-    <a href="#" data-section="contact" data-lang="es" class="hidden">Contacto</a>
-    <a href="#" data-section="contact" data-lang="pl" class="hidden">Kontakt</a>
-  </nav>
+        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="en">Contact</a>
+        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="es" class="hidden">Contacto</a>
+        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="pl" class="hidden">Kontakt</a>
+    </nav>
+    <main>
+        <section id="home" class="post">
+            <h2 data-lang="en">Welcome to AstroCartel</h2>
+            <h2 data-lang="es" class="hidden">Bienvenido a AstroCartel</h2>
+            <h2 data-lang="pl" class="hidden">Witam w AstroCartel</h2>
+            <p data-lang="en">Just listen to some good shit from my speakers.</p>
+            <p data-lang="es" class="hidden">Escucha en voz alta.</p>
+            <p data-lang="pl" class="hidden">Po prostu wrzuć to na max głośność.</p>
+        </section>
+        <section id="about" class="post hidden">
+            <h2 data-lang="en">About AstroCartel</h2>
+            <h2 data-lang="es" class="hidden">Acerca de AstroCartel</h2>
+            <h2 data-lang="pl" class="hidden">O AstroCartel</h2>
+            <p data-lang="en">AstroCartel welcomes you! This page is only about the goood music vibes. Every week I am going to share an article about some hit that I liked from last week. Simple af.</p>
+            <p data-lang="es" class="hidden">¡AstroCartel te da la bienvenida! Esta página está dedicada a los mejores sonidos que han captado mi atención últimamente. Compartiré música que es para todos los oídos y se queda en la cabeza.</p>
+            <p data-lang="pl" class="hidden">AstroCartel wita! Strona ta poświęcona jest najlepszym brzmieniom, które ostatnio wpadły mi w ucho. Będę tutaj udostępniać muzykę, która jest dla każdego ucha i wbija się w glowę.</p>
+        </section>
+        <section id="articles" class="post hidden">
+            <h2 data-lang="en">Articles</h2>
+            <h2 data-lang="es" class="hidden">Artículos</h2>
+            <h2 data-lang="pl" class="hidden">Artykuły</h2>
+            <div id="articles-container"></div>
+        </section>
+        <section id="contact" class="post hidden">
+            <h2 data-lang="en">Contact</h2>
+            <h2 data-lang="es" class="hidden">Contacto</h2>
+            <h2 data-lang="pl" class="hidden">Kontakt</h2>
+            <p data-lang="en">Author: p3dr0G</p>
+            <p data-lang="es" class="hidden">Autor: p3dr0G</p>
+            <p data-lang="pl" class="hidden">Autor: p3dr0G</p>
+            <p>Instagram: <a href="https://www.instagram.com/pe_szew" target="_blank">@pe_szew</a></p>
+        </section>
+    </main>
+    <footer>
+        <p data-lang="en">&copy; 2025 AstroCartel. All Rights Reserved.</p>
+        <p data-lang="es" class="hidden">&copy; 2025 AstroCartel. Todos los derechos reservados.</p>
+        <p data-lang="pl" class="hidden">&copy; 2025 AstroCartel. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+    <script>
+        const articles = [
+            {
+                title: {
+                    en: "Back To The Future",
+                    es: "Back To The Future",
+                    pl: "Back To The Future"
+                },
+                artist: "A$AP Rocky",
+                content: {
+                    en: "A song that was made during the “Mouth Fulla Gold” sessions titled “Back To The Future” that was featured as track eight on the May 16th, 2011 copy of that mixtape. The song was likely made in the same sessions as the songs “Purple Swag” and “Peso” as they all share the same producer, A$AP Ty Beats. After that project was scrapped in late June to early July 2011 the song was then released online a few months later on September 19th, 2011 as a tribute to the famous Nike MAG shoes that were released on September 8th, 2011. These said shoes were made in reference to the 1989 film “Back to the Future Part II” as the shoes are a replica of the self-tying shoes in that movie. Seemingly, the track would have never seen a release if the Nike MAG shoes were not put out, but it is not confirmed if the song was intended for “LIVE.LOVE.A$AP” at the time of release. The songs title and hook reference the “Back to the Future” film franchise as a whole saying “Back to the future, that Marty McFly”, who is one of the main characters in the film series. Much later on after the song was initally released online it was featured as track five from a compilation mixtape by A$AP Ty Beats titled “Ty Beats Keep Smoking” which was released on February 22nd, 2015. This version of the track features slight differences and tags from DJ Nick Marino, the host of the mixtape, that did not appear on the original version of the track. The file that was intended for the “Mouth Fulla Gold” mixtape was leaked on July 18th, 2024 by KILLRITE and Zanthin after the successful $250 groupbuy for that mixtape, but features no differences.(source: genius.com)",
+                    es: "Una canción que se hizo durante las sesiones de «Mouth Fulla Gold» titulada «Back To The Future» que apareció como pista ocho en la copia del 16 de mayo de 2011 de esa mixtape. La canción fue hecha probablemente en las mismas sesiones que las canciones «Purple Swag» y «Peso» ya que todas comparten el mismo productor, A$AP Ty Beats. Después de que ese proyecto fuera desechado a finales de junio o principios de julio de 2011, la canción fue entonces lanzada en línea unos meses más tarde, el 19 de septiembre de 2011, como un homenaje a las famosas zapatillas Nike MAG que fueron lanzadas el 8 de septiembre de 2011. Dichas zapatillas se hicieron en referencia a la película de 1989 «Regreso al Futuro Parte II», ya que las zapatillas son una réplica de las zapatillas que se atan solas en esa película. Al parecer, la canción nunca habría visto un lanzamiento si las zapatillas Nike MAG no se hubieran puesto a la venta, pero no está confirmado si la canción estaba destinada a «LIVE.LOVE.A$AP» en el momento del lanzamiento. El título de la canción y el gancho hacen referencia a la franquicia cinematográfica «Regreso al futuro» en su conjunto diciendo «Back to the future, that Marty McFly», que es uno de los personajes principales de la serie de películas. Mucho más tarde, después de que la canción se publicara inicialmente en línea, apareció como pista cinco de una mixtape recopilatoria de A$AP Ty Beats titulada «Ty Beats Keep Smoking», que se publicó el 22 de febrero de 2015. Esta versión de la pista presenta ligeras diferencias y etiquetas de DJ Nick Marino, el anfitrión de la mixtape, que no aparecían en la versión original de la pista. El archivo que estaba destinado a la mixtape «Mouth Fulla Gold» fue filtrado el 18 de julio de 2024 por KILLRITE y Zanthin tras el éxito de la groupbuy de 250 dólares para esa mixtape, pero no presenta diferencias.(fuente: genius.com)",
+                    pl: "Zajebista nuta, nic dodać nic ująć."
+                },
+                date: "2025-03-16",
+                image: "https://i.imgur.com/pu2774C.png",
+                link: "https://soundcloud.com/basedbook-level-9/asap-rocky-back-to-the-future"
+            },
+            {
+                title: {
+                    en: "Need To Feel Loved",
+                    es: "Need To Feel Loved",
+                    pl: "Need To Feel Loved"
+                },
+                artist: "Adam K & Soha (Vocal Mix)",
+                content: {
+                    en: "Adam K & Soha's 'Need To Feel Loved' (Vocal Mix) masterfully blends emotional depth with progressive house beats, creating a track that resonates with the heart and the dance floor alike. OK, so this intro description was AI generated shit. This song is extremly good. It is simple, but not simple, after listening to it ,you will know what I mean. The song samples 'Ghosts', part of the soundtrack to the 2002 film Road to Perdition, you can check it out. Imagine listening to this crazzzzy ass song while sitting in some pub with ocean view. Shisha type shit bar with drinks. 2/3 a.m. in the morning, naaah that's something else.",
+                    es: "Need To Feel Loved' (Vocal Mix) de Adam K & Soha combina magistralmente la profundidad emocional con ritmos house progresivos, creando un tema que resuena tanto en el corazón como en la pista de baile. Vale, la descripción de la introducción era una mierda generada por AI. Esta canción es extremadamente buena. Es sencilla, pero no simple, después de escucharla, sabrás lo que quiero decir. La canción samplea 'Ghosts', parte de la banda sonora de la película de 2002 Road to Perdition, puedes echarle un vistazo. Imagínate escuchar esta canción mientras estás sentado en un pub con vistas al mar. Un bar de mierda tipo shisha con bebidas. 2/3 de la mañana, naaah eso es otra cosa.",
+                    pl: "'Need To Feel Loved' (Vocal Mix) Adama K & Soha łączy mistrzowsko głębię emocjonalną z progresywnymi rytmami house, tworząc utwór, który rezonuje zarówno z sercem, jak i parkietem tanecznym. OK, koniec tego pieprzenia AI-owego. Zajebista nuta, sampel 'Ghosts' użyty w filmie z T. Hanks'em 'Road to Perdition'. Wyobraź sobie słuchanie tej nutki siedząc w jakimś pubie z widokiem na ocean. Shisha bar, driny o 2/3 w nocy, this shit hits different."
+                },
+                date: "2025-03-07",
+                image: "https://i.imgur.com/2Nw10zY.jpeg",
+                link: "https://soundcloud.com/search?q=need%20to%20feel%20loved"
+            }
+        ];
 
-  <main>
-    <!-- Home Section (Post feed) -->
-    <section id="home" class="post">
-      <h2 data-lang="en">Welcome to AstroCartel!!!</h2>
-      <h2 data-lang="es" class="hidden">¡Bienvenido a AstroCartel!</h2>
-      <h2 data-lang="pl" class="hidden">Witamy w AstroCartel!</h2>
-      <p data-lang="en">Just listen to some good shit from my speakers.</p>
-      <p data-lang="es" class="hidden">Escucha en voz alta. Nada más.</p>
-      <p data-lang="pl" class="hidden">Po prostu odpal to na głośnik.</p>
-      <!-- Container where article previews will be loaded by script -->
-      <div id="articles-container"></div>
-    </section>
+        function changeLanguage(lang) {
+            localStorage.setItem('astrocartel-language', lang);
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+            renderArticles(lang);
+        }
 
-    <!-- About Section -->
-    <section id="about" class="post hidden">
-      <h2 data-lang="en">About AstroCartel</h2>
-      <h2 data-lang="es" class="hidden">Acerca de AstroCartel</h2>
-      <h2 data-lang="pl" class="hidden">O AstroCartel</h2>
-      <p data-lang="en">AstroCartel welcome welcome; This page is only about the goood music vibes. Every week I am going to share an article about some hit that I liked from last week. Simple af.</p>
-      <p data-lang="es" class="hidden">¡AstroCartel te da la bienvenida! Esta página está dedicada a los mejores sonidos que han captado mi atención últimamente. Compartiré música que es para todos los oídos y se queda en la cabezaAaAa.</p>
-      <p data-lang="pl" class="hidden">AstroCartel wita! Strona ta poświęcona jest najlepszym brzmieniom, które ostatnio wpadły mi w ucho. Będę udostępniać muzykę, która wbija się w banieee.</p>
-    </section>
+        function renderArticles(language) {
+            const container = document.getElementById('articles-container');
+            container.innerHTML = ''; // Clear previous content
 
-    <!-- Contact Section -->
-    <section id="contact" class="post hidden">
-      <h2 data-lang="en">Contact</h2>
-      <h2 data-lang="es" class="hidden">Contacto</h2>
-      <h2 data-lang="pl" class="hidden">Kontakt</h2>
-      <p data-lang="en">Author: pe_szew</p>
-      <p data-lang="es" class="hidden">Autor: pe_szew</p>
-      <p data-lang="pl" class="hidden">Autor: pe_szew</p>
-      <p>Instagram: <a href="https://www.instagram.com/pe_szew" target="_blank">@pe_szew</a></p>
-    </section>
-  </main>
+            articles.forEach((article, index) => {
+                const preview = article.content[language].split('. ').slice(0, 3).join('. ') + '...';
+                const articleElement = document.createElement('div');
+                articleElement.classList.add('post');
+                articleElement.innerHTML = `
+                    ${article.image ? `<img src="${article.image}" alt="Cover image">` : ''}
+                    <h3>${article.title[language]} - ${article.artist}</h3>
+                    <p><strong>Upload Date:</strong> ${article.date}</p>
+                    <p>${preview}</p>
+                    <button onclick="showFullArticle(${index}, '${language}')">Read More</button>
+                `;
+                container.appendChild(articleElement);
+            });
+        }
+  function showFullArticle(index, language) {
+            const article = articles[index];
+            const container = document.getElementById('articles-container');
+            container.innerHTML = `
+                <div class="post full-article">
+                    ${article.image ? `<img src="${article.image}" alt="Cover image">` : ''}
+                    <h3>${article.title[language]} - ${article.artist}</h3>
+                    <p><strong>Upload Date:</strong> ${article.date}</p>
+                    <p>${article.content[language]}</p>
+                    <a href="${article.link}" target="_blank">Listen on SoundCloud</a>
+                    <br>
+                    <button onclick="renderArticles('${language}')">Back to Articles</button>
+                </div>
+            `;
+        }
+function showSection(sectionId) {
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
 
-  <footer>
-    <p data-lang="en">&copy; 2025 AstroCartel. All Rights Reserved.</p>
-    <p data-lang="es" class="hidden">&copy; 2025 AstroCartel. Todos los derechos reservados.</p>
-    <p data-lang="pl" class="hidden">&copy; 2025 AstroCartel. Wszelkie prawa zastrzeżone.</p>
-  </footer>
+        // Initialize language preference
+        const savedLanguage = localStorage.getItem('astrocartel-language') || 'en';
+        changeLanguage(savedLanguage);
 
-  <!-- Link to external JavaScript file -->
-  <script src="script.js"></script>
+        // Initial rendering
+        renderArticles(savedLanguage); // Default language
+        showSection('home');
+    </script>
 </body>
 </html>
+
