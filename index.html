@@ -1,3 +1,87 @@
 <!DOCTYPE html>
-<!-- placeholder for full HTML content -->
-<!-- You will receive the full working file after this message -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AstroCartel - Your hub for everything OG music and beyond." />
+  <title>AstroCartel - OG Music Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <!-- Logo Title with spinning vinyl icon -->
+    <h1>
+      <span class="vinyl"></span> AstroCartel
+    </h1>
+    <!-- Multi-language tagline (one per language, others hidden) -->
+    <p data-lang="en">Chill old-school blog type shit page, with all the music you know. Sometimes straight from da hood, sometimes from the theater...</p>
+    <p data-lang="es" class="hidden">Música para todos los públicos, si quieres escuchar algo que no sean canciones españolas (aunque las tendré), ¡escucha!</p>
+    <p data-lang="pl" class="hidden">Luźna old-schoolowa stronka z dobrą muzą, każdego rodzaju, big poppa!.</p>
+    <!-- Language selector flags -->
+    <div class="language-selector">
+      <img src="assets/flag_en.svg" alt="English" data-lang="en" />
+      <img src="assets/flag_es.svg" alt="Español" data-lang="es" />
+      <img src="assets/flag_pl.svg" alt="Polski" data-lang="pl" />
+    </div>
+  </header>
+
+  <nav>
+    <!-- Navigation links (texts switch based on selected language) -->
+    <a href="#" data-section="home" data-lang="en">Home</a>
+    <a href="#" data-section="home" data-lang="es" class="hidden">Inicio</a>
+    <a href="#" data-section="home" data-lang="pl" class="hidden">Strona główna</a>
+
+    <a href="#" data-section="about" data-lang="en">About</a>
+    <a href="#" data-section="about" data-lang="es" class="hidden">Acerca de</a>
+    <a href="#" data-section="about" data-lang="pl" class="hidden">O mnie</a>
+
+    <a href="#" data-section="contact" data-lang="en">Contact</a>
+    <a href="#" data-section="contact" data-lang="es" class="hidden">Contacto</a>
+    <a href="#" data-section="contact" data-lang="pl" class="hidden">Kontakt</a>
+  </nav>
+
+  <main>
+    <!-- Home Section (Post feed) -->
+    <section id="home" class="post">
+      <h2 data-lang="en">Welcome to AstroCartel!!!</h2>
+      <h2 data-lang="es" class="hidden">¡Bienvenido a AstroCartel!</h2>
+      <h2 data-lang="pl" class="hidden">Witamy w AstroCartel!</h2>
+      <p data-lang="en">Just listen to some good shit from my speakers.</p>
+      <p data-lang="es" class="hidden">Escucha en voz alta. Nada más.</p>
+      <p data-lang="pl" class="hidden">Po prostu odpal to na głośnik.</p>
+      <!-- Container where article previews will be loaded by script -->
+      <div id="articles-container"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="post hidden">
+      <h2 data-lang="en">About AstroCartel</h2>
+      <h2 data-lang="es" class="hidden">Acerca de AstroCartel</h2>
+      <h2 data-lang="pl" class="hidden">O AstroCartel</h2>
+      <p data-lang="en">AstroCartel welcome welcome; This page is only about the goood music vibes. Every week I am going to share an article about some hit that I liked from last week. Simple af.</p>
+      <p data-lang="es" class="hidden">¡AstroCartel te da la bienvenida! Esta página está dedicada a los mejores sonidos que han captado mi atención últimamente. Compartiré música que es para todos los oídos y se queda en la cabezaAaAa.</p>
+      <p data-lang="pl" class="hidden">AstroCartel wita! Strona ta poświęcona jest najlepszym brzmieniom, które ostatnio wpadły mi w ucho. Będę udostępniać muzykę, która wbija się w banieee.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="post hidden">
+      <h2 data-lang="en">Contact</h2>
+      <h2 data-lang="es" class="hidden">Contacto</h2>
+      <h2 data-lang="pl" class="hidden">Kontakt</h2>
+      <p data-lang="en">Author: pe_szew</p>
+      <p data-lang="es" class="hidden">Autor: pe_szew</p>
+      <p data-lang="pl" class="hidden">Autor: pe_szew</p>
+      <p>Instagram: <a href="https://www.instagram.com/pe_szew" target="_blank">@pe_szew</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p data-lang="en">&copy; 2025 AstroCartel. All Rights Reserved.</p>
+    <p data-lang="es" class="hidden">&copy; 2025 AstroCartel. Todos los derechos reservados.</p>
+    <p data-lang="pl" class="hidden">&copy; 2025 AstroCartel. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+  <!-- Link to external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
