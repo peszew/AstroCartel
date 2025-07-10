@@ -3,611 +3,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AstroCartel - Your hub for everything OG music and beyond.">
-    <title>AstroCartel - OG Music Hub</title>
+    <title>Astrocartel Music - Space Techno Since 1997</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            background-image: url('https://web.archive.org/web/19991013052021/http://www.geocities.com:80/SiliconValley/Heights/1271/space3.gif');
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            color: #00FF00;
             margin: 0;
             padding: 0;
-            background: url('https://i.imgur.com/Uv8chjJ.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #ffcc00;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            line-height: 1.5;
         }
-        header {
-            background-color: rgba(0, 0, 0, 0.9);
-            color: #ffcc00;
-            padding: 30px 20px;
+        
+        #container {
+            max-width: 750px;
+            width: 90%;
+            margin: 10px auto;
+            background-color: #000033;
+            border: 8px ridge #FF00FF;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        
+        #banner {
             text-align: center;
-            position: relative;
+            background-color: #000066;
+            border: 4px groove #00FFFF;
+            padding: 5px;
+            margin-bottom: 10px;
         }
-        header h1 {
-            font-family: 'Impact', sans-serif;
-            font-size: 4rem;
-            margin: 0;
+        
+        h1 {
+            font-size: 7vw;
+            color: #FFFF00;
+            margin: 5px 0;
+            font-family: "Impact", "Arial Black", sans-serif;
+            letter-spacing: 2px;
         }
-        .language-selector {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .language-selector img {
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 3px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-            object-fit: cover;
-        }
-        .language-selector img:hover {
-            border: 2px solid #ffcc00;
-        }
-        nav {
-            background-color: rgba(0, 0, 0, 0.85);
-            padding: 15px;
-            text-align: center;
-        }
-        nav a {
-            color: #ffcc00;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.5rem;
+        
+        .marquee {
+            background-color: #330066;
+            color: #00FFFF;
+            padding: 3px;
+            border: 2px dotted #FF00FF;
+            margin: 5px 0;
             font-weight: bold;
+            overflow-x: auto;
+            white-space: nowrap;
         }
-        nav a:hover {
-            text-decoration: underline;
+        
+        .content-box {
+            background-color: #000044;
+            border: 3px groove #00FFFF;
+            padding: 10px;
+            margin: 10px 0;
         }
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            flex: 1;
+        
+        h2 {
+            color: #FF9900;
+            border-bottom: 2px dashed #FF00FF;
+            padding-bottom: 3px;
+            font-size: 5vw;
+            background-color: #330033;
+            padding: 5px;
         }
-        .post {
-            background: rgba(0, 0, 0, 0.8);
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-            position: relative;
-            display: flex;
-            flex-direction: column;
+        
+        .nav-bar {
+            background-color: #330066;
+            padding: 5px;
+            text-align: center;
+            border: 2px solid #00FF00;
+            margin: 10px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .nav-bar a {
+            color: #00FFFF;
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: bold;
+            font-size: 3.5vw;
+        }
+        
+        .nav-bar a:hover {
+            color: #FFFF00;
+            text-decoration: underline overline;
+        }
+        
+        .gif-container {
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 10px;
+            margin: 10px 0;
         }
-        .post img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-        }
-        .post h2 {
-            font-size: 2rem;
-            font-family: 'Verdana', sans-serif;
-            color: #ffcc00;
-            margin: 0;
-        }
-        .post p {
-            line-height: 1.8;
-            font-size: 1.2rem;
-            color: #f3f3f3;
-            margin: 0;
-        }
-        .post button {
-            background-color: #ffcc00;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .post button:hover {
-            background-color: #ffaa00;
-            transform: scale(1.05);
-        }
-        .full-article {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 30px;
-            border-radius: 12px;
-            color: #f3f3f3;
-            text-shadow: none;
-            position: relative;
-        }
-        .full-article img {
-            display: block;
-            margin: 0 auto 20px;
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-            object-fit: cover;
-        }
-        .full-article h3 {
-            margin-top: 20px;
-        }
-        .full-article a {
-            color: #ffaa00;
-            font-size: 1.2rem;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        .full-article a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            background-color: rgba(0, 0, 0, 0.9);
-            color: #ffcc00;
+        
+        .album {
+            background-color: #220022;
+            border: 2px solid #FF00FF;
+            padding: 5px;
             text-align: center;
-            padding: 20px;
-            font-size: 1rem;
         }
-        .hidden {
+        
+        .album img {
+            border: 2px ridge #00FFFF;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .album h3 {
+            color: #FFFF00;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .album p {
+            font-size: 12px;
+            color: #00FF00;
+        }
+        
+        .counter {
+            background-color: #000000;
+            color: #FF0000;
+            padding: 3px;
+            border: 2px solid #00FF00;
+            text-align: center;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            margin: 10px auto;
+            width: 100px;
+        }
+        
+        .guestbook {
+            background-color: #330033;
+            border: 3px double #FFFF00;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .guestbook h2 {
+            color: #00FFFF;
+        }
+        
+        .guestbook-entry {
+            background-color: #000044;
+            border: 1px dotted #FF00FF;
+            padding: 5px;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+        
+        .construction {
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .blink {
+            animation: blink-animation 1s steps(2, start) infinite;
+        }
+        
+        @keyframes blink-animation {
+            to { visibility: hidden; }
+        }
+        
+        .signature {
+            text-align: right;
+            font-style: italic;
+            color: #FF00FF;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        
+        audio {
+            width: 100%;
+            margin: 5px 0;
+            background-color: #000;
+            border: 2px ridge #00FF00;
+        }
+        
+        /* Cursor trail effect */
+        .cursor-trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff00ff;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.7;
+            z-index: 9999;
+        }
+        .counter span {
+            display: inline-block;
+            min-width: 70px;
+            text-align: center;
+        }
+        #floating420{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
             display: none;
+            animation: floatBounce 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px #00ff00);
         }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 3rem;
-            }
-            nav a {
-                font-size: 1.2rem;
-            }
-            .post {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            .post img {
-                width: 100%;
-                max-width: 200px;
-                height: auto;
-            }
-            .post h2 {
-                font-size: 1.5rem;
-                text-align: center;
-            }
-            .post p {
-                font-size: 1rem;
-                text-align: center;
-            }
-            .full-article img {
-                max-width: 300px;
-            }
-            .full-article h3 {
-                font-size: 1.8rem;
-            }
-            .full-article p {
-                font-size: 1rem;
-            }
-            .language-selector {
-                gap: 10px;
-                top: 15px;
-                right: 20px;
-            }
-            .language-selector img {
-                width: 25px;
-                height: 15px;
-            }
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-5deg); }
         }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2.5rem;
+        #floating420 img {
+            width: 150px;
+            border: 3px dashed #ff00ff;
+            border-radius: 50%;
+            background: black;
+            padding: 5px;
+        }
+        
+        /* Responsive adjustments */
+        @media (min-width: 600px) {
+            h1 {
+                font-size: 36px;
             }
-            nav a {
-                font-size: 1rem;
+            
+            h2 {
+                font-size: 20px;
             }
-            .post {
-                padding: 10px;
-            }
-            .post h2 {
-                font-size: 1.2rem;
-            }
-            .post p {
-                font-size: 0.9rem;
-            }
-            .post button {
-                padding: 8px 12px;
-                font-size: 0.9rem;
-            }
-            .full-article h3 {
-                font-size: 1.5rem;
-            }
-            .full-article p {
-                font-size: 0.9rem;
-            }
-            .language-selector {
-                gap: 8px;
-                top: 10px;
-                right: 15px;
-            }
-            .language-selector img {
-                width: 20px;
-                height: 12px;
+            
+            .nav-bar a {
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>AstroCartel</h1>
-        <p id="main-description" data-lang="en">Chill old-school blog type shit page, with all the music you know. Sometimes straight from da hood, sometimes from the theater...</p>
-        <p id="main-description" data-lang="es" class="hidden">Música para todos los públicos, si quieres escuchar algo que no sean canciones españolas (aunque las tendré), ¡escucha!</p>
-        <p id="main-description" data-lang="pl" class="hidden">Luźna old-schoolowa stronka z dobrą muzą, każdego rodzaju, big poppa!.</p>
-        <div class="language-selector">
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="changeLanguage('en')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Español" onclick="changeLanguage('es')">
-            <img src="https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg" alt="Polski" onclick="changeLanguage('pl')">
+    <!-- Cursor trail elements will be added here by JavaScript -->
+    
+    <div id="container">
+        <div id="banner">
+            <div class="gif-container">
+                <img src="https://i.imgur.com/Ank3jZP.gif" alt="Music notes">
+                <img src="https://i.imgur.com/4XWQyYd.gif" alt="New">
+                <img src="https://i.imgur.com/7X8tF9W.gif" alt="Under construction">
+            </div>
+            <h1>ASTROCARTEL MUSIC</h1>
+            <div class="marquee">
+                <marquee behavior="scroll" direction="left" scrollamount="5">
+                    WELCOME TO MY MUSIC WEBSITE!!! ••• UNDER CONSTRUCTION ••• NEW TRACKS ADDED WEEKLY ••• VISIT MY GUESTBOOK ••• BEST VIEWED IN NETSCAPE 4.0 ••• 800x600 RESOLUTION RECOMMENDED •••
+                </marquee>
+            </div>
+            <div class="gif-container">
+                <img src="https://i.imgur.com/9bqZQrK.gif" alt="Download">
+                <img src="https://i.imgur.com/6yG9tJq.gif" alt="Guestbook">
+                <img src="https://i.imgur.com/vx9fT8J.gif" alt="New">
+            </div>
         </div>
-    </header>
-    <nav>
-        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="en">Home</a>
-        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="es" class="hidden">Inicio</a>
-        <a href="#" id="nav-home" onclick="showSection('home')" data-lang="pl" class="hidden">Strona główna</a>
-
-        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="en">About</a>
-        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="es" class="hidden">Acerca de</a>
-        <a href="#" id="nav-about" onclick="showSection('about')" data-lang="pl" class="hidden">O mnie</a>
-
-        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="en">Articles</a>
-        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="es" class="hidden">Artículos</a>
-        <a href="#" id="nav-articles" onclick="showSection('articles')" data-lang="pl" class="hidden">Artykuły</a>
-
-        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="en">Contact</a>
-        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="es" class="hidden">Contacto</a>
-        <a href="#" id="nav-contact" onclick="showSection('contact')" data-lang="pl" class="hidden">Kontakt</a>
-    </nav>
-    <main>
-        <section id="home" class="post">
-            <h2 data-lang="en">Welcome to AstroCartel!!!</h2>
-            <h2 data-lang="es" class="hidden">Bienvenido a AstroCartel jajajaja</h2>
-            <h2 data-lang="pl" class="hidden">ELOOO AstroCartel</h2>
-            <p data-lang="en">Just listen to some good shit from my speakers.</p>
-            <p data-lang="es" class="hidden">Escucha en voz alta. Nada más. </p>
-            <p data-lang="pl" class="hidden">Po prostu odpal to na głośnik.</p>
-        </section>
-        <section id="about" class="post hidden">
-            <h2 data-lang="en">About AstroCartel</h2>
-            <h2 data-lang="es" class="hidden">Acerca de AstroCartel</h2>
-            <h2 data-lang="pl" class="hidden">O AstroCartel</h2>
-            <p data-lang="en">AstroCartel welcome welcome; This page is only about the goood music vibes. Every week I am going to share an article about some hit that I liked from last week. Simple af.</p>
-            <p data-lang="es" class="hidden">¡AstroCartel te da la bienvenida! Esta página está dedicada a los mejores sonidos que han captado mi atención últimamente. Compartiré música que es para todos los oídos y se queda en la cabezaAaAa.</p>
-            <p data-lang="pl" class="hidden">AstroCartel wita! Strona ta poświęcona jest najlepszym brzmieniom, które ostatnio wpadły mi w ucho. Będę udostępniać muzykę, która wbija się w banieee.</p>
-        </section>
-        <section id="articles" class="post hidden">
-            <h2 data-lang="en">Articles</h2>
-            <h2 data-lang="es" class="hidden">Artículos</h2>
-            <h2 data-lang="pl" class="hidden">Artykuły</h2>
-            <div id="articles-container"></div>
-        </section>
-        <section id="contact" class="post hidden">
-            <h2 data-lang="en">Contact</h2>
-            <h2 data-lang="es" class="hidden">Contacto</h2>
-            <h2 data-lang="pl" class="hidden">Kontakt</h2>
-            <p data-lang="en">Author: pe_szew</p>
-            <p data-lang="es" class="hidden">Autor: pe_szew</p>
-            <p data-lang="pl" class="hidden">Autor: pe_szew</p>
-            <p>Instagram: <a href="https://www.instagram.com/pe_szew" target="_blank">@pe_szew</a></p>
-        </section>
-    </main>
-    <footer>
-        <p data-lang="en">&copy; 2025 AstroCartel. All Rights Reserved.</p>
-        <p data-lang="es" class="hidden">&copy; 2025 AstroCartel. Todos los derechos reservados.</p>
-        <p data-lang="pl" class="hidden">&copy; 2025 AstroCartel. Wszelkie prawa zastrzeżone.</p>
-    </footer>
-    <script>
-        const articles = [
-            {
-            title: {
-                en: "Ghost Town",
-                es: "Ghost Town",
-                pl: "Ghost Town"
-            },
-            artist: "Adam Lambert",
-            content: {
-                en: "\"Ghost Town\" is a song by American singer Adam Lambert, released in April 2015 as the lead single from his third studio album \"The Original High\". Banger track, a classic that hasn’t been heard in a while – when you play it loud everyone goes: \"oooo haven’t heard this in ages\". Makes you wonder if there’d be more bangers like this if he hadn’t committed to Queen.",
-                es: "\"Ghost Town\" es una canción del cantante estadounidense Adam Lambert, lanzada en abril de 2015 como el primer sencillo de su tercer álbum de estudio \"The Original High\". Temazo, un clásico que no se escuchaba hace tiempo – cuando lo pones fuerte todos dicen: \"oooo cuánto tiempo sin esto\". Interesante pensar si habría más bangers así si no se hubiera dedicado a Queen.",
-                pl: "\"Ghost Town\" to piosenka amerykańskiego piosenkarza Adama Lamberta, wydana w kwietniu 2015 roku jako pierwszy singiel z jego trzeciego albumu studyjnego \"The Original High\". Dojebana nuta, dawno słyszany klasyk, kiedy zarzuci się na głośnik każdy od razu: \"oooo jak dawno tego nie było\". Ciekawe czy byłoby więcej takich bengerów, gdyby nie poświęcił się Queen."
-            },
-            date: "2025-07-10",
-            image: "https://i.imgur.com/s96TSiy.png",
-            link: "https://www.youtube.com/watch?v=Ix8ocFEMa1o&list=RDIx8ocFEMa1o&start_radio=1"
-            },
-
-            {
-            title: {
-                en: "O Mio Babbino Caro - GTA III 10th Anniversary Remix",
-                es: "O Mio Babbino Caro - GTA III 10th Anniversary Remix",
-                pl: "O Mio Babbino Caro - GTA III 10th Anniversary Remix"
-            },
-            artist: "Hudson Mohawke",
-            content: {
-                en: "Giacomo Puccini in a slightly refreshed version...",
-                es: "Giacomo Puccini en una versión un poco renovada...",
-                pl: "Giacomo Puccini w nieco odświeżonej wersji..."
-            },
-            date: "2025-06-09",
-            image: "https://i.imgur.com/kNdVBAe.png",
-            link: "https://soundcloud.com/kyoto-556594645/o-mio-babbino-caro-hudson-mohawke-remix"
-            },
-
-            {
-            title: {
-                en: "Thunder Bay",
-                es: "Thunder Bay",
-                pl: "Thunder Bay"
-            },
-            artist: "Hudson Mohawke",
-            content: {
-                en: "Hudson Mohawke, Scottish producer, dropped this shit in 2011. A year later he was melting brains of all NBA 2K12 players. Insane beat, perfect for ball or the gym. respecttt",
-                es: "Hudson Mohawke, productor escocés, lanzó esta bomba en 2011. Un año después rompía cabezas a todos los jugadores de NBA 2K12. Ritmo loco, perfecto para el básquet o el gym. saludoss",
-                pl: "Hudson Mohawke, szkocki producent w 2011 wypuścił ten shit. Rok później gniótł banie wszystkim graczom nba 2k12. Chory bit, zajebisty pod baskecik, siłkę. pzdrooo"
-            },
-            date: "2025-05-15",
-            image: "https://i.imgur.com/MQFWDIb.png",
-            link: "https://soundcloud.com/hudsonmohawke/thunder-bay"
-            },
-
-            {
-            title: {
-                en: "Underneath The Blue",
-                es: "Underneath The Blue",
-                pl: "Underneath The Blue"
-            },
-            artist: "Mosimann, Joe Cleere",
-            content: {
-                en: "No deep thoughts here, just a typical radio tune heard on RMF MAXXXXXXXX, but damn, that beat hits. It's easy to recognize that the melody in the chorus comes from the song MGMT - Kids, which everyone surely knows — and I highly recommend listening to that one too. TU  TU T U U TUT U UT TUUUU",
-                es: "Sin mayores reflexiones, una canción típica de radio escuchada en RMF MAXXXXXXXX, pero el ritmo está brutal. Es fácil reconocer que la melodía del estribillo es un fragmento de la canción MGMT - Kids, que seguro todos conocen — y también la recomiendo. TU  TU T U U TUT U UT TUUUU",
-                pl: "Bez większych rozkmin, typowa radiówa usłyszana z RMF MAXXXXXXXX, ale no zajebisty bit, łatwo poznać, że melodia w refrenie to fragment piosenki MGMT - Kids, którą to na pewno każdy kojarzy i również polecam ją przesłuchać. TU  TU T U U TUT U UT TUUUU"
-            },
-            date: "2025-05-08",
-            image: "https://i.imgur.com/0EbOI0E.png",
-            link: "https://www.youtube.com/watch?v=j3S3sMzQ5IY"
-            },
-
-            {
-            title: {
-                en: "Santigold",
-                es: "Santigold",
-                pl: "Santigold"
-            },
-            artist: "Disparate Youth",
-            content: {
-                en: "What comes to my mind when listening to this track: sitting in the backseat of a car, sunset outside the window, staring at it. Coming back from a journey. Goooood shit. A strong, melancholic sound from Santigold – or rather, Santi White. A track that encourages thought and reflection. Highly recommended!",
-                es: "Lo que me viene a la mente al escuchar esta canción: viajando en el asiento trasero del coche, viendo el atardecer por la ventana. Volviendo de un viaje. Buenísima. Un sonido fuerte y melancólico de Santigold, o mejor dicho, Santi White. Una canción que invita a la reflexión. ¡Escúchala!",
-                pl: "Co mi się kojarzy, gdy słucham tego utworu: jazda autem na tylnym siedzeniu, zachód słońca i wpatrywanie się w nie przez okno. Powrót z podróży. Goooood shit. Mocne, melancholijne brzmienie od Santigold, a tak właściwie od Santi White. Nuta zachęcająca do przemyśleń i refleksji. Zapraszam do odsłuchu!"
-            },
-            date: "2025-05-08",
-            image: "https://i.imgur.com/OZj5ajQ.png",
-            link: "https://soundcloud.com/isabel-bracamontes-cetina/santigold-performing-disparate"
-            },
-
-            {
-            title: {
-                en: "NiteFreak",
-                es: "NiteFreak",
-                pl: "NiteFreak"
-            },
-            artist: "Gorah",
-            content: {
-                en: "The track 'Gorah' is a collaboration between Zimbabwean producer Nitefreak and South Sudanese artist Emmanuel Jal. Released by Diplo's label. I honestly have no idea what this track is about lyrically, but it sounds dope and is, let’s say, inspiring. Give it a listen. Afro-house, electro, good vibes.",
-                es: "La canción 'Gorah' es una colaboración entre el productor de Zimbabue Nitefreak y el artista sursudanés Emmanuel Jal. Fue lanzado por el sello de Diplo. Sinceramente, no tengo ni idea de qué trata esta canción líricamente, pero suena brutal y es, digamos, inspiradora. Te invito a escucharla. Afro-house, electro, buenas vibras.",
-                pl: "​Piosenka „Gorah” to efekt współpracy zimbabweńskiego producenta Nitefreaka i południowosudańskiego artysty Emmanuela Jala. Wydała go wytwórnia Diplo. Nie kumam zupełnie o co cho w tej nucie, w sensie o czym śpiewa, ale zajebiście brzmi i jest powiedzmy natchniewająca. Zapraszam do odsłuchu. Afro-house, elektro, dobre patenty."
-            },
-            date: "2025-04-25",
-            image: "https://i.imgur.com/vm85dcM.png",
-            link: "https://soundcloud.com/nitefreakdj/gorah-extended"
-            },
-
-            {
-            title: {
-                en: "Gata Only",
-                es: "Gata Only",
-                pl: "Gata Only"
-            },
-            artist: "FloyyMenor, Cris Mj",
-            content: {
-                en: "FloyyMenor and Cris Mj, Chilean artists who often join forces and shake the Spanish-speaking scene. 'Gata Only', originally just a track by FloyyMenor, brings classic chill yet bold reggaeton vibes, as expected from Chileans. A classic tune about desire for women.",
-                es: "FloyyMenor y Cris Mj, artistas chilenos que a menudo unen fuerzas y sacuden la escena en español. 'Gata Only', originalmente un tema solo de FloyyMenor, ofrece las clásicas vibraciones de reggaetón relajado pero directo, como es típico de los chilenos. Una canción clásica sobre el deseo por las mujeres.",
-                pl: "FloyyMenor i Chris Mj, chilijscy wykonawcy, którzy nie raz łączą ze sobą siły i trzęsą hiszpańską sceną. Gata Only początkowo numer tylko FloyyMenor'a to klasyczne jak na Chilijczyków przystało chillowe, ale też dosadne reggaetonowe brzmienia. Numer klasycznie o pożądaniu kobiet."
-            },
-            date: "2025-04-25",
-            image: "https://i.imgur.com/JUp0WrK.png",
-            link: "https://soundcloud.com/user-885856599/gata-only-floyymenor-ft-cris"
-            },
-
-            {
-            title: {
-                en: "whereisshe_",
-                es: "whereisshe_",
-                pl: "whereisshe_"
-            },
-            artist: "BexBlu",
-            content: {
-                en: "First, a few words about the producer of this remix – BexBlu. The London-based music producer and artist is known for combining grime, rap, and electronic music in his signature style. His innovative approach involves transforming grime freestyles into soulful productions, making people say he’s saving and reviving grime. The production itself is a remix of 'Meridian Crew - Freestyle - Practice Hours', where Jme, Bossman Birdie & Big H were sharpening their skills. Big respect and we want more of this sound!",
-                es: "Primero, unas palabras sobre el productor de este remix: BexBlu. El productor musical y artista de Londres es conocido por combinar grime, rap y música electrónica en su estilo característico. Su enfoque innovador consiste en transformar los freestyles de grime en producciones con alma, por lo que se dice que está salvando y reviviendo el grime. La producción en sí es un remix de 'Meridian Crew - Freestyle - Practice Hours', donde Jme, Bossman Birdie y Big H practicaban sus habilidades. ¡Respeto y queremos más de estos sonidos!",
-                pl: "Najpierw parę słów o producencie tego remixu - BexBlu. Wywodzący się z Londynu producent muzyczny i artysta znany jest z łączenia grime'u, rapu i muzyki elektronicznej w swoim charakterystycznym stylu. Jego innowacyjne podejście polega na przekształcaniu grime'owych freestyli w uduchowione produkcje, dzięki czemu mówi się, że ratuje i ożywia grime. Sama produkcja to remix z \"Meridian Crew - Freestyle - Practice Hours\", gdzie Jme, Bossman Birdie & Big H ćwiczyli swoje skillsy. Propsy i więcej tego typu brzmień!!!"
-            },
-            date: "2025-04-25",
-            image: "https://i.imgur.com/Tmg4C2L.png",
-            link: "https://soundcloud.com/bexblu/whereishe"
-            },
-
-            {
-            title: {
-            "en": "Snitching",
-            "es": "Snitching",
-            "pl": "Snitching"
-            },
-            artist: "Pop Smoke ft. Quavo, Future",
-            content: {
-                "en": "RIP WOO! Duo Quavo Pop + Future with their usual awesome verse blows minds. Plus the beat, a jazz classic, personally reminds me of a good classic beat from Dr. Dre, which I think Seth The Chef & Buddah Bless, the producers of the track, were definitely inspired by. Probably my new phone ringtone (since the release of 21 Savage - Bank Account).",
-                "es": "RIP WOO! El dúo Quavo Pop + Future con su habitual verso increíble vuela mentes. Además, el ritmo, un clásico del jazz, personalmente me recuerda a un buen ritmo clásico de Dr. Dre, en el que creo que Seth The Chef & Buddah Bless, los productores del tema, definitivamente se inspiraron. Probablemente mi nuevo tono de llamada (desde el lanzamiento de 21 Savage - Bank Account).",
-                "pl": "RIP WOO! Duet Quavo Pop + Future z jak zwykle zajebistym wersem rozbija czacheee. Do tego bit, klasyka jazzu tzw. mi osobiście kojarzy się z dobrym klasycznym bitem od Dr. Dre, którym Seth The Chef & Buddah Bless, czyli producenci numeru, myślę, że na pewno się wzorowali. Chyba nowy dzwonek na telefon (od premiery 21 Savage - Bank Account)."
-            },
-            date: "2025-04-07",
-            image: "https://i.imgur.com/fkDjPpL.png",
-            link: "https://www.youtube.com/watch?v=BhbVY3DNYjk&list=RDBhbVY3DNYjk&start_radio=1"
-            },
+        
+        <div class="nav-bar">
+            <a href="index.html">HOME</a> ✦
+            <a href="music.html">MUSIC</a> ✦
+            <a href="articles.html">ARTICLES</a> ✦
+            <a href="tour.html">TOUR DATES</a> ✦
+            <a href="guestbook.html">GUESTBOOK</a> ✦
+        </div>
+        
+        <div class="content-box">
+            <h2>WELCOME SPACE TRAVELERS!</h2>
+            <p>Hi! I'm <span style="color:#FF00FF; font-weight:bold;">DJ ASTRO</span>, welcome to my <span class="blink">OFFICIAL</span> music website! Here you can find my latest tracks, album releases, and tour info. I make <span style="color:#FFFF00;">SPACE TECHNO</span> and <span style="color:#00FFFF;">COSMIC AMBIENT</span> music. Enjoy your stay and sign my guestbook before you leave!</p>
             
-            {
-                title: {
-                    en: "Bad Karma",
-                    es: "Bad Karma",
-                    pl: "Bad Karma"
-                },
-                artist: "Axel Thesleff",
-                content: {
-                    en: "Bonus article for April Fools' Day!When I was writing this article about the track, I had no idea about the background behind it. The track itself – a classic. Everyone has heard that characteristic mumbling and the deep bass coming in underneath at some point. It’s been playing on my speakers from time to time since 2017. One of those tracks you forget about, and then it randomly comes back one day.Interestingly, it's the backstory that makes it even more fascinating. The producer Axel didn’t earn anything from it! The sample was taken from some free-to-use beat pack, and the vocal is also a sample from Shamur – Let The Music Play (https://www.youtube.com/watch?v=bOipE-KvuBQ), which actually sparked a bit of controversy.Anyway, I encourage you to listen to both tracks. Cheers!",
-                    es: "¡Artículo extra por el Día de los Inocentes!Cuando escribí este artículo sobre el tema, no tenía ni idea del trasfondo que había detrás. El tema en sí – un clásico. Todo el mundo ha escuchado alguna vez ese característico murmullo y el bajo profundo entrando por debajo. Suena en mis altavoces de vez en cuando desde 2017. Es una de esas canciones que se te olvidan y un día vuelven por casualidad.Lo curioso es precisamente lo que hay detrás de esta canción. ¡El productor Axel no ganó nada con ella! El sample fue tomado de un paquete de beats gratuitos, y la voz también es un sample de Shamur – Let The Music Play (https://www.youtube.com/watch?v=bOipE-KvuBQ), lo cual generó algo de polémica.De todas formas, te invito a escuchar ambos temas. ¡Saludos!",
-                    pl: "Bonusowy artykuł w Prima Aprilis! Pisząc artykuł o tej nucie, w ogóle nie znałem background'u jaki za nią stoi. Sama nuta - klasyk. Każdy kiedyś usłyszał ten charakterystyczny bełkot i wjeżdżający pod niego głęboki basssss. Na głosnikach lata od czasu do czasu od 2017. Jedna z tych nutek, o której się zapomina i czasem kiedyś przypadkiem wróci. Co ciekawe właśnie z zaplecza tej nuty. Sam producent Axel, nie zarobił na niej nic! Sampel jest wzięty z jakiejś paczki beatów free to use, natomiast głos, to również sampel z Shamur - Let The Music Play (https://www.youtube.com/watch?v=bOipE-KvuBQ), o który była lekka afera. W każdym razie zapraszam do odsłuchu jednego i drugiego utworu. Pozdro!"
-                },
-                date: "2025-04-01",
-                image: "https://i.imgur.com/22tseLe.png",
-                link: "https://soundcloud.com/axelthesleff/bad-karma"
+            <div class="gif-container">
+                <img src="https://i.imgur.com/6sE0dN5.gif" alt="Visitor counter">
+            </div>
             
-            },
-            {
-                title: {
-                    en: "The Plan",
-                    es: "The Plan",
-                    pl: "The Plan"
-                },
-                artist: "Wiz Khalifa (feat.Juicy J)",
-                content: {
-                    en: "The very first lines already define the whole track: 'I looked in the mirror today And seen the realest nigga I ever met in my life.'A powerful reflection. Wiz and Juicy J — a rather unexpected collab — but the Memphis mad-style representative fit perfectly into Wiz’s chill vibe. You’re left with a clear head after listening.This track, the fifteenth from 2012’s O.N.I.F.C., sees Wiz Khalifa and Juicy J discuss the unexpected but fulfilling natures of their respective rises to fame. Wiz raps about all that he has achieved despite doubters telling him that he couldn’t, and their subsequent jealous hate. Juicy J talks about his crazy lifestyle but how it still goes hand-in-hand with thug realness.",
-                    es: "Ya los primeros versos definen todo el tema: 'I looked in the mirror today And seen the realest nigga I ever met in my life.'Una reflexión poderosa. Wiz y Juicy J — una colaboración bastante inesperada — pero el representante del estilo loco de Memphis encajó perfectamente con el rollo relajado de Wiz. Terminas con la mente despejada después de escucharlo.Esta canción, la número quince del álbum O.N.I.F.C. de 2012, muestra a Wiz Khalifa y Juicy J hablando sobre lo inesperado pero gratificante que ha sido su camino hacia la fama. Wiz rapea sobre todo lo que ha logrado a pesar de los que dudaban de él y cómo ahora sienten envidia. Juicy J habla de su estilo de vida loco, pero cómo todavía mantiene su autenticidad callejera.",
-                    pl: "Juz pierwsze wersy definiuja cały utwór: 'I looked in the mirror today And seen the realest nigga I ever met in my life.' Mocna rozkmina. Wiz i Juicy J, kolabo, dość niespodziewane, jednak do chill'u Wiza, reprezentant chorego stylu z Memphis wpasował się idealnie. Luźna głowa po odsłuchuTen utwór, piętnasty z albumu O.N.I.F.C. z 2012 roku, ukazuje jak Wiz Khalifa i Juicy J opowiadają o nieoczekiwanym, ale satysfakcjonującym przebiegu ich drogi do sławy. Wiz rapuje o wszystkim, co osiągnął, mimo że inni wątpili w jego możliwości i później zaczęli mu zazdrościć. Juicy J opowiada o swoim szalonym stylu życia, który mimo wszystko wciąż idzie w parze z uliczną autentycznością."
-                },
-                date: "2025-03-30",
-                image: "https://i.imgur.com/VKP5fjG.png",
-                link: "https://soundcloud.com/noahbossmcman"
-            
-            },
-            {
-                title: {
-                    en: "Y Que Fue?",
-                    es: "Y Que Fue?",
-                    pl: "Y Que Fue?"
-                },
-                artist: "Don Miguelo",
-                content: {
-                    en: "LAMINE!!!!!!!!!!",
-                    es: "LY19!!!!",
-                    pl: "LY19 LEWAA"
-                },
-                date: "2025-03-24",
-                image: "https://i.imgur.com/kAdeGs5.png",
-                link: "https://soundcloud.com/veras-anthony/don-miguelo-y-que-fue"
-            },
-            {
-                title: {
-                    en: "Back To The Future",
-                    es: "Back To The Future",
-                    pl: "Back To The Future"
-                },
-                artist: "A$AP Rocky",
-                content: {
-                    en: "A song that was made during the “Mouth Fulla Gold” sessions titled “Back To The Future” that was featured as track eight on the May 16th, 2011 copy of that mixtape. The song was likely made in the same sessions as the songs “Purple Swag” and “Peso” as they all share the same producer, A$AP Ty Beats. After that project was scrapped in late June to early July 2011 the song was then released online a few months later on September 19th, 2011 as a tribute to the famous Nike MAG shoes that were released on September 8th, 2011. These said shoes were made in reference to the 1989 film “Back to the Future Part II” as the shoes are a replica of the self-tying shoes in that movie. Seemingly, the track would have never seen a release if the Nike MAG shoes were not put out, but it is not confirmed if the song was intended for “LIVE.LOVE.A$AP” at the time of release. The songs title and hook reference the “Back to the Future” film franchise as a whole saying “Back to the future, that Marty McFly”, who is one of the main characters in the film series. Much later on after the song was initally released online it was featured as track five from a compilation mixtape by A$AP Ty Beats titled “Ty Beats Keep Smoking” which was released on February 22nd, 2015. This version of the track features slight differences and tags from DJ Nick Marino, the host of the mixtape, that did not appear on the original version of the track. The file that was intended for the “Mouth Fulla Gold” mixtape was leaked on July 18th, 2024 by KILLRITE and Zanthin after the successful $250 groupbuy for that mixtape, but features no differences.(source: genius.com)",
-                    es: "Una canción que se hizo durante las sesiones de «Mouth Fulla Gold» titulada «Back To The Future» que apareció como pista ocho en la copia del 16 de mayo de 2011 de esa mixtape. La canción fue hecha probablemente en las mismas sesiones que las canciones «Purple Swag» y «Peso» ya que todas comparten el mismo productor, A$AP Ty Beats. Después de que ese proyecto fuera desechado a finales de junio o principios de julio de 2011, la canción fue entonces lanzada en línea unos meses más tarde, el 19 de septiembre de 2011, como un homenaje a las famosas zapatillas Nike MAG que fueron lanzadas el 8 de septiembre de 2011. Dichas zapatillas se hicieron en referencia a la película de 1989 «Regreso al Futuro Parte II», ya que las zapatillas son una réplica de las zapatillas que se atan solas en esa película. Al parecer, la canción nunca habría visto un lanzamiento si las zapatillas Nike MAG no se hubieran puesto a la venta, pero no está confirmado si la canción estaba destinada a «LIVE.LOVE.A$AP» en el momento del lanzamiento. El título de la canción y el gancho hacen referencia a la franquicia cinematográfica «Regreso al futuro» en su conjunto diciendo «Back to the future, that Marty McFly», que es uno de los personajes principales de la serie de películas. Mucho más tarde, después de que la canción se publicara inicialmente en línea, apareció como pista cinco de una mixtape recopilatoria de A$AP Ty Beats titulada «Ty Beats Keep Smoking», que se publicó el 22 de febrero de 2015. Esta versión de la pista presenta ligeras diferencias y etiquetas de DJ Nick Marino, el anfitrión de la mixtape, que no aparecían en la versión original de la pista. El archivo que estaba destinado a la mixtape «Mouth Fulla Gold» fue filtrado el 18 de julio de 2024 por KILLRITE y Zanthin tras el éxito de la groupbuy de 250 dólares para esa mixtape, pero no presenta diferencias.(fuente: genius.com)",
-                    pl: "Zajebista nuta, nic dodać nic ująć."
-                },
-                date: "2025-03-16",
-                image: "https://i.imgur.com/pu2774C.png",
-                link: "https://soundcloud.com/basedbook-level-9/asap-rocky-back-to-the-future"
-            },
-            {
-                title: {
-                    en: "Need To Feel Loved",
-                    es: "Need To Feel Loved",
-                    pl: "Need To Feel Loved"
-                },
-                artist: "Adam K & Soha (Vocal Mix)",
-                content: {
-                    en: "Adam K & Soha's 'Need To Feel Loved' (Vocal Mix) masterfully blends emotional depth with progressive house beats, creating a track that resonates with the heart and the dance floor alike. OK, so this intro description was AI generated shit. This song is extremly good. It is simple, but not simple, after listening to it ,you will know what I mean. The song samples 'Ghosts', part of the soundtrack to the 2002 film Road to Perdition, you can check it out. Imagine listening to this crazzzzy ass song while sitting in some pub with ocean view. Shisha type shit bar with drinks. 2/3 a.m. in the morning, naaah that's something else.",
-                    es: "Need To Feel Loved' (Vocal Mix) de Adam K & Soha combina magistralmente la profundidad emocional con ritmos house progresivos, creando un tema que resuena tanto en el corazón como en la pista de baile. Vale, la descripción de la introducción era una mierda generada por AI. Esta canción es extremadamente buena. Es sencilla, pero no simple, después de escucharla, sabrás lo que quiero decir. La canción samplea 'Ghosts', parte de la banda sonora de la película de 2002 Road to Perdition, puedes echarle un vistazo. Imagínate escuchar esta canción mientras estás sentado en un pub con vistas al mar. Un bar de mierda tipo shisha con bebidas. 2/3 de la mañana, naaah eso es otra cosa.",
-                    pl: "'Need To Feel Loved' (Vocal Mix) Adama K & Soha łączy mistrzowsko głębię emocjonalną z progresywnymi rytmami house, tworząc utwór, który rezonuje zarówno z sercem, jak i parkietem tanecznym. OK, koniec tego pieprzenia AI-owego. Zajebista nuta, sampel 'Ghosts' użyty w filmie z T. Hanks'em 'Road to Perdition'. Wyobraź sobie słuchanie tej nutki siedząc w jakimś pubie z widokiem na ocean. Shisha bar, driny o 2/3 w nocy, this shit hits different."
-                },
-                date: "2025-03-07",
-                image: "https://i.imgur.com/2Nw10zY.jpeg",
-                link: "https://soundcloud.com/search?q=need%20to%20feel%20loved"
-            }
-
-            
-        ];
-
-        function changeLanguage(lang) {
-            localStorage.setItem('astrocartel-language', lang);
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                if (el.getAttribute('data-lang') === lang) {
-                    el.classList.remove('hidden');
-                } else {
-                    el.classList.add('hidden');
-                }
-            });
-            renderArticles(lang);
-        }
-
-        function renderArticles(language) {
-            const container = document.getElementById('articles-container');
-            container.innerHTML = ''; // Clear previous content
-
-            articles.forEach((article, index) => {
-                const preview = article.content[language].split('. ').slice(0, 3).join('. ') + '...';
-                const articleElement = document.createElement('div');
-                articleElement.classList.add('post');
-                articleElement.innerHTML = `
-                    ${article.image ? `<img src="${article.image}" alt="Cover image">` : ''}
-                    <h3>${article.title[language]} - ${article.artist}</h3>
-                    <p><strong>Upload Date:</strong> ${article.date}</p>
-                    <p>${preview}</p>
-                    <button onclick="showFullArticle(${index}, '${language}')">Read More</button>
-                `;
-                container.appendChild(articleElement);
-            });
-        }
-  function showFullArticle(index, language) {
-            const article = articles[index];
-            const container = document.getElementById('articles-container');
-            container.innerHTML = `
-                <div class="post full-article">
-                    ${article.image ? `<img src="${article.image}" alt="Cover image">` : ''}
-                    <h3>${article.title[language]} - ${article.artist}</h3>
-                    <p><strong>Upload Date:</strong> ${article.date}</p>
-                    <p>${article.content[language]}</p>
-                    <a href="${article.link}" target="_blank">Listen on SoundCloud</a>
-                    <br>
-                    <button onclick="renderArticles('${language}')">Back to Articles</button>
+            <div class="counter">
+                VISITORS: <span id="visitorCount">0000398</span>
+            </div>
+        </div>
+        
+        <!-- Add this to your content-box section -->
+        <div class="content-box">
+            <h2>LATEST SPACE MUSIC REVIEWS</h2>
+            <div class="article-teasers">
+                <!-- Example of 2 latest articles -->
+                <div class="teaser">
+                    <img src="articles/assets/ghost-town-thumb.gif" alt="Ghost Town">
+                    <h3>Ghost Town - Adam Lambert</h3>
+                    <p>Classic banger that still hits hard in 2025...</p>
+                    <a href="articles/music/2025-07-10-ghost-town.html" class="read-more">
+                        <img src="assets/images/read-more.gif"> READ FULL REVIEW
+                    </a>
                 </div>
-            `;
-        }
-function showSection(sectionId) {
-            const sections = document.querySelectorAll('main > section');
-            sections.forEach(section => section.classList.add('hidden'));
-            document.getElementById(sectionId).classList.remove('hidden');
-        }
-
-        // Initialize language preference
-        const savedLanguage = localStorage.getItem('astrocartel-language') || 'en';
-        changeLanguage(savedLanguage);
-
-        // Initial rendering
-        renderArticles(savedLanguage); // Default language
-        showSection('home');
+            </div>
+            <div style="text-align:center; margin-top:20px;">
+                <a href="articles.html" class="view-all">
+                    <img src="assets/images/view-all.gif"> VIEW ALL ARTICLES
+                </a>
+            </div>
+        </div>
+        
+        
+        <div class="content-box">
+            <h2>DISCOGRAPHY</h2>
+            <div class="album-grid">
+                <div class="album">
+                    <img src="https://i.imgur.com/5dJzF4G.png" alt="Nebula Dreams album">
+                    <h3>NEBULA DREAMS</h3>
+                    <p>(2022)</p>
+                    <img src="https://i.imgur.com/4XWQyYd.gif" alt="New">
+                </div>
+                <div class="album">
+                    <img src="https://i.imgur.com/7dXyqI2.png" alt="Quantum Echoes album">
+                    <h3>QUANTUM ECHOES</h3>
+                    <p>(2021)</p>
+                </div>
+                <div class="album">
+                    <img src="https://i.imgur.com/3sKXk3X.png" alt="Stellar Drift album">
+                    <h3>STELLAR DRIFT</h3>
+                    <p>(2020)</p>
+                    <img src="https://i.imgur.com/rQY4wYh.gif" alt="Hot">
+                </div>
+            </div>
+        </div>
+        
+        <div class="guestbook">
+            <h2>SIGN MY GUESTBOOK</h2>
+            <div class="guestbook-entry">
+                <p><span style="color:#FF9900;">NAME:</span> SPACE_CADET_93</p>
+                <p><span style="color:#FF9900;">MESSAGE:</span> Your music is out of this world! When are you coming to Alpha Centauri for a show?? ★☆☆☆☆</p>
+                <p><span style="color:#FF9900;">DATE:</span> 10/22/2023</p>
+            </div>
+            
+            <div class="guestbook-entry">
+                <p><span style="color:#FF9900;">NAME:</span> TECHNO_ALIEN</p>
+                <p><span style="color:#FF9900;">MESSAGE:</span> Galactic Pulse is my new coding soundtrack! Can't stop listening to track 4. Keep up the great work! ✰✰✰✰✰</p>
+                <p><span style="color:#FF9900;">DATE:</span> 10/20/2023</p>
+            </div>
+            
+            <div style="text-align:center; margin:10px 0;">
+                <img src="https://i.imgur.com/6yG9tJq.gif" alt="Sign guestbook">
+                <p><a href="#" style="color:#00FFFF;">CLICK HERE TO SIGN MY GUESTBOOK!</a></p>
+            </div>
+        </div>
+        
+        <div class="construction">
+            <img src="https://i.imgur.com/1eL1vjA.gif" alt="Under construction">
+            <p>MORE SECTIONS COMING SOON!</p>
+        </div>
+        
+        <div class="counter" style="margin-top:15px;">
+            <script language="JavaScript">
+                // Fake last updated date
+                document.write("LAST UPDATED: 10/24/2023");
+            </script>
+        </div>
+        
+        <div class="signature">
+            Made with ♥ on Earth ••• <img src="https://i.imgur.com/2aX9K0L.gif" alt="Email"> dj_astro@astrocartel.space
+        </div>
+        
+        <div style="text-align:center; margin-top:10px;">
+            <img src="https://i.imgur.com/3tM0P2X.gif" alt="Best viewed with Netscape">
+            <img src="https://i.imgur.com/0wS0y8a.gif" alt="Internet Explorer">
+        </div>
+    </div>
+    <div id="floating420">
+        <img src="https://blob.gifcities.org/gifcities/2SGSPSTSYVCISZNGT3SKD376J5XOAVYL.gif" alt="Retro GIF">
+    </div>
+    <script>
+        // Visitor counter (fake)
+        document.addEventListener('DOMContentLoaded', function() {
+            const counter = document.getElementById('visitorCount');
+            const floatingGif = document.getElementById('floating420');
+            let count = 398;
+            let isPaused = false;
+            
+            // First phase: smooth count to 420
+            function animateTo420() {
+                if (count < 420) {
+                    count++;
+                    counter.textContent = count.toString().padStart(7, '0');
+                    const delay = 50 + Math.random() * 100;
+                    setTimeout(animateTo420, delay);
+                } else if (count === 420) {
+                    // Show the dramatic floating GIF
+                    floatingGif.style.display = 'block';
+                    
+                    // Make it draggable
+                    floatingGif.addEventListener('mousedown', function(e) {
+                        let shiftX = e.clientX - floatingGif.getBoundingClientRect().left;
+                        let shiftY = e.clientY - floatingGif.getBoundingClientRect().top;
+                        
+                        function moveAt(pageX, pageY) {
+                            floatingGif.style.left = pageX - shiftX + 'px';
+                            floatingGif.style.top = pageY - shiftY + 'px';
+                        }
+                        
+                        function onMouseMove(e) {
+                            moveAt(e.pageX, e.pageY);
+                        }
+                        
+                        document.addEventListener('mousemove', onMouseMove);
+                        
+                        floatingGif.onmouseup = function() {
+                            document.removeEventListener('mousemove', onMouseMove);
+                            floatingGif.onmouseup = null;
+                        };
+                    });
+                    
+                    floatingGif.ondragstart = function() {
+                        return false;
+                    };
+                    
+                    // Pause for 1 minute
+                    isPaused = true;
+                    setTimeout(() => {
+                        floatingGif.style.display = 'none';
+                        isPaused = false;
+                        fastCount();
+                    }, 60000);
+                }
+            }
+            
+            // Second phase: fast counting after 420
+            function fastCount() {
+                if (!isPaused) {
+                    count++;
+                    counter.textContent = count.toString().padStart(7, '0');
+                    setTimeout(fastCount, 50);
+                }
+            }
+            
+            // Start the counter animation
+            setTimeout(animateTo420, 1000);
+            
+            // Create cursor trail effect
+            const colors = ['#ff00ff', '#00ffff', '#ffff00', '#00ff00'];
+            let trailElements = [];
+            
+            document.addEventListener('mousemove', function(e) {
+                // Create new trail element
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.left = (e.pageX - 5) + 'px';
+                trail.style.top = (e.pageY - 5) + 'px';
+                trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                document.body.appendChild(trail);
+                trailElements.push(trail);
+                
+                // Remove oldest elements if we have too many
+                if (trailElements.length > 15) {
+                    const oldTrail = trailElements.shift();
+                    oldTrail.parentNode.removeChild(oldTrail);
+                }
+                
+                // Fade out trail elements
+                trailElements.forEach((el, index) => {
+                    const opacity = 0.7 - (index * 0.05);
+                    el.style.opacity = opacity > 0 ? opacity : 0;
+                });
+            });
+            
+            // Create fake marquee blink effect
+            const blinkElements = document.querySelectorAll('.blink');
+            setInterval(() => {
+                blinkElements.forEach(el => {
+                    el.style.visibility = el.style.visibility === 'hidden' ? 'visible' : 'hidden';
+                });
+            }, 500);
+        });
     </script>
 </body>
 </html>
