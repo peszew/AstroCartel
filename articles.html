@@ -1,46 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Same head as your index.html -->
-    <title>Articles | Astrocartel</title>
-    <link rel="stylesheet" href="assets/css/articles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACE MUSIC CHRONICLES | AstroCartel</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Custom article page styles */
+        .article-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .article-header h2 {
+            color: #00ffff;
+            text-shadow: 0 0 10px #ff00ff;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        
+        .article-filters {
+            background: #220033;
+            border: 3px groove #00ffff;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .filter-btn {
+            background: #000;
+            color: #ffff00;
+            border: 2px outset #ff00ff;
+            padding: 5px 15px;
+            margin: 0 5px;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #330066;
+            text-decoration: underline;
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .article-card {
+            background: #110022;
+            border: 4px ridge #ff00ff;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px #00ffff;
+            border-color: #00ffff;
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px dotted #00ffff;
+        }
+        
+        .genre-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #000;
+            color: #ff00ff;
+            padding: 3px 10px;
+            font-size: 12px;
+            border: 1px solid #00ffff;
+        }
+        
+        .card-content {
+            padding: 15px;
+        }
+        
+        .card-content h3 {
+            color: #ffff00;
+            margin: 0 0 5px 0;
+            font-size: 1.5em;
+        }
+        
+        .card-content .artist {
+            color: #00ffff;
+            font-style: italic;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .card-content .date {
+            color: #ff9900;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .explore-btn {
+            display: block;
+            text-align: center;
+            background: #330066;
+            color: #ffff00;
+            padding: 8px;
+            margin-top: 15px;
+            border: 3px outset #00ff00;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .explore-btn:hover {
+            background: #550088;
+            letter-spacing: 1px;
+        }
+        
+        /* Retro animations */
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #ff00ff; }
+            50% { text-shadow: 0 0 20px #00ffff; }
+        }
+        
+        .page-title {
+            animation: glow 2s infinite;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-filters {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .filter-btn {
+                margin: 2px 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="container">
-        <!-- Same banner/nav as index.html -->
+        <!-- Banner with animated title -->
+        <div id="banner">
+            <div class="gif-container">
+                <img src="assets/images/audio-wave.gif" alt="Audio wave">
+                <img src="assets/images/vinyl-spin.gif" alt="Vinyl">
+                <img src="assets/images/rocket.gif" alt="Rocket">
+            </div>
+            <h1 class="page-title">SPACE MUSIC CHRONICLES</h1>
+            <div class="marquee">
+                <marquee behavior="scroll" direction="left" scrollamount="5">
+                    • LATEST REVIEWS • COSMIC BANGERS • INTERGALACTIC TUNES • ALIEN APPROVED •
+                </marquee>
+            </div>
+        </div>
         
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <a href="index.html">HOME</a> ✦
+            <a href="music.html">MUSIC</a> ✦
+            <a href="articles.html" class="active">ARTICLES</a> ✦
+            <a href="tour.html">TOUR DATES</a> ✦
+            <a href="guestbook.html">GUESTBOOK</a>
+        </div>
+        
+        <!-- Main Content -->
         <div class="content-box">
-            <h2><img src="assets/images/article-icon.gif"> SPACE MUSIC CHRONICLES</h2>
-            
+            <!-- Filter Buttons -->
             <div class="article-filters">
-                <a href="#" class="active"><img src="assets/images/all.gif"> ALL</a>
-                <a href="#"><img src="assets/images/music.gif"> MUSIC</a>
-                <a href="#"><img src="assets/images/artists.gif"> ARTISTS</a>
+                <button class="filter-btn active" data-filter="all">
+                    <img src="assets/images/all-icon.gif" alt="All"> ALL
+                </button>
+                <button class="filter-btn" data-filter="music">
+                    <img src="assets/images/music-note.gif" alt="Music"> MUSIC
+                </button>
+                <button class="filter-btn" data-filter="artists">
+                    <img src="assets/images/artist-icon.gif" alt="Artists"> ARTISTS
+                </button>
             </div>
             
+            <!-- Article Grid -->
             <div class="article-grid">
                 <!-- Ghost Town Article -->
-                <div class="article-card">
-                    <div class="card-header">
-                        <img src="articles/assets/ghost-town-card.gif" alt="Ghost Town">
-                        <span class="genre-tag">POP</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Ghost Town</h3>
-                        <p class="artist">Adam Lambert</p>
-                        <p class="date"><img src="assets/images/calendar.gif"> 2025-07-10</p>
-                        <a href="articles/music/2025-07-10-ghost-town.html" class="card-link">
-                            <img src="assets/images/launch.gif"> EXPLORE
+                <div class="article-card" data-category="music">
+                    <img src="assets/images/ghost-town-cover.gif" alt="Ghost Town" class="card-image">
+                    <span class="genre-tag">POP</span>
+                    <div class="card-content">
+                        <h3>GHOST TOWN</h3>
+                        <span class="artist">Adam Lambert</span>
+                        <span class="date">
+                            <img src="assets/images/calendar.gif" alt="Date"> 2025-07-10
+                        </span>
+                        <a href="articles/2025-07-10-ghost-town.html" class="explore-btn">
+                            <img src="assets/images/launch.gif" alt="Launch"> EXPLORE
                         </a>
                     </div>
                 </div>
                 
-                <!-- More articles will appear here -->
+                <!-- More article cards can be added here following the same structure -->
             </div>
         </div>
         
-        <!-- Same footer as index.html -->
+        <!-- Retro Footer -->
+        <div class="signature">
+            <img src="assets/images/alien-dance.gif" alt="Dancing alien">
+            TRANSMITTING FROM ORBIT ••• UPDATED WEEKLY •••
+            <img src="assets/images/email.gif" alt="Email"> dj_astro@astrocartel.space
+        </div>
     </div>
-    <script src="assets/js/articles.js"></script>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                const articles = document.querySelectorAll('.article-card');
+                
+                articles.forEach(article => {
+                    if (filter === 'all' || article.dataset.category === filter) {
+                        article.style.display = 'block';
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Make cards pulse on hover
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 0 20px #ff00ff';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
