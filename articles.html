@@ -3,169 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPACE MUSIC CHRONICLES | AstroCartel</title>
+    <title>Articles | AstroCartel</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Custom article page styles */
-        .article-header {
+        /* Articles Page Specific Styles */
+        .articles-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #330066, #000033);
+            border: 3px groove #00ffff;
         }
         
-        .article-header h2 {
-            color: #00ffff;
-            text-shadow: 0 0 10px #ff00ff;
+        .articles-header h1 {
+            color: #ffff00;
             font-size: 2.5em;
-            margin-bottom: 5px;
+            margin: 0;
+            text-shadow: 2px 2px 0 #ff00ff;
+        }
+        
+        .articles-header p {
+            color: #00ffff;
+            font-size: 1.1em;
+            margin: 10px 0 0 0;
         }
         
         .article-filters {
-            background: #220033;
-            border: 3px groove #00ffff;
-            padding: 10px;
-            margin: 20px auto;
-            text-align: center;
-            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
         }
         
         .filter-btn {
-            background: #000;
-            color: #ffff00;
+            background: #330066;
+            color: #00ffff;
             border: 2px outset #ff00ff;
-            padding: 5px 15px;
-            margin: 0 5px;
-            font-family: 'Courier New', monospace;
+            padding: 10px 20px;
             cursor: pointer;
+            font-family: "Comic Sans MS", cursive;
+            font-weight: bold;
         }
         
         .filter-btn:hover, .filter-btn.active {
-            background: #330066;
-            text-decoration: underline;
+            background: #550088;
+            color: #ffff00;
         }
         
-        .article-grid {
+        .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 25px;
-            margin-top: 30px;
+            margin: 30px 0;
         }
         
         .article-card {
-            background: #110022;
-            border: 4px ridge #ff00ff;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            background: #220033;
+            border: 3px ridge #ff00ff;
+            padding: 20px;
+            transition: all 0.3s ease;
         }
         
         .article-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 15px #00ffff;
             border-color: #00ffff;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
         }
         
-        .card-image {
+        .article-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-bottom: 3px dotted #00ffff;
+            border: 2px solid #00ffff;
+            margin-bottom: 15px;
         }
         
-        .genre-tag {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #000;
-            color: #ff00ff;
-            padding: 3px 10px;
-            font-size: 12px;
-            border: 1px solid #00ffff;
-        }
-        
-        .card-content {
-            padding: 15px;
-        }
-        
-        .card-content h3 {
+        .article-title {
             color: #ffff00;
-            margin: 0 0 5px 0;
-            font-size: 1.5em;
+            font-size: 1.4em;
+            margin: 0 0 10px 0;
+            font-family: "Impact", sans-serif;
         }
         
-        .card-content .artist {
+        .article-artist {
             color: #00ffff;
+            font-size: 1.1em;
+            margin: 0 0 10px 0;
             font-style: italic;
-            display: block;
-            margin-bottom: 5px;
         }
         
-        .card-content .date {
+        .article-meta {
             color: #ff9900;
             font-size: 0.9em;
+            margin: 0 0 15px 0;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 5px;
         }
         
-        .explore-btn {
-            display: block;
-            text-align: center;
+        .article-rating {
+            color: #ff9900;
+            font-size: 1.1em;
+        }
+        
+        .article-excerpt {
+            color: #00ff00;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+        
+        .read-more-btn {
+            display: inline-block;
             background: #330066;
-            color: #ffff00;
-            padding: 8px;
-            margin-top: 15px;
-            border: 3px outset #00ff00;
+            color: #00ffff;
+            padding: 10px 20px;
+            border: 2px outset #00ff00;
             text-decoration: none;
-            transition: all 0.3s;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
         
-        .explore-btn:hover {
+        .read-more-btn:hover {
             background: #550088;
-            letter-spacing: 1px;
+            color: #ffff00;
         }
         
-        /* Retro animations */
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 10px #ff00ff; }
-            50% { text-shadow: 0 0 20px #00ffff; }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
         }
         
-        .page-title {
-            animation: glow 2s infinite;
+        .page-btn {
+            background: #330066;
+            color: #00ffff;
+            border: 2px outset #ff00ff;
+            padding: 8px 15px;
+            cursor: pointer;
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .article-grid {
+        .page-btn.active {
+            background: #550088;
+            color: #ffff00;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .articles-grid {
                 grid-template-columns: 1fr;
             }
             
             .article-filters {
-                display: flex;
                 flex-direction: column;
-                gap: 5px;
+                align-items: center;
             }
             
             .filter-btn {
-                margin: 2px 0;
+                width: 200px;
             }
         }
     </style>
 </head>
 <body>
     <div id="container">
-        <!-- Banner with animated title -->
+        <!-- Header -->
         <div id="banner">
-            <div class="gif-container">
-                <img src="assets/images/audio-wave.gif" alt="Audio wave">
-                <img src="assets/images/vinyl-spin.gif" alt="Vinyl">
-                <img src="assets/images/rocket.gif" alt="Rocket">
-            </div>
-            <h1 class="page-title">SPACE MUSIC CHRONICLES</h1>
+            <h1>ASTROCARTEL MUSIC</h1>
             <div class="marquee">
-                <marquee behavior="scroll" direction="left" scrollamount="5">
-                    • LATEST REVIEWS • COSMIC BANGERS • INTERGALACTIC TUNES • ALIEN APPROVED •
-                </marquee>
+                <marquee behavior="scroll" direction="left">SPACE TECHNO • COSMIC AMBIENT • INTERGALACTIC BEATS</marquee>
             </div>
         </div>
         
@@ -177,81 +184,104 @@
             <a href="tour.html">TOUR DATES</a> ✦
             <a href="guestbook.html">GUESTBOOK</a>
         </div>
-        
+
+        <!-- Articles Header -->
+        <div class="articles-header">
+            <h1>SPACE MUSIC CHRONICLES</h1>
+            <p>Reviews, insights, and discoveries from the cosmic music frontier</p>
+        </div>
+
         <!-- Main Content -->
         <div class="content-box">
             <!-- Filter Buttons -->
             <div class="article-filters">
-                <button class="filter-btn active" data-filter="all">
-                    <img src="assets/images/all-icon.gif" alt="All"> ALL
-                </button>
-                <button class="filter-btn" data-filter="music">
-                    <img src="assets/images/music-note.gif" alt="Music"> MUSIC
-                </button>
-                <button class="filter-btn" data-filter="artists">
-                    <img src="assets/images/artist-icon.gif" alt="Artists"> ARTISTS
-                </button>
+                <button class="filter-btn active">ALL ARTICLES</button>
+                <button class="filter-btn">ALBUM REVIEWS</button>
+                <button class="filter-btn">ARTIST SPOTLIGHTS</button>
+                <button class="filter-btn">MUSIC NEWS</button>
             </div>
-            
-            <!-- Article Grid -->
-            <div class="article-grid">
-                <!-- Ghost Town Article -->
-                <div class="article-card" data-category="music">
-                    <img src="assets/images/ghost-town-cover.gif" alt="Ghost Town" class="card-image">
-                    <span class="genre-tag">POP</span>
-                    <div class="card-content">
-                        <h3>GHOST TOWN</h3>
-                        <span class="artist">Adam Lambert</span>
-                        <span class="date">
-                            <img src="assets/images/calendar.gif" alt="Date"> 2025-07-10
-                        </span>
-                        <a href="articles/2025-07-10-ghost-town.html" class="explore-btn">
-                            <img src="assets/images/launch.gif" alt="Launch"> EXPLORE
-                        </a>
+
+            <!-- Articles Grid -->
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <div class="article-card">
+                    <img src="assets/images/ghost-town-cover.jpg" alt="Ghost Town Album Cover" class="article-image">
+                    <h2 class="article-title">GHOST TOWN</h2>
+                    <p class="article-artist">Adam Lambert</p>
+                    <div class="article-meta">
+                        <span>July 10, 2023</span>
+                        <span class="article-rating">★★★★☆</span>
                     </div>
+                    <p class="article-excerpt">
+                        A classic banger that hasn't been heard in a while. When you play it loud, everyone goes: 
+                        "Haven't heard this in ages!" Makes you wonder if there'd be more hits like this if he hadn't 
+                        committed to Queen.
+                    </p>
+                    <a href="articles/ghost-town-review.html" class="read-more-btn">READ FULL REVIEW</a>
                 </div>
-                
-                <!-- More article cards can be added here following the same structure -->
+
+                <!-- Article 2 -->
+                <div class="article-card">
+                    <img src="assets/images/album-cover-2.jpg" alt="Album Cover" class="article-image">
+                    <h2 class="article-title">GALACTIC PULSE</h2>
+                    <p class="article-artist">DJ Astro</p>
+                    <div class="article-meta">
+                        <span>June 15, 2023</span>
+                        <span class="article-rating">★★★★★</span>
+                    </div>
+                    <p class="article-excerpt">
+                        The latest release takes you on a sonic voyage through nebulas and star clusters. 
+                        Perfect for late-night coding sessions or cosmic meditation. Eight interstellar journeys...
+                    </p>
+                    <a href="articles/galactic-pulse-review.html" class="read-more-btn">READ FULL REVIEW</a>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="article-card">
+                    <img src="assets/images/album-cover-3.jpg" alt="Album Cover" class="article-image">
+                    <h2 class="article-title">NEBULA DREAMS</h2>
+                    <p class="article-artist">Cosmic Waves</p>
+                    <div class="article-meta">
+                        <span>May 22, 2023</span>
+                        <span class="article-rating">★★★☆☆</span>
+                    </div>
+                    <p class="article-excerpt">
+                        Ambient space techno that transports you to distant galaxies. While some tracks feel repetitive, 
+                        the overall atmosphere is perfect for deep space exploration...
+                    </p>
+                    <a href="articles/nebula-dreams-review.html" class="read-more-btn">READ FULL REVIEW</a>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">→</button>
             </div>
         </div>
-        
-        <!-- Retro Footer -->
+
+        <!-- Footer -->
         <div class="signature">
-            <img src="assets/images/alien-dance.gif" alt="Dancing alien">
-            TRANSMITTING FROM ORBIT ••• UPDATED WEEKLY •••
-            <img src="assets/images/email.gif" alt="Email"> dj_astro@astrocartel.space
+            Made with ♥ on Earth ••• <img src="assets/images/email.gif" alt="Email"> dj_astro@astrocartel.space
         </div>
     </div>
 
     <script>
-        // Filter functionality
+        // Simple filter functionality
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                // Remove active class from all buttons
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
                 this.classList.add('active');
-                
-                const filter = this.dataset.filter;
-                const articles = document.querySelectorAll('.article-card');
-                
-                articles.forEach(article => {
-                    if (filter === 'all' || article.dataset.category === filter) {
-                        article.style.display = 'block';
-                    } else {
-                        article.style.display = 'none';
-                    }
-                });
             });
         });
-        
-        // Make cards pulse on hover
-        document.querySelectorAll('.article-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.boxShadow = '0 0 20px #ff00ff';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.boxShadow = 'none';
+
+        // Pagination functionality
+        document.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
             });
         });
     </script>
