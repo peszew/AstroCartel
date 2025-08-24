@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook | AstroCartel</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .guestbook-form {
+            background: #330033;
+            border: 3px double #ffff00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin: 15px 0;
+        }
+        
+        .form-group label {
+            color: #ff9900;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-input {
+            width: 95%;
+            background: #000000;
+            color: #00ff00;
+            border: 2px solid #ff00ff;
+            padding: 8px;
+            font-family: "Courier New", monospace;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 5px #00ffff;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(to bottom, #330066, #220044);
+            color: #00ffff;
+            border: 3px outset #00ff00;
+            padding: 10px 20px;
+            font-family: "Comic Sans MS", cursive;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(to bottom, #550088, #330066);
+            color: #ffff00;
+        }
+        
+        .submit-btn:active {
+            border: 3px inset #00ff00;
+        }
+        
+        .form-success {
+            background: #003300;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .form-error {
+            background: #330000;
+            border: 2px solid #ff0000;
+            color: #ff0000;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .guestbook-entry {
+            background: #000044;
+            border: 1px dotted #ff00ff;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- Your existing banner and navigation -->
+        <div id="banner">
+            <h1>ASTROCARTEL GUESTBOOK</h1>
+            <div class="marquee">
+                <marquee behavior="scroll" direction="left">SIGN OUR GUESTBOOK • LEAVE YOUR MESSAGE • JOIN THE COMMUNITY</marquee>
+            </div>
+        </div>
+        
+        <div class="nav-bar">
+            <a href="index.html">HOME</a> ✦
+            <a href="music.html">MUSIC</a> ✦
+            <a href="articles.html">ARTICLES</a> ✦
+            <a href="tour.html">TOUR DATES</a> ✦
+            <a href="guestbook.html" class="active">GUESTBOOK</a>
+        </div>
+
+        <div class="content-box">
+            <h2>Guestbook</h2>
+            <p>Leave a message and let us know what you think of the music!</p>
+            
+            <!-- Formspree Form -->
+            <div class="guestbook-form">
+                <form id="guestbook-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" class="form-input" required 
+                               placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email (optional):</label>
+                        <input type="email" id="email" name="email" class="form-input" 
+                               placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" class="form-input" rows="5" required 
+                                  placeholder="Type your message here..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <select id="rating" name="rating" class="form-input">
+                            <option value="">Select rating</option>
+                            <option value="5">★★★★★ (Excellent)</option>
+                            <option value="4">★★★★☆ (Great)</option>
+                            <option value="3">★★★☆☆ (Good)</option>
+                            <option value="2">★★☆☆☆ (Fair)</option>
+                            <option value="1">★☆☆☆☆ (Poor)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Honeypot spam protection -->
+                    <input type="text" name="_gotcha" style="display:none">
+                    
+                    <button type="submit" class="submit-btn">
+                        Submit Message
+                    </button>
+                </form>
+                
+                <div id="form-message" style="display: none;"></div>
+            </div>
+            
+            <!-- Existing Guestbook Entries -->
+            <h3>Recent Messages:</h3>
+            <div class="guestbook-entry">
+                <p><strong>SPACE_CADET_93:</strong> Your music is amazing! When are you coming to my city for a show?? ★☆☆☆☆</p>
+                <p><em>Date: 10/22/2023</em></p>
+            </div>
+            
+            <div class="guestbook-entry">
+                <p><strong>TECHNO_ALIEN:</strong> Galactic Pulse is my new coding soundtrack! Can't stop listening to track 4. Keep up the great work! ✰✰✰✰✰</p>
+                <p><em>Date: 10/20/2023</em></p>
+            </div>
+            
+            <div class="guestbook-entry">
+                <p><strong>MUSIC_LOVER:</strong> Just discovered your music and I'm hooked! The production quality is incredible.</p>
+                <p><em>Date: 10/18/2023</em></p>
+            </div>
+        </div>
+        
+        <!-- Your existing footer -->
+        <div class="signature">
+            Made with ♥ on Earth ••• <img src="assets/images/email.gif" alt="Email"> dj_astro@astrocartel.space
+        </div>
+    </div>
+
+    <script>
+        // Form submission handling
+        const form = document.getElementById('guestbook-form');
+        const messageDiv = document.getElementById('form-message');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success message
+                    showMessage('Thank you for your message! It has been submitted successfully.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                showMessage('Sorry, there was an error sending your message. Please try again.', 'error');
+            } finally {
+                // Restore button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        function showMessage(text, type) {
+            messageDiv.style.display = 'block';
+            messageDiv.className = type === 'success' ? 'form-success' : 'form-error';
+            messageDiv.textContent = text;
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Add some interactive effects
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.boxShadow = '0 0 10px #00ffff';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
