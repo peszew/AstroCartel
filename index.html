@@ -241,6 +241,274 @@
         }
     </style>
 </head>
+<!-- Windows XP Malware Popup -->
+<div id="xp-popup" class="xp-popup" style="display: none;">
+    <div class="xp-window">
+        <div class="xp-titlebar">
+            <div class="xp-title">Security Alert</div>
+            <div class="xp-buttons">
+                <button class="xp-close" onclick="closePopup()">✕</button>
+            </div>
+        </div>
+        <div class="xp-content">
+            <div class="xp-icon">
+                <div class="xp-shield">⚠️</div>
+            </div>
+            <div class="xp-message">
+                <h3>CRITICAL SECURITY ALERT</h3>
+                <p>Your device has been infected with multiple viruses!</p>
+                <p>System memory: <span class="xp-scary">1337 threats detected</span></p>
+                <p>Immediate action required to prevent data loss.</p>
+                <p>匚卄∪Ｊ 匚工 山 刀∪ㄗモ れㄚム∪ち工モ 卄丹卄丹</p>
+            </div>
+        </div>
+        <div class="xp-buttons-bar">
+            <button class="xp-btn xp-scan" onclick="scanComputer()">
+                Scan Your Device
+            </button>
+            <button class="xp-btn xp-remove" onclick="removeViruses()">
+                Remove All Viruses
+            </button>
+            <button class="xp-btn xp-ignore" onclick="ignoreWarning()">
+                Ignore (Not Recommended)
+            </button>
+        </div>
+        <div class="xp-progress" style="display: none;">
+            <div class="xp-progress-bar">
+                <div class="xp-progress-fill"></div>
+            </div>
+            <span class="xp-progress-text">Scanning system files...</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Windows XP Popup Styles */
+    .xp-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Tahoma", "Arial", sans-serif;
+    }
+    
+    .xp-window {
+        width: 400px;
+        background: linear-gradient(to bottom, #d4d0c8, #f0f0f0);
+        border: 2px solid #003c74;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .xp-titlebar {
+        background: linear-gradient(to bottom, #0a246a, #a6caf0);
+        color: white;
+        padding: 4px 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    
+    .xp-close {
+        background: #d4d0c8;
+        border: 1px solid #808080;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    
+    .xp-content {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .xp-icon {
+        width: 50px;
+        height: 50px;
+        background: #ffcc00;
+        border: 2px solid #cc9900;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+    }
+    
+    .xp-message h3 {
+        color: #cc0000;
+        margin: 0 0 10px 0;
+        font-size: 14px;
+    }
+    
+    .xp-message p {
+        margin: 5px 0;
+        font-size: 12px;
+        color: #000;
+    }
+    
+    .xp-scary {
+        color: #cc0000;
+        font-weight: bold;
+    }
+    
+    .xp-buttons-bar {
+        padding: 15px;
+        background: #f0f0f0;
+        border-top: 1px solid #808080;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .xp-btn {
+        padding: 8px 15px;
+        border: 2px outset #d4d0c8;
+        background: linear-gradient(to bottom, #f0f0f0, #d4d0c8);
+        cursor: pointer;
+        font-family: "Tahoma", sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+    }
+    
+    .xp-btn:hover {
+        background: linear-gradient(to bottom, #e0e0e0, #c4c0b8);
+    }
+    
+    .xp-scan {
+        color: #0000cc;
+    }
+    
+    .xp-remove {
+        color: #cc0000;
+    }
+    
+    .xp-ignore {
+        color: #666666;
+    }
+    
+    .xp-progress {
+        padding: 15px;
+        background: #f0f0f0;
+        border-top: 1px solid #808080;
+    }
+    
+    .xp-progress-bar {
+        width: 100%;
+        height: 20px;
+        background: #ffffff;
+        border: 1px solid #808080;
+        margin-bottom: 8px;
+    }
+    
+    .xp-progress-fill {
+        height: 100%;
+        background: linear-gradient(to bottom, #00cc00, #009900);
+        width: 0%;
+        transition: width 3s ease-in-out;
+    }
+    
+    .xp-progress-text {
+        font-size: 11px;
+        color: #666666;
+    }
+    
+    /* Shake animation for urgency */
+    @keyframes xp-shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+    }
+    
+    .xp-window {
+        animation: xp-shake 0.5s ease-in-out 3;
+    }
+</style>
+
+<script>
+    // Show popup after page loads
+    setTimeout(function() {
+        document.getElementById('xp-popup').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }, 3000); // Show after 3 seconds
+    
+    function closePopup() {
+        document.getElementById('xp-popup').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    function scanComputer() {
+        const progress = document.querySelector('.xp-progress');
+        const progressFill = document.querySelector('.xp-progress-fill');
+        const progressText = document.querySelector('.xp-progress-text');
+        const buttons = document.querySelector('.xp-buttons-bar');
+        
+        // Hide buttons, show progress
+        buttons.style.display = 'none';
+        progress.style.display = 'block';
+        
+        // Animate progress bar
+        progressFill.style.width = '100%';
+        progressText.textContent = 'Scanning system files...';
+        
+        setTimeout(() => {
+            progressText.textContent = '478 threats found!';
+            setTimeout(() => {
+                buttons.style.display = 'flex';
+                progress.style.display = 'none';
+                progressFill.style.width = '0%';
+            }, 2000);
+        }, 3000);
+    }
+    
+    function removeViruses() {
+        const progress = document.querySelector('.xp-progress');
+        const progressFill = document.querySelector('.xp-progress-fill');
+        const progressText = document.querySelector('.xp-progress-text');
+        const buttons = document.querySelector('.xp-buttons-bar');
+        
+        buttons.style.display = 'none';
+        progress.style.display = 'block';
+        
+        progressFill.style.width = '100%';
+        progressText.textContent = 'Removing viruses...';
+        
+        setTimeout(() => {
+            progressText.textContent = 'Viruses successfully removed!';
+            progressFill.style.background = 'linear-gradient(to bottom, #00cc00, #009900)';
+            
+            setTimeout(() => {
+                closePopup();
+                // Optional: Show success message
+                alert('System secured! Enjoy your visit to AstroCartel! 🚀');
+            }, 1500);
+        }, 3000);
+    }
+    
+    function ignoreWarning() {
+        closePopup();
+        // Optional: Show funny message
+        setTimeout(() => {
+            alert('Your computer will self-destruct in 10... just kidding! 😄');
+        }, 1000);
+    }
+    
+    // Close if user clicks outside
+    document.getElementById('xp-popup').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePopup();
+        }
+    });
+</script>
 <body>
     <!-- Cursor trail elements will be added here by JavaScript -->
     
