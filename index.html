@@ -14,7 +14,11 @@
             padding: 0;
             line-height: 1.5;
         }
-        
+        @media only screen and (min-width: 10240px) {
+          #container {
+            transform: skew(-20deg,0deg) !important; 
+          }
+        }
         #container {
             max-width: 750px;
             width: 90%;
@@ -23,7 +27,7 @@
             border: 8px ridge #FF00FF;
             padding: 5px;
             box-sizing: border-box;
-            transform: skew(-20deg,0deg) !important; 
+            
         }
         
         #banner {
