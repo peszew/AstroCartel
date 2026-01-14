@@ -117,12 +117,16 @@
             background: var(--box-bg);
             border: 2px double var(--neon-cyan);
             padding: 20px;
-            transition: all 0.3s ease;
+            transition: all 0.6s ease;
+        }
+
+        .article-card.visible {
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
         }
 
         .article-card:hover {
-            border-color: var(--neon-magenta);
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
             transform: translateY(-4px);
         }
 
@@ -550,6 +554,9 @@
         <div class="badges-section">
             <h3>✦ Cool Sites ✦</h3>
             <div class="badges">
+                <img src="assets/images/neon_music_note.png" alt="Music Note" style="width:88px; height:31px;">
+                <img src="assets/images/retro_cassette.png" alt="Cassette" style="width:88px; height:31px;">
+                <img src="assets/images/neon_headphones.png" alt="Headphones" style="width:88px; height:31px;">
                 <img src="https://anlucas.neocities.org/88x31Buttons/internetcom.gif" alt="Internet">
                 <img src="https://anlucas.neocities.org/88x31Buttons/getflash.gif" alt="Flash">
                 <img src="https://anlucas.neocities.org/88x31Buttons/madewith.gif" alt="HTML">
@@ -562,10 +569,15 @@
         <!-- Under Construction -->
         <div
             style="text-align:center; padding:20px; margin:20px 0; background:var(--box-bg); border:2px dashed var(--neon-yellow);">
+            <img src="assets/images/vinyl_record.png" alt="Vinyl" style="width:88px; height:31px; margin:0 5px;">
             <img src="https://i.imgur.com/1eL1vjA.gif" alt="Under construction" style="height:40px; margin:0 5px;">
+            <img src="assets/images/retro_boombox.png" alt="Boombox" style="width:88px; height:31px; margin:0 5px;">
             <p style="color:var(--neon-yellow); margin:10px 0; text-transform:uppercase; letter-spacing:2px;">More
                 Reviews Coming Soon</p>
+            <img src="assets/images/neon_music_note.png" alt="Music" style="width:88px; height:31px; margin:0 5px;">
             <img src="https://i.imgur.com/vx9fT8J.gif" alt="New" style="height:40px; margin:0 5px;">
+            <img src="assets/images/neon_headphones.png" alt="Headphones"
+                style="width:88px; height:31px; margin:0 5px;">
         </div>
 
         <!-- Visitor Counter -->
@@ -603,6 +615,23 @@
             localStorage.setItem('language', lang);
             location.reload();
         }
+
+        // Scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all article cards
+        document.querySelectorAll('.article-card').forEach(card => {
+            observer.observe(card);
+        });
     </script>
 </body>
 
