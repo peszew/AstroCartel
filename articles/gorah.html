@@ -4,12 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- EDIT THIS: Article title and artist -->
-    <title>Disparate Youth - Santigold | AstroCartel</title>
-    <meta name="description" content="Review of Disparate Youth by Santigold">
-
+    <title>Gorah - NiteFreak | AstroCartel</title>
+    <meta name="description" content="Review of Gorah by NiteFreak">
     <style>
-        /* Same styles as homepage */
         * {
             margin: 0;
             padding: 0;
@@ -50,9 +47,7 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             color: var(--neon-cyan);
-            text-shadow:
-                0 0 10px var(--neon-cyan),
-                0 0 20px var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
             margin-bottom: 4px;
         }
 
@@ -134,54 +129,29 @@
             margin-bottom: 30px;
         }
 
-        .article-content h2 {
-            color: var(--neon-yellow);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 30px 0 15px 0;
-            font-size: 16px;
-        }
-
         .article-content p {
             margin-bottom: 15px;
             line-height: 1.8;
         }
 
-        .share-section {
-            background: var(--box-bg);
-            border: 2px dashed var(--neon-green);
-            padding: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .share-section h3 {
-            color: var(--neon-green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            font-size: 12px;
-        }
-
-        .share-btn {
+        .listen-btn {
             display: inline-block;
-            background: transparent;
-            color: var(--neon-cyan);
-            border: 2px solid var(--neon-cyan);
-            padding: 10px 20px;
-            margin: 5px;
+            background: var(--neon-green);
+            color: var(--bg-black);
+            padding: 14px 28px;
+            border: none;
             text-decoration: none;
             text-transform: uppercase;
             font-weight: bold;
-            font-size: 11px;
+            font-size: 13px;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            box-shadow: 0 0 15px var(--neon-green);
         }
 
-        .share-btn:hover {
-            background: var(--neon-cyan);
-            color: var(--bg-black);
-            box-shadow: 0 0 15px var(--neon-cyan);
+        .listen-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--neon-green);
         }
 
         .back-link {
@@ -200,75 +170,77 @@
         .back-link a:hover {
             text-shadow: 0 0 10px var(--neon-magenta);
         }
+
+        .lang-switcher {
+            text-align: center;
+            padding: 10px;
+            background: var(--box-bg);
+            border: 2px solid var(--neon-cyan);
+            margin: 20px;
+        }
+
+        .lang-switcher button {
+            background: transparent;
+            border: 2px solid var(--neon-yellow);
+            color: var(--neon-yellow);
+            padding: 5px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-family: 'Courier New';
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .lang-switcher button.active {
+            background: var(--neon-yellow);
+            color: var(--bg-black);
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <!-- EDIT THIS: Artist and track name -->
-        <h1>
-            Disparate Youth
-            <small>by Santigold</small>
-        </h1>
+        <h1>Gorah<small>by NiteFreak</small></h1>
     </header>
-
     <nav>
         <a href="../index.html">HOME</a>
-        <a href="../guestbook.html"> GUESTBOOK</a>
+        <a href="../guestbook.html">GUESTBOOK</a>
         <a href="../about.html">ABOUT</a>
     </nav>
-
+    <div class="lang-switcher">
+        <span style="color:var(--neon-green); font-size:11px; margin-right:10px;">LANGUAGE:</span>
+        <button onclick="setLanguage('en')" id="lang-en">EN</button>
+        <button onclick="setLanguage('es')" id="lang-es">ES</button>
+        <button onclick="setLanguage('pl')" id="lang-pl">PL</button>
+    </div>
     <div class="container">
         <div class="article-header">
-            <!-- EDIT THIS: Image URL -->
-            <img src="../assets/images/santigold.jpg" alt="Santigold - Disparate Youth" class="article-image">
-
+            <img src="https://i.imgur.com/vm85dcM.png" alt="Gorah" class="article-image">
             <div class="article-meta">
-                <!-- EDIT THIS: Date and rating -->
-                <span>Published: 2025-05-08</span>
-                <span>Rating: ★★★★★</span>
+                <span>Published: 2025-04-25</span>
+                <span>★★★★★</span>
             </div>
         </div>
-
-        <div class="article-content">
-            <!-- EDIT THIS: Your review content -->
-            <p>
-                What comes to my mind when listening to this track: sitting in the backseat of a car,
-                sunset outside the window, staring at it. Coming back from a journey. Goooood shit...
-            </p>
-
-            <h2>First Impressions</h2>
-            <p>
-                Talk about your first impression of the track. What caught your attention?
-                What's the vibe? How does it make you feel?
-            </p>
-
-            <h2>Production & Sound</h2>
-            <p>
-                Discuss the production quality, sound design, mixing. What stands out?
-                Are there any interesting instruments or effects?
-            </p>
-
-            <h2>Final Verdict</h2>
-            <p>
-                Your overall thoughts. Would you recommend it? Who would enjoy this?
-                Any memorable moments or standout elements?
-            </p>
+        <div class="article-content" id="article-content"></div>
+        <div style="text-align:center; margin:30px 0;">
+            <a href="https://soundcloud.com/nitefreakdj/gorah-extended" target="_blank" class="listen-btn">▶ LISTEN
+                NOW</a>
         </div>
-
-        <div class="share-section">
-            <h3>✦ Share This Review ✦</h3>
-            <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20review" class="share-btn"
-                target="_blank">Twitter</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=" class="share-btn" target="_blank">Facebook</a>
-            <button class="share-btn"
-                onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!')">Copy Link</button>
-        </div>
-
         <div class="back-link">
             <a href="../index.html">← Back to All Reviews</a>
         </div>
     </div>
+    <script>
+        const content = {
+            en: "The track 'Gorah' is a collaboration between Zimbabwean producer Nitefreak and South Sudanese artist Emmanuel Jal. Released by Diplo's label. I honestly have no idea what this track is about lyrically, but it sounds dope and is, let's say, inspiring. Give it a listen. Afro-house, electro, good vibes.",
+            es: "La canción 'Gorah' es una colaboración entre el productor de Zimbabue Nitefreak y el artista sursudanés Emmanuel Jal. Fue lanzado por el sello de Diplo. Sinceramente, no tengo ni idea de qué trata esta canción líricamente, pero suena brutal y es, digamos, inspiradora. Te invito a escucharla. Afro-house, electro, buenas vibras.",
+            pl: "​Piosenka „Gorah" to efekt współpracy zimbabweńskiego producenta Nitefreaka i południowosudańskiego artysty Emmanuela Jala.Wydała go wytwórnia Diplo.Nie kumam zupełnie o co cho w tej nucie, w sensie o czym śpiewa, ale zajebiście brzmi i jest powiedzmy natchniewająca.Zapraszam do odsłuchu.Afro - house, elektro, dobre patenty."
+        };
+        let currentLanguage = localStorage.getItem('language') || 'en';
+        document.getElementById('article-content').innerHTML = '<p>' + content[currentLanguage] + '</p>';
+        document.getElementById('lang-' + currentLanguage).classList.add('active');
+        function setLanguage(lang) { localStorage.setItem('language', lang); location.reload(); }
+    </script>
 </body>
 
 </html>

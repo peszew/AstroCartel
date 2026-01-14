@@ -246,6 +246,78 @@
             text-shadow: 0 0 10px var(--neon-cyan);
         }
 
+        /* Equalizer Animation in Header */
+        .equalizer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 5px;
+            height: 40px;
+            margin-bottom: 15px;
+        }
+
+        .eq-bar {
+            width: 8px;
+            background: linear-gradient(to top, var(--neon-magenta), var(--neon-cyan));
+            animation: eq-bounce 0.8s ease-in-out infinite;
+        }
+
+        .eq-bar:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .eq-bar:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .eq-bar:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .eq-bar:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .eq-bar:nth-child(5) {
+            animation-delay: 0.1s;
+        }
+
+        .eq-bar:nth-child(6) {
+            animation-delay: 0s;
+        }
+
+        .eq-bar:nth-child(7) {
+            animation-delay: 0.1s;
+        }
+
+        .eq-bar:nth-child(8) {
+            animation-delay: 0.2s;
+        }
+
+        .eq-bar:nth-child(9) {
+            animation-delay: 0.3s;
+        }
+
+        .eq-bar:nth-child(10) {
+            animation-delay: 0.4s;
+        }
+
+        .eq-bar:nth-child(11) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes eq-bounce {
+
+            0%,
+            100% {
+                height: 8px;
+            }
+
+            50% {
+                height: 35px;
+            }
+        }
+
         /* === MOBILE === */
         @media (min-width: 768px) {
             .articles-grid {
@@ -257,12 +329,19 @@
 
 <body>
     <header>
-        <div style="text-align:center; margin-bottom:10px;">
-            <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif"
-                alt="Music" style="height:30px; margin:0 5px;">
-            <img src="https://i.imgur.com/vx9fT8J.gif" alt="New" style="height:35px; margin:0 5px;">
-            <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif"
-                alt="Music" style="height:30px; margin:0 5px;">
+        <!-- Equalizer Animation -->
+        <div class="equalizer">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
         </div>
         <h1>ASTROCARTEL</h1>
         <p class="tagline">★ Music Reviews ★ Vaporwave Vibes ★</p>
@@ -274,12 +353,42 @@
         <a href="about.html">ABOUT</a>
     </nav>
 
+    <!-- Language Switcher -->
+    <div
+        style="text-align:center; padding:10px; background:var(--box-bg); border:2px solid var(--neon-cyan); margin:0px 20px 20px 20px;">
+        <span style="color:var(--neon-green); font-size:11px; margin-right:10px;">LANGUAGE:</span>
+        <button onclick="setLanguage('en')"
+            style="background:transparent; border:2px solid var(--neon-yellow); color:var(--neon-yellow); padding:5px 15px; margin:0 5px; cursor:pointer; font-family:'Courier New'; text-transform:uppercase; font-weight:bold;"
+            id="lang-en">EN</button>
+        <button onclick="setLanguage('es')"
+            style="background:transparent; border:2px solid var(--neon-yellow); color:var(--neon-yellow); padding:5px 15px; margin:0 5px; cursor:pointer; font-family:'Courier New'; text-transform:uppercase; font-weight:bold;"
+            id="lang-es">ES</button>
+        <button onclick="setLanguage('pl')"
+            style="background:transparent; border:2px solid var(--neon-yellow); color:var(--neon-yellow); padding:5px 15px; margin:0 5px; cursor:pointer; font-family:'Courier New'; text-transform:uppercase; font-weight:bold;"
+            id="lang-pl">PL</button>
+    </div>
+
     <div class="container">
         <div class="articles-grid">
-            <!-- Article 1: Santigold -->
+            <!-- Article 1: Thunder Bay (2025-05-15) -->
             <div class="article-card">
-                <img src="C:/Users/piotr/.gemini/antigravity/brain/12675552-cf8e-4e55-a3f8-1b2b4ac85243/uploaded_image_1768346245068.jpg"
-                    alt="Santigold" class="article-image">
+                <img src="https://i.imgur.com/MQFWDIb.png" alt="Thunder Bay" class="article-image">
+                <h2 class="article-title">Thunder Bay</h2>
+                <p class="article-artist">Hudson Mohawke</p>
+                <div class="article-meta">
+                    <span>2025-05-15</span>
+                    <span>★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    Hudson Mohawke, Scottish producer, dropped this in 2011. A year later melting brains
+                    of all NBA 2K12 players. Insane beat, perfect for ball or the gym...
+                </p>
+                <a href="articles/thunder-bay.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 2: Disparate Youth (2025-05-08) -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/OZj5ajQ.png" alt="Disparate Youth" class="article-image">
                 <h2 class="article-title">Disparate Youth</h2>
                 <p class="article-artist">Santigold</p>
                 <div class="article-meta">
@@ -287,58 +396,153 @@
                     <span>★★★★★</span>
                 </div>
                 <p class="article-excerpt">
-                    What comes to my mind when listening to this track: sitting in the backseat of a car,
-                    sunset outside the window, staring at it. Coming back from a journey...
+                    Sitting in the backseat of a car, sunset outside the window. Coming back from a journey.
+                    Goooood shit. Strong, melancholic sound from Santi White...
                 </p>
-                <a href="articles/santigold-disparate-youth.html" class="read-btn">Read Review</a>
+                <a href="articles/disparate-youth.html" class="read-btn">Read Review</a>
             </div>
 
-            <!-- Article 2: Ghost Town -->
+            <!-- Article 3: Gata Only (2025-04-25) -->
             <div class="article-card">
-                <img src="https://i.imgur.com/5dJzF4G.png" alt="Ghost Town" class="article-image">
-                <h2 class="article-title">Ghost Town</h2>
-                <p class="article-artist">Adam Lambert</p>
+                <img src="https://i.imgur.com/JUp0WrK.png" alt="Gata Only" class="article-image">
+                <h2 class="article-title">Gata Only</h2>
+                <p class="article-artist">FloyyMenor, Cris Mj</p>
                 <div class="article-meta">
-                    <span>2023-07-10</span>
-                    <span>★★★★☆</span>
-                </div>
-                <p class="article-excerpt">
-                    A classic banger that hasn't been heard in a while. When you play it loud, everyone goes:
-                    "Haven't heard this in ages!" Makes you wonder...
-                </p>
-                <a href="articles/ghost-town.html" class="read-btn">Read Review</a>
-            </div>
-
-            <!-- Article 3: Example Track -->
-            <div class="article-card">
-                <img src="https://i.imgur.com/7dXyqI2.png" alt="Album Cover" class="article-image">
-                <h2 class="article-title">Example Track</h2>
-                <p class="article-artist">Artist Name</p>
-                <div class="article-meta">
-                    <span>2023-06-15</span>
+                    <span>2025-04-25</span>
                     <span>★★★★★</span>
                 </div>
                 <p class="article-excerpt">
-                    This is where your review excerpt goes. Keep it short and engaging - 2-3 sentences
-                    that make people want to read more...
+                    Chilean artists who often join forces and shake the Spanish-speaking scene.
+                    Classic chill yet bold reggaeton vibes...
                 </p>
-                <a href="articles/example.html" class="read-btn">Read Review</a>
+                <a href="articles/gata-only.html" class="read-btn">Read Review</a>
             </div>
 
-            <!-- Article 4: Another Example -->
+            <!-- Article 4: Gorah (2025-04-25) -->
             <div class="article-card">
-                <img src="https://i.imgur.com/3sKXk3X.png" alt="Album Cover" class="article-image">
-                <h2 class="article-title">Another Track</h2>
-                <p class="article-artist">Another Artist</p>
+                <img src="https://i.imgur.com/vm85dcM.png" alt="Gorah" class="article-image">
+                <h2 class="article-title">Gorah</h2>
+                <p class="article-artist">NiteFreak</p>
                 <div class="article-meta">
-                    <span>2023-05-22</span>
-                    <span>★★★☆☆</span>
+                    <span>2025-04-25</span>
+                    <span>★★★★★</span>
                 </div>
                 <p class="article-excerpt">
-                    Your review excerpt here. Talk about what makes this track special or why it caught
-                    your attention. Make it personal...
+                    Zimbabwean producer Nitefreak & South Sudanese artist Emmanuel Jal. Released by Diplo's label.
+                    Afro-house, electro, good vibes...
                 </p>
-                <a href="articles/another-example.html" class="read-btn">Read Review</a>
+                <a href="articles/gorah.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 5: whereisshe_ (2025-04-25) -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/Tmg4C2L.png" alt="whereisshe_" class="article-image">
+                <h2 class="article-title">whereisshe_</h2>
+                <p class="article-artist">BexBlu</p>
+                <div class="article-meta">
+                    <span>2025-04-25</span>
+                    <span>★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    London producer combining grime, rap & electronic. Transforming grime freestyles
+                    into soulful productions. Saving and reviving grime...
+                </p>
+                <a href="articles/whereisshe.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 6: Snitching (2025-04-07) -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/fkDjPpL.png" alt="Snitching" class="article-image">
+                <h2 class="article-title">Snitching</h2>
+                <p class="article-artist">Pop Smoke ft. Quavo, Future</p>
+                <div class="article-meta">
+                    <span>2025-04-07</span>
+                    <span>★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    RIP WOO! Duo Quavo Pop + Future with their usual awesome verse blows minds. Plus the beat,
+                    a jazz classic, reminds me of Dr. Dre...
+                </p>
+                <a href="articles/snitching.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 7: Bad Karma (2025-04-01) -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/22tseLe.png" alt="Bad Karma" class="article-image">
+                <h2 class="article-title">Bad Karma</h2>
+                <p class="article-artist">Axel Thesleff</p>
+                <div class="article-meta">
+                    <span>2025-04-01</span>
+                    <span>★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    Bonus article for April Fools' Day! Everyone has heard that characteristic mumbling
+                    and the deep bass. A classic that keeps coming back...
+                </p>
+                <a href="articles/bad-karma.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 8: The Plan (2025-03-30) -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/VKP5fjG.png" alt="The Plan" class="article-image">
+                <h2 class="article-title">The Plan</h2>
+                <p class="article-artist">Wiz Khalifa (feat. Juicy J)</p>
+                <div class="article-meta">
+                    <span>2025-03-30</span>
+                    <span>★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    'I looked in the mirror today and seen the realest person I ever met in my life.'
+                    A powerful reflection with unexpected collab magic...
+                </p>
+                <a href="articles/the-plan.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 9: Y Que Fue? (2025-03-24) -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/kAdeGs5.png" alt="Y Que Fue?" class="article-image">
+                <h2 class="article-title">Y Que Fue?</h2>
+                <p class="article-artist">Don Miguelo</p>
+                <div class="article-meta">
+                    <span>2025-03-24</span>
+                    <span>★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    LAMINE!!!!!!!!!! LY19 LEWAA - Pure energy captured in one track.
+                </p>
+                <a href="articles/y-que-fue.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 10: Back To The Future (2025-03-16) -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/pu2774C.png" alt="Back To The Future" class="article-image">
+                <h2 class="article-title">Back To The Future</h2>
+                <p class="article-artist">A$AP Rocky</p>
+                <div class="article-meta">
+                    <span>2025-03-16</span>
+                    <span>★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    Made during the 'Mouth Fulla Gold' sessions. A tribute to Nike MAG shoes and
+                    the iconic film - 'that Marty McFly' vibes...
+                </p>
+                <a href="articles/back-to-the-future.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 11: Need To Feel Loved (2025-03-07) -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/2Nw10zY.jpeg" alt="Need To Feel Loved" class="article-image">
+                <h2 class="article-title">Need To Feel Loved</h2>
+                <p class="article-artist">Adam K & Soha (Vocal Mix)</p>
+                <div class="article-meta">
+                    <span>2025-03-07</span>
+                    <span>★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    Simple, but not simple. Samples 'Ghosts' from Road to Perdition.
+                    Imagine listening at 2-3am in a shisha bar with ocean views...
+                </p>
+                <a href="articles/need-to-feel-loved.html" class="read-btn">Read Review</a>
             </div>
         </div>
 
@@ -386,6 +590,20 @@
             <img src="https://i.imgur.com/0wS0y8a.gif" alt="IE" style="width:88px; height:31px; margin:5px;">
         </div>
     </footer>
+
+    <script>
+        // Language switcher
+        let currentLanguage = localStorage.getItem('language') || 'en';
+
+        // Set active language button
+        document.getElementById('lang-' + currentLanguage).style.background = 'var(--neon-yellow)';
+        document.getElementById('lang-' + currentLanguage).style.color = 'var(--bg-black)';
+
+        function setLanguage(lang) {
+            localStorage.setItem('language', lang);
+            location.reload();
+        }
+    </script>
 </body>
 
 </html>

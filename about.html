@@ -5,402 +5,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | AstroCartel</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="description" content="About AstroCartel - Music Reviews and Vibes">
+
     <style>
-        /* About Page Specific Styles */
-        .about-window {
-            background: linear-gradient(to bottom, #d4d0c8, #f0f0f0);
-            border: 3px solid #003c74;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-            margin: 20px 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .about-content {
-            padding: 20px;
-            color: #000;
-            font-family: "Tahoma", "Arial", sans-serif;
+        :root {
+            --neon-cyan: #00ffff;
+            --neon-magenta: #ff00ff;
+            --neon-green: #00ff00;
+            --neon-yellow: #ffff00;
+            --bg-black: #000000;
+            --box-bg: #0a0a0a;
+        }
+
+        body {
+            background: var(--bg-black);
+            background-image: url('https://web.archive.org/web/20071113053944if_/http://www.geocities.com/farid_fery2000/STARS-BG.gif');
+            background-size: 400px;
+            color: #cccccc;
+            font-family: 'Courier New', Consolas, monospace;
             font-size: 14px;
+            line-height: 1.7;
+            min-height: 100vh;
         }
 
-        .profile-section {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            margin: 15px 0;
-            flex-wrap: wrap;
+        header {
+            background: linear-gradient(135deg, #0a0033 0%, #1a001a 100%);
+            border-bottom: 3px double var(--neon-cyan);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border: 3px ridge #808080;
-            background: linear-gradient(135deg, #ff00ff, #00ffff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            flex-shrink: 0;
+        h1 {
+            font-size: clamp(28px, 8vw, 48px);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--neon-cyan);
+            text-shadow:
+                0 0 10px var(--neon-cyan),
+                0 0 20px var(--neon-cyan),
+                0 0 30px var(--neon-magenta);
+            margin-bottom: 8px;
         }
 
-        .profile-info {
-            flex-grow: 1;
-            min-width: 250px;
-        }
-
-        .profile-info h3 {
-            color: #000080;
-            margin: 5px 0;
-            font-family: 'Press Start 2P', cursive;
+        .tagline {
+            color: var(--neon-magenta);
+            text-transform: uppercase;
+            letter-spacing: 2px;
             font-size: 12px;
         }
 
-        .profile-info p {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-
-        /* Timeline */
-        .timeline {
-            background-color: #220033;
-            border: 3px groove #00ffff;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .timeline-item {
-            background: linear-gradient(135deg, #330066, #000044);
-            border-left: 5px solid #ff00ff;
+        nav {
+            background: var(--box-bg);
+            border: 2px dashed var(--neon-magenta);
+            margin: 20px;
             padding: 15px;
-            margin: 15px 0;
-            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .timeline-item::before {
-            content: '●';
-            position: absolute;
-            left: -13px;
-            top: 15px;
-            color: #00ffff;
-            font-size: 20px;
-        }
-
-        .timeline-year {
-            color: #ffff00;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 10px;
-            margin-bottom: 5px;
-        }
-
-        .timeline-title {
-            color: #00ffff;
+        nav a {
+            color: var(--neon-yellow);
+            text-decoration: none;
+            text-transform: uppercase;
             font-weight: bold;
-            font-size: 16px;
-            margin: 5px 0;
-        }
-
-        .timeline-desc {
-            color: #00ff00;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* Influences Grid */
-        .influences-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .influence-item {
-            background: linear-gradient(135deg, #220033, #110022);
-            border: 2px solid #ff00ff;
-            padding: 10px;
-            text-align: center;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border: 1px solid var(--neon-yellow);
             transition: all 0.3s ease;
         }
 
-        .influence-item:hover {
-            transform: scale(1.05);
-            border-color: #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        nav a:hover {
+            background: var(--neon-yellow);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px var(--neon-yellow);
         }
 
-        .influence-item img {
-            width: 88px;
-            height: 31px;
-            margin: 5px auto;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .influence-name {
-            color: #00ffff;
-            font-size: 11px;
-            font-weight: bold;
-            margin-top: 5px;
+        .about-section {
+            background: var(--box-bg);
+            border: 2px double var(--neon-cyan);
+            padding: 30px;
+            margin-bottom: 30px;
         }
 
-        /* Social Links */
-        .social-links {
+        .about-section h2 {
+            color: var(--neon-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 2px dashed var(--neon-cyan);
+            padding-bottom: 10px;
+        }
+
+        .about-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .profile-icon {
             text-align: center;
+            font-size: 80px;
             margin: 20px 0;
         }
 
-        .social-btn {
-            display: inline-block;
-            background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
-            border: 2px outset #808080;
-            padding: 10px 20px;
-            margin: 5px;
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            font-family: "Tahoma", sans-serif;
-            transition: all 0.2s ease;
-        }
-
-        .social-btn:hover {
-            background: linear-gradient(to bottom, #ffffff, #d0d0d0);
-        }
-
-        .social-btn:active {
-            border-style: inset;
-        }
-
-        /* Stats Box */
-        .stats-box {
-            background-color: #000;
-            border: 2px inset #808080;
-            padding: 15px;
-            margin: 15px 0;
-            font-family: 'VT323', monospace;
-            font-size: 18px;
-        }
-
-        .stat-line {
+        .contact-links {
             display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
-            color: #00ff00;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            background: transparent;
+            border: 2px solid var(--neon-magenta);
+            color: var(--neon-magenta);
+            padding: 10px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--neon-magenta);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px var(--neon-magenta);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #1a0033, #330066);
+            border: 2px solid var(--neon-green);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            color: var(--neon-green);
+            font-weight: bold;
         }
 
         .stat-label {
-            color: #00ffff;
-        }
-
-        .stat-value {
-            color: #ffff00;
+            font-size: 11px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            margin-top: 5px;
         }
     </style>
 </head>
 
 <body>
-    <div id="container">
-        <!-- Banner -->
-        <div id="banner">
-            <div class="gif-container">
-                <img src="assets/images/alien-dance.gif" alt="Dancing Alien" style="width:50px;">
-                <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif"
-                    alt="Music">
-                <img src="assets/images/rocket.gif" alt="Rocket" style="width:50px;">
-            </div>
-            <h1>ASTROCARTEL MUSIC</h1>
-            <div class="marquee">
-                <marquee behavior="scroll" direction="left" scrollamount="5">
-                    ABOUT THE MUSIC • COSMIC JOURNEY • MEET THE ARTIST • POWERED BY RETRO VIBES
-                </marquee>
-            </div>
-        </div>
+    <header>
+        <h1>ASTROCARTEL</h1>
+        <p class="tagline">About</p>
+    </header>
 
-        <!-- Navigation -->
-        <div class="nav-bar">
-            <a href="index.html">HOME</a> ✦
-            <a href="music.html">MUSIC</a> ✦
-            <a href="articles.html">ARTICLES</a> ✦
-            <a href="about.html" class="active">ABOUT</a> ✦
-            <a href="guestbook.html">GUESTBOOK</a>
-        </div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="guestbook.html">GUESTBOOK</a>
+        <a href="about.html">ABOUT</a>
+    </nav>
 
-        <!-- About Window -->
-        <div class="about-window">
-            <div class="win98-titlebar">
-                <div class="win98-title">📁 About_AstroCartel.exe</div>
-                <div class="win98-buttons">
-                    <button class="win98-btn" style="width:20px; height:20px; padding:0;">_</button>
-                    <button class="win98-btn" style="width:20px; height:20px; padding:0;">□</button>
-                    <button class="win98-btn" style="width:20px; height:20px; padding:0;">✕</button>
-                </div>
-            </div>
-            <div class="about-content">
-                <div class="profile-section">
-                    <div class="profile-pic">
-                        🎵
-                    </div>
-                    <div class="profile-info">
-                        <h3>P3DR0G / ASTROCARTEL</h3>
-                        <p><strong>Role:</strong> Cosmic Music Producer & Space DJ</p>
-                        <p><strong>Location:</strong> Orbiting Earth 🌍</p>
-                        <p><strong>Genre:</strong> Space Techno, Cosmic Ambient, Retro Vibes</p>
-                        <p><strong>Status:</strong> <span class="blink" style="color:#00ff00;">●</span> Currently Online
-                        </p>
-                    </div>
-                </div>
-
-                <h3 style="color:#000080; border-bottom:2px solid #808080; padding-bottom:5px; margin-top:20px;">
-                    About Me
-                </h3>
-                <p>
-                    Welcome to my corner of the internet! I'm p3dr0G, the mind and soul behind AstroCartel.
-                    Since 2020, I've been crafting cosmic soundscapes that blend retro nostalgia with futuristic vibes.
-                    My music takes you on interstellar journeys through nebulas, past distant stars, and into the heart
-                    of the galaxy.
-                </p>
-                <p>
-                    Inspired by the golden age of web 1.0 and the endless possibilities of space, I create music
-                    that's perfect for late-night coding sessions, cosmic meditation, or just vibing to the universe's
-                    rhythm.
-                </p>
-
-                <!-- Stats -->
-                <div class="stats-box">
-                    <div class="stat-line">
-                        <span class="stat-label">TRACKS RELEASED:</span>
-                        <span class="stat-value">42</span>
-                    </div>
-                    <div class="stat-line">
-                        <span class="stat-label">ALBUMS:</span>
-                        <span class="stat-value">3</span>
-                    </div>
-                    <div class="stat-line">
-                        <span class="stat-label">LIGHT YEARS TRAVELLED:</span>
-                        <span class="stat-value">∞</span>
-                    </div>
-                    <div class="stat-line">
-                        <span class="stat-label">VIBE LEVEL:</span>
-                        <span class="stat-value">MAXIMUM</span>
-                    </div>
-                </div>
-
-                <!-- Social Links -->
-                <h3 style="color:#000080; margin-top:20px;">Connect With Me</h3>
-                <div class="social-links">
-                    <a href="#" class="social-btn">💾 DOWNLOAD MUSIC</a>
-                    <a href="#" class="social-btn">📧 EMAIL ME</a>
-                    <a href="guestbook.html" class="social-btn">📝 GUESTBOOK</a>
-                    <a href="#" class="social-btn">🔊 SOUNDCLOUD</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Musical Journey Timeline -->
-        <div class="timeline">
-            <h2 style="text-align:center; color:#ffff00; font-family:'Press Start 2P', cursive; font-size:14px;">
-                🚀 MUSICAL JOURNEY 🚀
-            </h2>
-
-            <div class="timeline-item">
-                <div class="timeline-year">2024</div>
-                <div class="timeline-title">The Cosmic Expansion</div>
-                <div class="timeline-desc">
-                    Launched AstroCartel website and started sharing music with the world. Released "Nebula Dreams"
-                    which gained traction in the underground space techno scene.
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-year">2022</div>
-                <div class="timeline-title">Deep Space Production</div>
-                <div class="timeline-desc">
-                    Dove deep into ambient production, exploring the boundaries between techno and atmospheric
-                    soundscapes.
-                    Released "Quantum Echoes" - an album that captures the essence of interstellar travel.
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-year">2020</div>
-                <div class="timeline-title">First Steps into Space</div>
-                <div class="timeline-desc">
-                    Started experimenting with electronic music production. Released debut album "Stellar Drift"
-                    which established my signature cosmic sound.
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-year">2018</div>
-                <div class="timeline-title">The Beginning</div>
-                <div class="timeline-desc">
-                    Discovered a passion for synthesizers and electronic music. Spent countless nights learning
-                    production techniques and developing my unique sound.
-                </div>
-            </div>
-        </div>
-
-        <!-- Influences -->
-        <div class="content-box">
-            <h2>🎧 MUSICAL INFLUENCES 🎧</h2>
-            <p style="color:#00ffff; text-align:center;">
-                Artists and producers who shaped my cosmic sound
+    <div class="container">
+        <div class="about-section">
+            <div class="profile-icon">🎵</div>
+            <h2>About AstroCartel</h2>
+            <p>
+                Welcome to AstroCartel - a personal space for music reviews, vibes, and discoveries.
+                This blog is all about sharing tracks that hit different, from underground gems to
+                mainstream bangers that deserve recognition.
             </p>
-            <div class="influences-grid">
-                <div class="influence-item">
-                    <div style="color:#ff00ff; font-size:30px;">🎹</div>
-                    <div class="influence-name">JEAN-MICHEL JARRE</div>
+            <p>
+                Inspired by the cyber-vaporwave aesthetic and early web culture, AstroCartel combines
+                retro design with modern music commentary. Every review is personal, honest, and
+                written from the heart.
+            </p>
+            <p>
+                Whether it's hip-hop, electronic, grime, reggaeton, or house - if it's good music,
+                it belongs here.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Tech Stack</h2>
+            <p>
+                Built with pure HTML, CSS, and vanilla JavaScript. No frameworks, no database,
+                no backend. Just clean code and neon aesthetics.
+            </p>
+            <p>
+                Language support for English, Spanish, and Polish thanks to client-side JavaScript.
+                Each article is hand-written and carefully curated.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Reviews</div>
                 </div>
-                <div class="influence-item">
-                    <div style="color:#00ffff; font-size:30px;">🎛️</div>
-                    <div class="influence-name">VANGELIS</div>
+                <div class="stat-box">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Languages</div>
                 </div>
-                <div class="influence-item">
-                    <div style="color:#ffff00; font-size:30px;">🎵</div>
-                    <div class="influence-name">KRAFTWERK</div>
-                </div>
-                <div class="influence-item">
-                    <div style="color:#00ff00; font-size:30px;">🔊</div>
-                    <div class="influence-name">DEADMAU5</div>
-                </div>
-                <div class="influence-item">
-                    <div style="color:#ff9900; font-size:30px;">🎶</div>
-                    <div class="influence-name">DAFT PUNK</div>
-                </div>
-                <div class="influence-item">
-                    <div style="color:#ff00ff; font-size:30px;">🎼</div>
-                    <div class="influence-name">APHEX TWIN</div>
+                <div class="stat-box">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Good Vibes</div>
                 </div>
             </div>
         </div>
 
-        <!-- Under Construction -->
-        <div class="construction">
-            <img src="https://i.imgur.com/1eL1vjA.gif" alt="Under construction">
-            <p style="color:#ff00ff;">MORE INFO COMING SOON!</p>
-            <img src="https://i.imgur.com/vx9fT8J.gif" alt="New">
-        </div>
-
-        <!-- Footer -->
-        <div class="counter" style="margin-top:15px;">
-            <script>document.write("LAST UPDATED: " + new Date().toLocaleDateString());</script>
-        </div>
-
-        <div class="signature">
-            Made with ♥ in deep space ••• <img src="https://i.imgur.com/2aX9K0L.gif" alt="Email">
-            pe_szew@astrocartel.space
-        </div>
-
-        <div style="text-align:center; margin-top:10px;">
-            <img src="https://i.imgur.com/3tM0P2X.gif" alt="Best viewed with Netscape">
-            <img src="https://i.imgur.com/0wS0y8a.gif" alt="Internet Explorer">
+        <div class="about-section">
+            <h2>Contact</h2>
+            <p>
+                Want to suggest a track for review? Found a bug? Just want to say hi?
+                Sign the guestbook or reach out!
+            </p>
+            <div class="contact-links">
+                <a href="guestbook.html">GUESTBOOK</a>
+                <a href="mailto:pe_szew@example.com">EMAIL</a>
+            </div>
         </div>
     </div>
 
-    <script>
-        // Blink animation
-        setInterval(() => {
-            const blinkElements = document.querySelectorAll('.blink');
-            blinkElements.forEach(el => {
-                el.style.visibility = el.style.visibility === 'hidden' ? 'visible' : 'hidden';
-            });
-        }, 500);
-    </script>
+    <footer style="text-align:center; padding:40px 20px; border-top:2px dashed var(--neon-cyan); margin-top:40px;">
+        <p style="color:#666; font-size:11px;">AstroCartel © 2025 // Personal Music Reviews</p>
+        <p style="margin-top:15px; color:var(--neon-magenta);">Made with ♥ by pe_szew</p>
+    </footer>
 </body>
 
 </html>
