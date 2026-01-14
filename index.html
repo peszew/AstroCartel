@@ -1,754 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrocartel -> TOP TOP MUSIC EST.2024</title>
+    <title>AstroCartel - Music Reviews</title>
+    <meta name="description" content="Personal music reviews and vibes. Cyber-vaporwave aesthetic.">
+
+    <!-- Open Graph for sharing -->
+    <meta property="og:title" content="AstroCartel - Music Reviews">
+    <meta property="og:description" content="Personal music reviews and vibes">
+    <meta property="og:type" content="website">
+
     <style>
-        body {
-            background-color: #000000;
-            background-image: url('https://web.archive.org/web/20071113053944if_/http://www.geocities.com/farid_fery2000/STARS-BG.gif');
-            font-family: "Comic Sans MS", "Arial", sans-serif;
-            color: #00FF00;
+        /* === EXOPET-INSPIRED CYBER-VAPORWAVE === */
+
+        * {
             margin: 0;
             padding: 0;
-            line-height: 1.5;
-        }
-        @media only screen and (min-width: 1024px) {
-          #container {
-            transform: skew(-20deg,0deg) !important; 
-          }
-        }
-        #container {
-            max-width: 750px;
-            width: 90%;
-            margin: 10px auto;
-            background-color: #000033;
-            border: 8px ridge #FF00FF;
-            padding: 5px;
             box-sizing: border-box;
-            
         }
-        
-        #banner {
+
+        :root {
+            --neon-cyan: #00ffff;
+            --neon-magenta: #ff00ff;
+            --neon-green: #00ff00;
+            --neon-yellow: #ffff00;
+            --bg-black: #000000;
+            --box-bg: #0a0a0a;
+        }
+
+        body {
+            background: var(--bg-black);
+            background-image: url('https://web.archive.org/web/20071113053944if_/http://www.geocities.com/farid_fery2000/STARS-BG.gif');
+            background-size: 400px;
+            color: var(--neon-cyan);
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* === HEADER === */
+        header {
+            background: linear-gradient(135deg, #0a0033 0%, #1a001a 100%);
+            border-bottom: 3px double var(--neon-cyan);
+            padding: 20px;
             text-align: center;
-            background-color: #000066;
-            border: 4px groove #00FFFF;
-            padding: 5px;
-            margin-bottom: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
-        
+
         h1 {
-            font-size: 7vw;
-            color: #FFFF00;
-            margin: 5px 0;
-            font-family: "Impact", "Arial Black", sans-serif;
+            font-size: clamp(28px, 8vw, 48px);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--neon-cyan);
+            text-shadow:
+                0 0 10px var(--neon-cyan),
+                0 0 20px var(--neon-cyan),
+                0 0 30px var(--neon-magenta);
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            color: var(--neon-magenta);
+            text-transform: uppercase;
             letter-spacing: 2px;
+            font-size: 12px;
         }
-        
-        .marquee {
-            background-color: #330066;
-            color: #00FFFF;
-            padding: 3px;
-            border: 2px dotted #FF00FF;
-            margin: 5px 0;
-            font-weight: bold;
-            overflow-x: auto;
-            white-space: nowrap;
+
+        /* === NAVIGATION === */
+        nav {
+            background: var(--box-bg);
+            border: 2px dashed var(--neon-magenta);
+            margin: 20px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        
-        .content-box {
-            background-color: #000044;
-            border: 3px groove #00FFFF;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        
-        h2 {
-            color: #FF9900;
-            border-bottom: 2px dashed #FF00FF;
-            padding-bottom: 3px;
-            font-size: 5vw;
-            background-color: #330033;
-            padding: 5px;
-        }
-        
-        .nav-bar {
-            background-color: #330066;
-            padding: 5px;
-            text-align: center;
-            border: 2px solid #00FF00;
-            margin: 10px 0;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        
-        .nav-bar a {
-            color: #00FFFF;
+
+        nav a {
+            color: var(--neon-yellow);
             text-decoration: none;
-            margin: 0 5px;
+            text-transform: uppercase;
             font-weight: bold;
-            font-size: 3.5vw;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border: 1px solid var(--neon-yellow);
+            transition: all 0.3s ease;
         }
-        
-        .nav-bar a:hover {
-            color: #FFFF00;
-            text-decoration: underline overline;
+
+        nav a:hover {
+            background: var(--neon-yellow);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px var(--neon-yellow);
         }
-        
-        .gif-container {
-            text-align: center;
-            margin: 10px 0;
+
+        /* === MAIN LAYOUT === */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        
-        .album-grid {
+
+        /* === ARTICLE CARDS === */
+        .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 10px 0;
+            gap: 24px;
+            margin: 30px 0;
         }
-        
-        .album {
-            background-color: #220022;
-            border: 2px solid #FF00FF;
-            padding: 5px;
-            text-align: center;
+
+        .article-card {
+            background: var(--box-bg);
+            border: 2px double var(--neon-cyan);
+            padding: 20px;
+            transition: all 0.3s ease;
         }
-        
-        .album img {
-            border: 2px ridge #00FFFF;
-            max-width: 100%;
-            height: auto;
+
+        .article-card:hover {
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+            transform: translateY(-4px);
         }
-        
-        .album h3 {
-            color: #FFFF00;
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        
-        .album p {
-            font-size: 12px;
-            color: #00FF00;
-        }
-        
-        .counter {
-            background-color: #000000;
-            color: #FF0000;
-            padding: 3px;
-            border: 2px solid #00FF00;
-            text-align: center;
-            font-family: "Courier New", monospace;
-            font-size: 14px;
-            margin: 10px auto;
-            width: 100px;
-        }
-        
-        .guestbook {
-            background-color: #330033;
-            border: 3px double #FFFF00;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        
-        .guestbook h2 {
-            color: #00FFFF;
-        }
-        
-        .guestbook-entry {
-            background-color: #000044;
-            border: 1px dotted #FF00FF;
-            padding: 5px;
-            margin: 5px 0;
-            font-size: 12px;
-        }
-        
-        .construction {
-            text-align: center;
-            margin: 10px 0;
-        }
-        
-        .blink {
-            animation: blink-animation 1s steps(2, start) infinite;
-        }
-        
-        @keyframes blink-animation {
-            to { visibility: hidden; }
-        }
-        
-        .signature {
-            text-align: right;
-            font-style: italic;
-            color: #FF00FF;
-            margin-top: 10px;
-            font-size: 12px;
-        }
-        
-        audio {
+
+        .article-image {
             width: 100%;
-            margin: 5px 0;
-            background-color: #000;
-            border: 2px ridge #00FF00;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border: 2px solid var(--neon-yellow);
+            margin-bottom: 16px;
         }
-        
-        /* Cursor trail effect */
-        .cursor-trail {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #ff00ff;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0.7;
-            z-index: 9999;
+
+        .article-title {
+            font-size: 18px;
+            color: var(--neon-yellow);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
-        .counter span {
+
+        .article-artist {
+            color: var(--neon-cyan);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--neon-green);
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--neon-cyan);
+        }
+
+        .article-excerpt {
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .read-btn {
             display: inline-block;
-            min-width: 70px;
+            background: transparent;
+            color: var(--neon-magenta);
+            border: 2px solid var(--neon-magenta);
+            padding: 10px 24px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .read-btn:hover {
+            background: var(--neon-magenta);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px var(--neon-magenta);
+        }
+
+        /* === 88x31 BADGES === */
+        .badges-section {
+            background: var(--box-bg);
+            border: 2px double var(--neon-green);
+            padding: 20px;
+            margin: 30px 0;
             text-align: center;
         }
-        #floating420{
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10000;
-            display: none;
-            animation: floatBounce 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 5px #00ff00);
+
+        .badges-section h3 {
+            color: var(--neon-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-size: 12px;
         }
-        @keyframes floatBounce {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(5deg); }
-            50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(-10px) rotate(-5deg); }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
         }
-        #floating420 img {
-            width: 150px;
-            border: 3px dashed #ff00ff;
-            border-radius: 50%;
-            background: black;
-            padding: 5px;
+
+        .badges img {
+            width: 88px;
+            height: 31px;
+            transition: transform 0.2s ease;
         }
-        
-        /* Responsive adjustments */
-        @media (min-width: 600px) {
-            h1 {
-                font-size: 36px;
-            }
-            
-            h2 {
-                font-size: 20px;
-            }
-            
-            .nav-bar a {
-                font-size: 14px;
+
+        .badges img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.3);
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 2px dashed var(--neon-cyan);
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 11px;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* === MOBILE === */
+        @media (min-width: 768px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
-<!-- Windows XP Malware Popup -->
-<div id="xp-popup" class="xp-popup" style="display: none;">
-    <div class="xp-window">
-        <div class="xp-titlebar">
-            <div class="xp-title">Security Alert</div>
-            <div class="xp-buttons">
-                <button class="xp-close" onclick="closePopup()">✕</button>
-            </div>
-        </div>
-        <div class="xp-content">
-            <div class="xp-icon">
-                <div class="xp-shield">⚠️</div>
-            </div>
-            <div class="xp-message">
-                <h3>CRITICAL SECURITY ALERT</h3>
-                <p>Your device has been infected with multiple viruses!</p>
-                <p>System memory: <span class="xp-scary">1337 threats detected</span></p>
-                <p>Immediate action required to prevent data loss.</p>
-                <p>匚卄∪Ｊ 匚工 山 刀∪ㄗモ れㄚム∪ち工モ 卄丹卄丹</p>
-            </div>
-        </div>
-        <div class="xp-buttons-bar">
-            <button class="xp-btn xp-scan" onclick="scanComputer()">
-                Scan Your Device
-            </button>
-            <button class="xp-btn xp-remove" onclick="removeViruses()">
-                Remove All Viruses
-            </button>
-            <button class="xp-btn xp-ignore" onclick="ignoreWarning()">
-                Ignore (Not Recommended)
-            </button>
-        </div>
-        <div class="xp-progress" style="display: none;">
-            <div class="xp-progress-bar">
-                <div class="xp-progress-fill"></div>
-            </div>
-            <span class="xp-progress-text">Scanning system files...</span>
-        </div>
-    </div>
-</div>
 
-<style>
-    /* Windows XP Popup Styles */
-    .xp-popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 10000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Tahoma", "Arial", sans-serif;
-    }
-    
-    .xp-window {
-        width: 400px;
-        background: linear-gradient(to bottom, #d4d0c8, #f0f0f0);
-        border: 2px solid #003c74;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-    
-    .xp-titlebar {
-        background: linear-gradient(to bottom, #0a246a, #a6caf0);
-        color: white;
-        padding: 4px 8px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: bold;
-        font-size: 12px;
-    }
-    
-    .xp-close {
-        background: #d4d0c8;
-        border: 1px solid #808080;
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-        cursor: pointer;
-    }
-    
-    .xp-content {
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .xp-icon {
-        width: 50px;
-        height: 50px;
-        background: #ffcc00;
-        border: 2px solid #cc9900;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
-    }
-    
-    .xp-message h3 {
-        color: #cc0000;
-        margin: 0 0 10px 0;
-        font-size: 14px;
-    }
-    
-    .xp-message p {
-        margin: 5px 0;
-        font-size: 12px;
-        color: #000;
-    }
-    
-    .xp-scary {
-        color: #cc0000;
-        font-weight: bold;
-    }
-    
-    .xp-buttons-bar {
-        padding: 15px;
-        background: #f0f0f0;
-        border-top: 1px solid #808080;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .xp-btn {
-        padding: 8px 15px;
-        border: 2px outset #d4d0c8;
-        background: linear-gradient(to bottom, #f0f0f0, #d4d0c8);
-        cursor: pointer;
-        font-family: "Tahoma", sans-serif;
-        font-size: 11px;
-        font-weight: bold;
-    }
-    
-    .xp-btn:hover {
-        background: linear-gradient(to bottom, #e0e0e0, #c4c0b8);
-    }
-    
-    .xp-scan {
-        color: #0000cc;
-    }
-    
-    .xp-remove {
-        color: #cc0000;
-    }
-    
-    .xp-ignore {
-        color: #666666;
-    }
-    
-    .xp-progress {
-        padding: 15px;
-        background: #f0f0f0;
-        border-top: 1px solid #808080;
-    }
-    
-    .xp-progress-bar {
-        width: 100%;
-        height: 20px;
-        background: #ffffff;
-        border: 1px solid #808080;
-        margin-bottom: 8px;
-    }
-    
-    .xp-progress-fill {
-        height: 100%;
-        background: linear-gradient(to bottom, #00cc00, #009900);
-        width: 0%;
-        transition: width 3s ease-in-out;
-    }
-    
-    .xp-progress-text {
-        font-size: 11px;
-        color: #666666;
-    }
-    
-    /* Shake animation for urgency */
-    @keyframes xp-shake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-5px); }
-        75% { transform: translateX(5px); }
-    }
-    
-    .xp-window {
-        animation: xp-shake 0.5s ease-in-out 3;
-    }
-</style>
-
-<script>
-    // Show popup after page loads
-    setTimeout(function() {
-        document.getElementById('xp-popup').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-    }, 3000); // Show after 3 seconds
-    
-    function closePopup() {
-        document.getElementById('xp-popup').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-    
-    function scanComputer() {
-        const progress = document.querySelector('.xp-progress');
-        const progressFill = document.querySelector('.xp-progress-fill');
-        const progressText = document.querySelector('.xp-progress-text');
-        const buttons = document.querySelector('.xp-buttons-bar');
-        
-        // Hide buttons, show progress
-        buttons.style.display = 'none';
-        progress.style.display = 'block';
-        
-        // Animate progress bar
-        progressFill.style.width = '100%';
-        progressText.textContent = 'Scanning system files...';
-        
-        setTimeout(() => {
-            progressText.textContent = '478 threats found!';
-            setTimeout(() => {
-                buttons.style.display = 'flex';
-                progress.style.display = 'none';
-                progressFill.style.width = '0%';
-            }, 2000);
-        }, 3000);
-    }
-    
-    function removeViruses() {
-        const progress = document.querySelector('.xp-progress');
-        const progressFill = document.querySelector('.xp-progress-fill');
-        const progressText = document.querySelector('.xp-progress-text');
-        const buttons = document.querySelector('.xp-buttons-bar');
-        
-        buttons.style.display = 'none';
-        progress.style.display = 'block';
-        
-        progressFill.style.width = '100%';
-        progressText.textContent = 'Removing viruses...';
-        
-        setTimeout(() => {
-            progressText.textContent = 'Viruses successfully removed!';
-            progressFill.style.background = 'linear-gradient(to bottom, #00cc00, #009900)';
-            
-            setTimeout(() => {
-                closePopup();
-                // Optional: Show success message
-                alert('System secured! Enjoy your visit to AstroCartel! 🚀');
-            }, 1500);
-        }, 3000);
-    }
-    
-    function ignoreWarning() {
-        closePopup();
-        // Optional: Show funny message
-        setTimeout(() => {
-            alert('Your computer will self-destruct in 10... just kidding! 😄');
-        }, 1000);
-    }
-    
-    // Close if user clicks outside
-    document.getElementById('xp-popup').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closePopup();
-        }
-    });
-</script>
 <body>
-    <!-- Cursor trail elements will be added here by JavaScript -->
-    
-    <div id="container">
-        <div id="banner">
-            <div class="gif-container">
-                <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif" alt="Music notes">
-                <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif" alt="New">
-                <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif" alt="Under construction">
-            </div>
-            <h1>ASTROCARTEL MUSIC</h1>
-            <div class="marquee">
-                <marquee behavior="scroll" direction="left" scrollamount="5">
-                    WELCOME TO MY MUSIC WEBSITE!!! ••• UNDER CONSTRUCTION ••• NEW TRACKS ADDED WEEKLY ••• VISIT MY GUESTBOOK ••• BEST VIEWED IN NETSCAPE 4.0 ••• 800x600 RESOLUTION RECOMMENDED •••
-                </marquee>
-            </div>
-            <div class="gif-container">
-                <img src="https://i.imgur.com/9bqZQrK.gif" alt="Download">
-                <img src="https://i.imgur.com/6yG9tJq.gif" alt="Guestbook">
-                <img src="https://i.imgur.com/vx9fT8J.gif" alt="New">
-            </div>
+    <header>
+        <div style="text-align:center; margin-bottom:10px;">
+            <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif"
+                alt="Music" style="height:30px; margin:0 5px;">
+            <img src="https://i.imgur.com/vx9fT8J.gif" alt="New" style="height:35px; margin:0 5px;">
+            <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif"
+                alt="Music" style="height:30px; margin:0 5px;">
         </div>
-        
-        <div class="nav-bar">
-            <a href="index.html">HOME</a> ✦
-            <a href="music.html">MUSIC</a> ✦
-            <a href="articles.html">ARTICLES</a> ✦
-            <a href="guestbook.html">GUESTBOOK</a> ✦
-        </div>
-        
-        <div class="content-box">
-            <h2>WELCOME TO ASTROCARTEL BIATHCH!!1!111!!</h2>
-            <p>Hi! I'm <span style="color:#FF00FF; font-weight:bold;">p3dr0G</span>, welcome to my <span class="blink">OFFICIAL</span> music website! Here you can find pure vibe tracks, album releases, and many more. LISTEN TO <span style="color:#FFFF00;">MEMORABLE</span> and <span style="color:#00FFFF;">NOSTALGIC</span> MUSIC. Enjoy your stay and sign my guestbook before you leave!</p>
-            
-            <div class="gif-container">
-                <img src="https://i.imgur.com/6sE0dN5.gif" alt="Visitor counter">
-            </div>
-            
-            <div class="counter">
-                VISITORS: <span id="visitorCount">0000398</span>
-            </div>
-        </div>
-        
-        <!-- Add this to your content-box section -->
-        <div class="content-box">
-            <h2>LATEST ARTICLES</h2>
-            <div class="article-teasers">
-                <!-- Example of 2 latest articles -->
-                <div class="teaser">
-                    <img src="articles/assets/ghost-town-thumb.gif" alt="Ghost Town">
-                    <h3>Ghost Town - Adam Lambert</h3>
-                    <p>Classic banger that still hits hard in 2025...</p>
-                    <a href="articles/music/2025-07-10-ghost-town.html" class="read-more">
-                        <img src="assets/images/read-more.gif"> READ FULL REVIEW
-                    </a>
+        <h1>ASTROCARTEL</h1>
+        <p class="tagline">★ Music Reviews ★ Vaporwave Vibes ★</p>
+    </header>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="guestbook.html">GUESTBOOK</a>
+        <a href="about.html">ABOUT</a>
+    </nav>
+
+    <div class="container">
+        <div class="articles-grid">
+            <!-- Article 1: Santigold -->
+            <div class="article-card">
+                <img src="C:/Users/piotr/.gemini/antigravity/brain/12675552-cf8e-4e55-a3f8-1b2b4ac85243/uploaded_image_1768346245068.jpg"
+                    alt="Santigold" class="article-image">
+                <h2 class="article-title">Disparate Youth</h2>
+                <p class="article-artist">Santigold</p>
+                <div class="article-meta">
+                    <span>2025-05-08</span>
+                    <span>★★★★★</span>
                 </div>
+                <p class="article-excerpt">
+                    What comes to my mind when listening to this track: sitting in the backseat of a car,
+                    sunset outside the window, staring at it. Coming back from a journey...
+                </p>
+                <a href="articles/santigold-disparate-youth.html" class="read-btn">Read Review</a>
             </div>
-            <div style="text-align:center; margin-top:20px;">
-                <a href="articles.html" class="view-all">
-                    <img src="assets/images/view-all.gif"> VIEW ALL ARTICLES
-                </a>
-            </div>
-        </div>
-        
-        
-        <div class="content-box">
-            <h2>DISCOGRAPHY</h2>
-            <div class="album-grid">
-                <div class="album">
-                    <img src="https://i.imgur.com/5dJzF4G.png" alt="Nebula Dreams album">
-                    <h3>NEBULA DREAMS</h3>
-                    <p>(2022)</p>
-                    <img src="https://i.imgur.com/4XWQyYd.gif" alt="New">
+
+            <!-- Article 2: Ghost Town -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/5dJzF4G.png" alt="Ghost Town" class="article-image">
+                <h2 class="article-title">Ghost Town</h2>
+                <p class="article-artist">Adam Lambert</p>
+                <div class="article-meta">
+                    <span>2023-07-10</span>
+                    <span>★★★★☆</span>
                 </div>
-                <div class="album">
-                    <img src="https://i.imgur.com/7dXyqI2.png" alt="Quantum Echoes album">
-                    <h3>QUANTUM ECHOES</h3>
-                    <p>(2021)</p>
+                <p class="article-excerpt">
+                    A classic banger that hasn't been heard in a while. When you play it loud, everyone goes:
+                    "Haven't heard this in ages!" Makes you wonder...
+                </p>
+                <a href="articles/ghost-town.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 3: Example Track -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/7dXyqI2.png" alt="Album Cover" class="article-image">
+                <h2 class="article-title">Example Track</h2>
+                <p class="article-artist">Artist Name</p>
+                <div class="article-meta">
+                    <span>2023-06-15</span>
+                    <span>★★★★★</span>
                 </div>
-                <div class="album">
-                    <img src="https://i.imgur.com/3sKXk3X.png" alt="Stellar Drift album">
-                    <h3>STELLAR DRIFT</h3>
-                    <p>(2020)</p>
-                    <img src="https://i.imgur.com/rQY4wYh.gif" alt="Hot">
+                <p class="article-excerpt">
+                    This is where your review excerpt goes. Keep it short and engaging - 2-3 sentences
+                    that make people want to read more...
+                </p>
+                <a href="articles/example.html" class="read-btn">Read Review</a>
+            </div>
+
+            <!-- Article 4: Another Example -->
+            <div class="article-card">
+                <img src="https://i.imgur.com/3sKXk3X.png" alt="Album Cover" class="article-image">
+                <h2 class="article-title">Another Track</h2>
+                <p class="article-artist">Another Artist</p>
+                <div class="article-meta">
+                    <span>2023-05-22</span>
+                    <span>★★★☆☆</span>
                 </div>
+                <p class="article-excerpt">
+                    Your review excerpt here. Talk about what makes this track special or why it caught
+                    your attention. Make it personal...
+                </p>
+                <a href="articles/another-example.html" class="read-btn">Read Review</a>
             </div>
         </div>
-        
-        <div class="guestbook">
-            <h2>SIGN MY GUESTBOOK</h2>
-            <div class="guestbook-entry">
-                <p><span style="color:#FF9900;">NAME:</span> SPACE_CADET_93</p>
-                <p><span style="color:#FF9900;">MESSAGE:</span> Your music is out of this world! When are you coming to Alpha Centauri for a show?? ★☆☆☆☆</p>
-                <p><span style="color:#FF9900;">DATE:</span> 10/22/2023</p>
-            </div>
-            
-            <div class="guestbook-entry">
-                <p><span style="color:#FF9900;">NAME:</span> TECHNO_ALIEN</p>
-                <p><span style="color:#FF9900;">MESSAGE:</span> Galactic Pulse is my new coding soundtrack! Can't stop listening to track 4. Keep up the great work! ✰✰✰✰✰</p>
-                <p><span style="color:#FF9900;">DATE:</span> 10/20/2023</p>
-            </div>
-            
-            <div style="text-align:center; margin:10px 0;">
-                <img src="https://i.imgur.com/6yG9tJq.gif" alt="Sign guestbook">
-                <p><a href="#" style="color:#00FFFF;">CLICK HERE TO SIGN MY GUESTBOOK!</a></p>
+
+        <!-- 88x31 Badges -->
+        <div class="badges-section">
+            <h3>✦ Cool Sites ✦</h3>
+            <div class="badges">
+                <img src="https://anlucas.neocities.org/88x31Buttons/internetcom.gif" alt="Internet">
+                <img src="https://anlucas.neocities.org/88x31Buttons/getflash.gif" alt="Flash">
+                <img src="https://anlucas.neocities.org/88x31Buttons/madewith.gif" alt="HTML">
+                <img src="https://anlucas.neocities.org/88x31Buttons/css.gif" alt="CSS">
+                <img src="https://anlucas.neocities.org/88x31Buttons/notepad.gif" alt="Notepad">
+                <img src="https://anlucas.neocities.org/88x31Buttons/netscape4.gif" alt="Netscape">
             </div>
         </div>
-        
-        <div class="construction">
-            <img src="https://i.imgur.com/1eL1vjA.gif" alt="Under construction">
-            <p>MORE SECTIONS COMING SOON!</p>
+
+        <!-- Under Construction -->
+        <div
+            style="text-align:center; padding:20px; margin:20px 0; background:var(--box-bg); border:2px dashed var(--neon-yellow);">
+            <img src="https://i.imgur.com/1eL1vjA.gif" alt="Under construction" style="height:40px; margin:0 5px;">
+            <p style="color:var(--neon-yellow); margin:10px 0; text-transform:uppercase; letter-spacing:2px;">More
+                Reviews Coming Soon</p>
+            <img src="https://i.imgur.com/vx9fT8J.gif" alt="New" style="height:40px; margin:0 5px;">
         </div>
-        
-        <div class="counter" style="margin-top:15px;">
-            <script language="JavaScript">
-                // Fake last updated date
-                document.write("LAST UPDATED: 12/08/2025");
-            </script>
-        </div>
-        
-        <div class="signature">
-            Made with ♥ ••• <img src="https://i.imgur.com/2aX9K0L.gif" alt="Email"> pe_szew
-        </div>
-        
-        <div style="text-align:center; margin-top:10px;">
-            <img src="https://i.imgur.com/3tM0P2X.gif" alt="Best viewed with Netscape">
-            <img src="https://i.imgur.com/0wS0y8a.gif" alt="Internet Explorer">
+
+        <!-- Visitor Counter -->
+        <div
+            style="text-align:center; padding:15px; background:var(--box-bg); border:2px solid var(--neon-cyan); margin:20px 0;">
+            <p style="color:var(--neon-green); font-size:11px; margin-bottom:8px;">YOU ARE VISITOR NUMBER:</p>
+            <img src="https://i.imgur.com/eG71yDu.gif" alt="Counter" style="height:20px;">
         </div>
     </div>
-    <div id="floating420">
-        <img src="https://blob.gifcities.org/gifcities/2SGSPSTSYVCISZNGT3SKD376J5XOAVYL.gif" alt="Retro GIF">
-    </div>
-    <script>
-        // Visitor counter (fake)
-        document.addEventListener('DOMContentLoaded', function() {
-            const counter = document.getElementById('visitorCount');
-            const floatingGif = document.getElementById('floating420');
-            let count = 398;
-            let isPaused = false;
-            
-            // First phase: smooth count to 420
-            function animateTo420() {
-                if (count < 420) {
-                    count++;
-                    counter.textContent = count.toString().padStart(7, '0');
-                    const delay = 50 + Math.random() * 100;
-                    setTimeout(animateTo420, delay);
-                } else if (count === 420) {
-                    // Show the dramatic floating GIF
-                    floatingGif.style.display = 'block';
-                    
-                    // Make it draggable
-                    floatingGif.addEventListener('mousedown', function(e) {
-                        let shiftX = e.clientX - floatingGif.getBoundingClientRect().left;
-                        let shiftY = e.clientY - floatingGif.getBoundingClientRect().top;
-                        
-                        function moveAt(pageX, pageY) {
-                            floatingGif.style.left = pageX - shiftX + 'px';
-                            floatingGif.style.top = pageY - shiftY + 'px';
-                        }
-                        
-                        function onMouseMove(e) {
-                            moveAt(e.pageX, e.pageY);
-                        }
-                        
-                        document.addEventListener('mousemove', onMouseMove);
-                        
-                        floatingGif.onmouseup = function() {
-                            document.removeEventListener('mousemove', onMouseMove);
-                            floatingGif.onmouseup = null;
-                        };
-                    });
-                    
-                    floatingGif.ondragstart = function() {
-                        return false;
-                    };
-                    
-                    // Pause for 1 minute
-                    isPaused = true;
-                    setTimeout(() => {
-                        floatingGif.style.display = 'none';
-                        isPaused = false;
-                        fastCount();
-                    }, 60000);
-                }
-            }
-            
-            // Second phase: fast counting after 420
-            function fastCount() {
-                if (!isPaused) {
-                    count++;
-                    counter.textContent = count.toString().padStart(7, '0');
-                    setTimeout(fastCount, 50);
-                }
-            }
-            
-            // Start the counter animation
-            setTimeout(animateTo420, 1000);
-            
-            // Create cursor trail effect
-            const colors = ['#ff00ff', '#00ffff', '#ffff00', '#00ff00'];
-            let trailElements = [];
-            
-            document.addEventListener('mousemove', function(e) {
-                // Create new trail element
-                const trail = document.createElement('div');
-                trail.className = 'cursor-trail';
-                trail.style.left = (e.pageX - 5) + 'px';
-                trail.style.top = (e.pageY - 5) + 'px';
-                trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                document.body.appendChild(trail);
-                trailElements.push(trail);
-                
-                // Remove oldest elements if we have too many
-                if (trailElements.length > 15) {
-                    const oldTrail = trailElements.shift();
-                    oldTrail.parentNode.removeChild(oldTrail);
-                }
-                
-                // Fade out trail elements
-                trailElements.forEach((el, index) => {
-                    const opacity = 0.7 - (index * 0.05);
-                    el.style.opacity = opacity > 0 ? opacity : 0;
-                });
-            });
-            
-            // Create fake marquee blink effect
-            const blinkElements = document.querySelectorAll('.blink');
-            setInterval(() => {
-                blinkElements.forEach(el => {
-                    el.style.visibility = el.style.visibility === 'hidden' ? 'visible' : 'hidden';
-                });
-            }, 500);
-        });
-    </script>
+
+    <footer>
+        <p>AstroCartel © 2025 // Personal Music Reviews</p>
+        <div class="footer-links">
+            <a href="guestbook.html">Sign Guestbook</a>
+            <a href="about.html">About</a>
+        </div>
+        <p style="margin-top:15px; color:var(--neon-magenta);">Made with ♥ by pe_szew</p>
+
+        <!-- Classic web badges -->
+        <div style="margin-top:20px;">
+            <img src="https://i.imgur.com/3tM0P2X.gif" alt="Netscape" style="width:88px; height:31px; margin:5px;">
+            <img src="https://i.imgur.com/0wS0y8a.gif" alt="IE" style="width:88px; height:31px; margin:5px;">
+        </div>
+    </footer>
 </body>
+
 </html>

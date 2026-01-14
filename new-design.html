@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroCartel - Music Reviews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600&family=Bebas+Neue&display=swap"
+        rel="stylesheet">
+    <style>
+        /* === DESIGN CONCEPT ===
+           Mobile-first, raw early-web energy meets modern UX
+           Inspired by personal web pages but optimized for thumb scrolling
+           Bold gradients, chunky type, comfortable reading
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color system - bold but not overwhelming */
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --accent-yellow: #FFD60A;
+            --accent-orange: #FF9500;
+            --accent-pink: #FF2D55;
+            --accent-cyan: #00C7BE;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --gradient-warm: linear-gradient(135deg, #FFD60A 0%, #FF9500 100%);
+            --gradient-cool: linear-gradient(135deg, #00C7BE 0%, #5E5CE6 100%);
+            --gradient-fire: linear-gradient(135deg, #FF2D55 0%, #FF9500 50%, #FFD60A 100%);
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px;
+        }
+
+        /* === HEADER === */
+        header {
+            padding: 20px;
+            background: var(--bg-dark);
+            border-bottom: 3px solid var(--accent-yellow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-gifs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .header-gifs img {
+            height: 30px;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        .header-gifs img:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .header-gifs img:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .site-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(32px, 8vw, 48px);
+            letter-spacing: 2px;
+            background: var(--gradient-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 2s ease-in-out infinite;
+            margin-bottom: 8px;
+        }
+
+        .site-subtitle {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 14px;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Blinking text */
+        .blink {
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Marquee */
+        .marquee {
+            background: linear-gradient(90deg, var(--bg-card), #2a2a2a, var(--bg-card));
+            padding: 12px 0;
+            overflow: hidden;
+            border-top: 2px solid var(--accent-yellow);
+            border-bottom: 2px solid var(--accent-pink);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scroll-left 20s linear infinite;
+            white-space: nowrap;
+            color: var(--accent-cyan);
+            font-family: 'Space Grotesk', monospace;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        @keyframes scroll-left {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* === MAIN CONTENT === */
+        main {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* === ARTICLE CARDS === */
+        .article {
+            background: var(--bg-card);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .article:active {
+            transform: scale(0.98);
+            border-color: var(--accent-yellow);
+        }
+
+        @media (hover: hover) {
+            .article:hover {
+                border-color: var(--accent-yellow);
+                transform: translateY(-4px);
+            }
+        }
+
+        .article-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(20px, 5vw, 28px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-artist {
+            font-size: 16px;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding-bottom: 12px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .article-date {
+            font-family: 'Space Grotesk', monospace;
+        }
+
+        .article-rating {
+            color: var(--accent-yellow);
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .article-excerpt {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: var(--gradient-warm);
+            color: #0a0a0a;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-family: 'Space Grotesk', sans-serif;
+            border: 2px solid transparent;
+        }
+
+        .read-more:active {
+            transform: scale(0.95);
+        }
+
+        @media (hover: hover) {
+            .read-more:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(255, 214, 10, 0.4);
+            }
+        }
+
+        /* === FLOATING ACTION === */
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-fire);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(255, 45, 85, 0.5);
+            z-index: 50;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .fab:active {
+            transform: scale(0.9);
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .footer-signature {
+            font-family: 'Space Grotesk', monospace;
+            margin-top: 12px;
+            color: var(--accent-yellow);
+        }
+
+        /* === EXPERIMENTAL ELEMENTS === */
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Badge section */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 2px solid var(--accent-cyan);
+        }
+
+        .badges img {
+            height: 31px;
+            width: 88px;
+            transition: transform 0.2s ease;
+        }
+
+        .badges img:hover {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        /* Spinning element */
+        .spin {
+            display: inline-block;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Construction section */
+        .construction {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--bg-card);
+            border: 2px dashed var(--accent-yellow);
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        .construction img {
+            margin: 10px;
+        }
+
+        /* Optional accent bars */
+        .accent-bar {
+            height: 4px;
+            background: var(--gradient-warm);
+            margin: 24px 0;
+            border-radius: 2px;
+            opacity: 0.3;
+        }
+
+        /* === DESKTOP ENHANCEMENTS === */
+        @media (min-width: 768px) {
+            main {
+                padding: 40px 20px;
+            }
+
+            .article {
+                display: grid;
+                grid-template-columns: 300px 1fr;
+                margin-bottom: 32px;
+            }
+
+            .article-image {
+                aspect-ratio: unset;
+                height: 100%;
+            }
+
+            .article-content {
+                padding: 32px;
+            }
+
+            header {
+                padding: 32px 40px;
+            }
+
+            .fab {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Bouncing header GIFs -->
+        <div class="header-gifs">
+            <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif"
+                alt="Music">
+            <img src="https://i.imgur.com/4XWQyYd.gif" alt="New" style="height:40px;">
+            <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif"
+                alt="Music">
+        </div>
+        <h1 class="site-title">ASTROCARTEL</h1>
+        <p class="site-subtitle"><span class="blink">★</span> Music // Vibes // Reviews <span class="blink">★</span></p>
+    </header>
+
+    <!-- Scrolling Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            ★★★ WELCOME TO ASTROCARTEL ★★★ NEW REVIEWS WEEKLY ★★★ MOBILE-OPTIMIZED ★★★ FOLLOW FOR MORE VIBES ★★★ MUSIC
+            IS LIFE ★★★
+        </div>
+    </div>
+
+    <main>
+        <!-- Article 1: Santigold -->
+        <article class="article">
+            <img src="C:/Users/piotr/.gemini/antigravity/brain/12675552-cf8e-4e55-a3f8-1b2b4ac85243/uploaded_image_1768346245068.jpg"
+                alt="Santigold - Disparate Youth" class="article-image">
+            <div class="article-content">
+                <h2 class="article-title">Disparate Youth <img src="https://i.imgur.com/rQY4wYh.gif" alt="Hot"
+                        style="height:20px; vertical-align:middle;"></h2>
+                <p class="article-artist">Santigold</p>
+                <div class="article-meta">
+                    <span class="article-date">2025-05-08</span>
+                    <span class="article-rating">★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    What comes to my mind when listening to this track: sitting in the backseat of a car,
+                    sunset outside the window, staring at it. Coming back from a journey. Goooood shit...
+                </p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </article>
+
+        <!-- Article 2: Ghost Town -->
+        <article class="article">
+            <img src="https://i.imgur.com/5dJzF4G.png" alt="Ghost Town" class="article-image">
+            <div class="article-content">
+                <h2 class="article-title">Ghost Town</h2>
+                <p class="article-artist">Adam Lambert</p>
+                <div class="article-meta">
+                    <span class="article-date">July 10, 2023</span>
+                    <span class="article-rating">★★★★☆</span>
+                </div>
+                <p class="article-excerpt">
+                    A classic banger that hasn't been heard in a while. When you play it loud, everyone goes:
+                    "Haven't heard this in ages!" Makes you wonder if there'd be more hits like this if he hadn't
+                    committed to Queen.
+                </p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </article>
+
+        <!-- Article 3: Galactic Pulse -->
+        <article class="article">
+            <img src="https://i.imgur.com/7dXyqI2.png" alt="Galactic Pulse" class="article-image">
+            <div class="article-content">
+                <h2 class="article-title">Galactic Pulse</h2>
+                <p class="article-artist">DJ Astro</p>
+                <div class="article-meta">
+                    <span class="article-date">June 15, 2023</span>
+                    <span class="article-rating">★★★★★</span>
+                </div>
+                <p class="article-excerpt">
+                    The latest release takes you on a sonic voyage through nebulas and star clusters.
+                    Perfect for late-night coding sessions or cosmic meditation. Eight interstellar journeys...
+                </p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </article>
+
+        <!-- Article 4: Nebula Dreams -->
+        <article class="article">
+            <img src="https://i.imgur.com/3sKXk3X.png" alt="Nebula Dreams" class="article-image">
+            <div class="article-content">
+                <h2 class="article-title">Nebula Dreams</h2>
+                <p class="article-artist">Cosmic Waves</p>
+                <div class="article-meta">
+                    <span class="article-date">May 22, 2023</span>
+                    <span class="article-rating">★★★☆☆</span>
+                </div>
+                <p class="article-excerpt">
+                    Ambient space techno that transports you to distant galaxies. While some tracks feel repetitive,
+                    the overall atmosphere is perfect for deep space exploration...
+                </p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </article>
+
+        <!-- 88x31 Badges Section -->
+        <div class="badges">
+            <img src="https://anlucas.neocities.org/88x31Buttons/internetcom.gif" alt="Internet">
+            <img src="https://anlucas.neocities.org/88x31Buttons/getflash.gif" alt="Flash">
+            <img src="https://anlucas.neocities.org/88x31Buttons/madewith.gif" alt="HTML">
+            <img src="https://anlucas.neocities.org/88x31Buttons/css.gif" alt="CSS">
+            <img src="https://anlucas.neocities.org/88x31Buttons/notepad.gif" alt="Notepad">
+            <img src="https://anlucas.neocities.org/88x31Buttons/netscape4.gif" alt="Netscape">
+        </div>
+
+        <!-- Under Construction -->
+        <div class="construction">
+            <p
+                style="color:var(--accent-yellow); font-family:'Space Grotesk', sans-serif; font-weight:700; margin-bottom:10px;">
+                🚧 <span class="blink">MORE REVIEWS COMING SOON</span> 🚧</p>
+            <img src="https://i.imgur.com/1eL1vjA.gif" alt="Under construction" style="height:40px;">
+            <img src="https://i.imgur.com/vx9fT8J.gif" alt="New" style="height:40px;">
+            <img src="assets/images/alien-dance.gif" alt="Dancing alien" style="height:60px;">
+            <p style="color:var(--accent-cyan); margin-top:15px; font-size:12px;"><span class="spin">💿</span> Always
+                fresh vibes <span class="spin">🎵</span></p>
+        </div>
+
+        <div class="accent-bar"></div>
+    </main>
+
+    <!-- Floating Action Button -->
+    <a href="#" class="fab" title="Top">↑</a>
+
+    <footer>
+        <p>Personal music reviews & vibes</p>
+        <p class="footer-signature">Made with ♥ by pe_szew <span class="blink">★</span></p>
+        <div style="margin-top:15px;">
+            <img src="https://i.imgur.com/3tM0P2X.gif" alt="Netscape" style="height:31px;">
+            <img src="https://i.imgur.com/0wS0y8a.gif" alt="IE" style="height:31px;">
+        </div>
+    </footer>
+</body>
+
+</html>

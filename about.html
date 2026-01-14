@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | AstroCartel</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* About Page Specific Styles */
+        .about-window {
+            background: linear-gradient(to bottom, #d4d0c8, #f0f0f0);
+            border: 3px solid #003c74;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            margin: 20px 0;
+        }
+
+        .about-content {
+            padding: 20px;
+            color: #000;
+            font-family: "Tahoma", "Arial", sans-serif;
+            font-size: 14px;
+        }
+
+        .profile-section {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border: 3px ridge #808080;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex-grow: 1;
+            min-width: 250px;
+        }
+
+        .profile-info h3 {
+            color: #000080;
+            margin: 5px 0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+        }
+
+        .profile-info p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            background-color: #220033;
+            border: 3px groove #00ffff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            background: linear-gradient(135deg, #330066, #000044);
+            border-left: 5px solid #ff00ff;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '●';
+            position: absolute;
+            left: -13px;
+            top: 15px;
+            color: #00ffff;
+            font-size: 20px;
+        }
+
+        .timeline-year {
+            color: #ffff00;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            color: #00ffff;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .timeline-desc {
+            color: #00ff00;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Influences Grid */
+        .influences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .influence-item {
+            background: linear-gradient(135deg, #220033, #110022);
+            border: 2px solid #ff00ff;
+            padding: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .influence-item:hover {
+            transform: scale(1.05);
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .influence-item img {
+            width: 88px;
+            height: 31px;
+            margin: 5px auto;
+        }
+
+        .influence-name {
+            color: #00ffff;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Social Links */
+        .social-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-btn {
+            display: inline-block;
+            background: linear-gradient(to bottom, #f0f0f0, #c0c0c0);
+            border: 2px outset #808080;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-family: "Tahoma", sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .social-btn:hover {
+            background: linear-gradient(to bottom, #ffffff, #d0d0d0);
+        }
+
+        .social-btn:active {
+            border-style: inset;
+        }
+
+        /* Stats Box */
+        .stats-box {
+            background-color: #000;
+            border: 2px inset #808080;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'VT323', monospace;
+            font-size: 18px;
+        }
+
+        .stat-line {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            color: #00ff00;
+        }
+
+        .stat-label {
+            color: #00ffff;
+        }
+
+        .stat-value {
+            color: #ffff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <!-- Banner -->
+        <div id="banner">
+            <div class="gif-container">
+                <img src="assets/images/alien-dance.gif" alt="Dancing Alien" style="width:50px;">
+                <img src="https://web.archive.org/web/20091027083753im_/http://www.geocities.com/djmechelen/music.gif"
+                    alt="Music">
+                <img src="assets/images/rocket.gif" alt="Rocket" style="width:50px;">
+            </div>
+            <h1>ASTROCARTEL MUSIC</h1>
+            <div class="marquee">
+                <marquee behavior="scroll" direction="left" scrollamount="5">
+                    ABOUT THE MUSIC • COSMIC JOURNEY • MEET THE ARTIST • POWERED BY RETRO VIBES
+                </marquee>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <a href="index.html">HOME</a> ✦
+            <a href="music.html">MUSIC</a> ✦
+            <a href="articles.html">ARTICLES</a> ✦
+            <a href="about.html" class="active">ABOUT</a> ✦
+            <a href="guestbook.html">GUESTBOOK</a>
+        </div>
+
+        <!-- About Window -->
+        <div class="about-window">
+            <div class="win98-titlebar">
+                <div class="win98-title">📁 About_AstroCartel.exe</div>
+                <div class="win98-buttons">
+                    <button class="win98-btn" style="width:20px; height:20px; padding:0;">_</button>
+                    <button class="win98-btn" style="width:20px; height:20px; padding:0;">□</button>
+                    <button class="win98-btn" style="width:20px; height:20px; padding:0;">✕</button>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="profile-section">
+                    <div class="profile-pic">
+                        🎵
+                    </div>
+                    <div class="profile-info">
+                        <h3>P3DR0G / ASTROCARTEL</h3>
+                        <p><strong>Role:</strong> Cosmic Music Producer & Space DJ</p>
+                        <p><strong>Location:</strong> Orbiting Earth 🌍</p>
+                        <p><strong>Genre:</strong> Space Techno, Cosmic Ambient, Retro Vibes</p>
+                        <p><strong>Status:</strong> <span class="blink" style="color:#00ff00;">●</span> Currently Online
+                        </p>
+                    </div>
+                </div>
+
+                <h3 style="color:#000080; border-bottom:2px solid #808080; padding-bottom:5px; margin-top:20px;">
+                    About Me
+                </h3>
+                <p>
+                    Welcome to my corner of the internet! I'm p3dr0G, the mind and soul behind AstroCartel.
+                    Since 2020, I've been crafting cosmic soundscapes that blend retro nostalgia with futuristic vibes.
+                    My music takes you on interstellar journeys through nebulas, past distant stars, and into the heart
+                    of the galaxy.
+                </p>
+                <p>
+                    Inspired by the golden age of web 1.0 and the endless possibilities of space, I create music
+                    that's perfect for late-night coding sessions, cosmic meditation, or just vibing to the universe's
+                    rhythm.
+                </p>
+
+                <!-- Stats -->
+                <div class="stats-box">
+                    <div class="stat-line">
+                        <span class="stat-label">TRACKS RELEASED:</span>
+                        <span class="stat-value">42</span>
+                    </div>
+                    <div class="stat-line">
+                        <span class="stat-label">ALBUMS:</span>
+                        <span class="stat-value">3</span>
+                    </div>
+                    <div class="stat-line">
+                        <span class="stat-label">LIGHT YEARS TRAVELLED:</span>
+                        <span class="stat-value">∞</span>
+                    </div>
+                    <div class="stat-line">
+                        <span class="stat-label">VIBE LEVEL:</span>
+                        <span class="stat-value">MAXIMUM</span>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <h3 style="color:#000080; margin-top:20px;">Connect With Me</h3>
+                <div class="social-links">
+                    <a href="#" class="social-btn">💾 DOWNLOAD MUSIC</a>
+                    <a href="#" class="social-btn">📧 EMAIL ME</a>
+                    <a href="guestbook.html" class="social-btn">📝 GUESTBOOK</a>
+                    <a href="#" class="social-btn">🔊 SOUNDCLOUD</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Musical Journey Timeline -->
+        <div class="timeline">
+            <h2 style="text-align:center; color:#ffff00; font-family:'Press Start 2P', cursive; font-size:14px;">
+                🚀 MUSICAL JOURNEY 🚀
+            </h2>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-title">The Cosmic Expansion</div>
+                <div class="timeline-desc">
+                    Launched AstroCartel website and started sharing music with the world. Released "Nebula Dreams"
+                    which gained traction in the underground space techno scene.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-title">Deep Space Production</div>
+                <div class="timeline-desc">
+                    Dove deep into ambient production, exploring the boundaries between techno and atmospheric
+                    soundscapes.
+                    Released "Quantum Echoes" - an album that captures the essence of interstellar travel.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-title">First Steps into Space</div>
+                <div class="timeline-desc">
+                    Started experimenting with electronic music production. Released debut album "Stellar Drift"
+                    which established my signature cosmic sound.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2018</div>
+                <div class="timeline-title">The Beginning</div>
+                <div class="timeline-desc">
+                    Discovered a passion for synthesizers and electronic music. Spent countless nights learning
+                    production techniques and developing my unique sound.
+                </div>
+            </div>
+        </div>
+
+        <!-- Influences -->
+        <div class="content-box">
+            <h2>🎧 MUSICAL INFLUENCES 🎧</h2>
+            <p style="color:#00ffff; text-align:center;">
+                Artists and producers who shaped my cosmic sound
+            </p>
+            <div class="influences-grid">
+                <div class="influence-item">
+                    <div style="color:#ff00ff; font-size:30px;">🎹</div>
+                    <div class="influence-name">JEAN-MICHEL JARRE</div>
+                </div>
+                <div class="influence-item">
+                    <div style="color:#00ffff; font-size:30px;">🎛️</div>
+                    <div class="influence-name">VANGELIS</div>
+                </div>
+                <div class="influence-item">
+                    <div style="color:#ffff00; font-size:30px;">🎵</div>
+                    <div class="influence-name">KRAFTWERK</div>
+                </div>
+                <div class="influence-item">
+                    <div style="color:#00ff00; font-size:30px;">🔊</div>
+                    <div class="influence-name">DEADMAU5</div>
+                </div>
+                <div class="influence-item">
+                    <div style="color:#ff9900; font-size:30px;">🎶</div>
+                    <div class="influence-name">DAFT PUNK</div>
+                </div>
+                <div class="influence-item">
+                    <div style="color:#ff00ff; font-size:30px;">🎼</div>
+                    <div class="influence-name">APHEX TWIN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Under Construction -->
+        <div class="construction">
+            <img src="https://i.imgur.com/1eL1vjA.gif" alt="Under construction">
+            <p style="color:#ff00ff;">MORE INFO COMING SOON!</p>
+            <img src="https://i.imgur.com/vx9fT8J.gif" alt="New">
+        </div>
+
+        <!-- Footer -->
+        <div class="counter" style="margin-top:15px;">
+            <script>document.write("LAST UPDATED: " + new Date().toLocaleDateString());</script>
+        </div>
+
+        <div class="signature">
+            Made with ♥ in deep space ••• <img src="https://i.imgur.com/2aX9K0L.gif" alt="Email">
+            pe_szew@astrocartel.space
+        </div>
+
+        <div style="text-align:center; margin-top:10px;">
+            <img src="https://i.imgur.com/3tM0P2X.gif" alt="Best viewed with Netscape">
+            <img src="https://i.imgur.com/0wS0y8a.gif" alt="Internet Explorer">
+        </div>
+    </div>
+
+    <script>
+        // Blink animation
+        setInterval(() => {
+            const blinkElements = document.querySelectorAll('.blink');
+            blinkElements.forEach(el => {
+                el.style.visibility = el.style.visibility === 'hidden' ? 'visible' : 'hidden';
+            });
+        }, 500);
+    </script>
+</body>
+
+</html>
