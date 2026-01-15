@@ -396,38 +396,36 @@
         // REPLACE THIS with your Google Apps Script Web App URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwsSN1BTqMc63zadRm9v9xkYZY0jX9ETKJpEiuvve9PF69cXVANBXHfFPucEZxtSiJtDQ/exec';
 
-        // Load and display guestbook entries from Google Sheets
+        // Load guestbook entries from Google Sheets
         async function loadEntries() {
             try {
-                const response = await fetch(GOOGLE_SCRIPT_URL);
-                const entries = await response.json();
-                const container = document.getElementById('entries');
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzvZe2JE6sNnrz5h8CExaFEABkTCGbaDOZzPhgDTLDGAv2-Fif2vZZN32EXpx7g7FRLXA/exec');
 
-                if (!entries || entries.length === 0) {
-                    container.innerHTML = '<div class="no-entries">No entries yet. Be the first to sign!</div>';
+                if (!response.ok) {
+                    throw new Error('Failed to fetch entries');
+                }
+
+                const data = await response.json();
+                const entriesContainer = document.getElementById('entries');
+
+                if (!data || data.length === 0) {
+                    entriesContainer.innerHTML = '<p class="no-entries">No entries yet. Be the first to sign!</p>';
                     return;
                 }
 
-                container.innerHTML = entries.map(entry => {
-                    const date = new Date(entry.timestamp);
-                    const formattedDate = date.toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                    });
-
-                    return `
-                        <div class="entry">
-                            <div class="entry-header">${escapeHtml(entry.name)}</div>
-                            <div class="entry-date">${formattedDate}</div>
-                            <div class="entry-message">${escapeHtml(entry.message)}</div>
+                // Display entries (most recent first)
+                entriesContainer.innerHTML = data.reverse().map(entry => `
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div class="entry-name">${escapeHtml(entry.name)}</div>
+                            <div class="entry-date">${new Date(entry.timestamp).toLocaleString()}</div>
                         </div>
-                    `;
-                }).join('');
+                        <div class="entry-message">${escapeHtml(entry.message)}</div>
+                    </div>
+                `).join('');
             } catch (error) {
                 console.error('Error loading entries:', error);
-                document.getElementById('entries').innerHTML =
-                    '<div class="no-entries">No entries yet. Be the first to sign!</div>';
+                document.getElementById('entries').innerHTML = '<p class="no-entries">Loading entries...</p>';
             }
         }
 
