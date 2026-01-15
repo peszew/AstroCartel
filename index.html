@@ -67,7 +67,7 @@
             color: var(--neon-magenta);
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         /* === NAVIGATION === */
@@ -113,20 +113,26 @@
             margin: 30px 0;
         }
 
+        /* Article card - magenta borders */
         .article-card {
             background: var(--box-bg);
-            border: 2px double var(--neon-cyan);
+            border: 2px double var(--neon-magenta);
+            border-radius: 0;
             padding: 20px;
-            transition: all 0.6s ease;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .article-card.visible {
+            opacity: 1;
+            transform: translateY(0);
             border-color: var(--neon-magenta);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
         }
 
         .article-card:hover {
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.6);
             transform: translateY(-4px);
         }
 
@@ -575,19 +581,7 @@
     </footer>
 
     <script>
-        // Language switcher
-        let currentLanguage = localStorage.getItem('language') || 'en';
-
-        // Set active language button
-        document.getElementById('lang-' + currentLanguage).style.background = 'var(--neon-yellow)';
-        document.getElementById('lang-' + currentLanguage).style.color = 'var(--bg-black)';
-
-        function setLanguage(lang) {
-            localStorage.setItem('language', lang);
-            location.reload();
-        }
-
-        // Scroll animation observer
+        // Article card scroll animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -595,8 +589,7 @@
                 }
             });
         }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.2
         });
 
         // Observe all article cards
