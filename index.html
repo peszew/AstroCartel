@@ -357,21 +357,6 @@
         <a href="about.html">ABOUT</a>
     </nav>
 
-    <!-- Language Switcher -->
-    <div
-        style="text-align:center; padding:10px; background:var(--box-bg); border:2px solid var(--neon-cyan); margin:0px 20px 20px 20px;">
-        <span style="color:var(--neon-green); font-size:11px; margin-right:10px;">LANGUAGE:</span>
-        <button onclick="setLanguage('en')"
-            style="background:transparent; border:2px solid var(--neon-yellow); color:var(--neon-yellow); padding:5px 15px; margin:0 5px; cursor:pointer; font-family:'Courier New'; text-transform:uppercase; font-weight:bold;"
-            id="lang-en">EN</button>
-        <button onclick="setLanguage('es')"
-            style="background:transparent; border:2px solid var(--neon-yellow); color:var(--neon-yellow); padding:5px 15px; margin:0 5px; cursor:pointer; font-family:'Courier New'; text-transform:uppercase; font-weight:bold;"
-            id="lang-es">ES</button>
-        <button onclick="setLanguage('pl')"
-            style="background:transparent; border:2px solid var(--neon-yellow); color:var(--neon-yellow); padding:5px 15px; margin:0 5px; cursor:pointer; font-family:'Courier New'; text-transform:uppercase; font-weight:bold;"
-            id="lang-pl">PL</button>
-    </div>
-
     <div class="container">
         <div class="articles-grid">
             <!-- Article 1: Thunder Bay (2025-05-15) -->
@@ -550,57 +535,43 @@
             </div>
         </div>
 
-        <!-- 88x31 Badges -->
-        <div class="badges-section">
-            <h3>✦ Cool Sites ✦</h3>
-            <div class="badges">
-                <img src="assets/images/neon_music_note.png" alt="Music Note" style="width:88px; height:31px;">
-                <img src="assets/images/retro_cassette.png" alt="Cassette" style="width:88px; height:31px;">
-                <img src="assets/images/neon_headphones.png" alt="Headphones" style="width:88px; height:31px;">
-                <img src="https://anlucas.neocities.org/88x31Buttons/internetcom.gif" alt="Internet">
-                <img src="https://anlucas.neocities.org/88x31Buttons/getflash.gif" alt="Flash">
-                <img src="https://anlucas.neocities.org/88x31Buttons/madewith.gif" alt="HTML">
-                <img src="https://anlucas.neocities.org/88x31Buttons/css.gif" alt="CSS">
-                <img src="https://anlucas.neocities.org/88x31Buttons/notepad.gif" alt="Notepad">
-                <img src="https://anlucas.neocities.org/88x31Buttons/netscape4.gif" alt="Netscape">
-            </div>
-        </div>
+
 
         <!-- Under Construction -->
         <div
-            style="text-align:center; padding:20px; margin:20px 0; background:var(--box-bg); border:2px dashed var(--neon-yellow);">
-            <img src="assets/images/vinyl_record.png" alt="Vinyl" style="width:88px; height:31px; margin:0 5px;">
-            <img src="https://i.imgur.com/1eL1vjA.gif" alt="Under construction" style="height:40px; margin:0 5px;">
-            <img src="assets/images/retro_boombox.png" alt="Boombox" style="width:88px; height:31px; margin:0 5px;">
-            <p style="color:var(--neon-yellow); margin:10px 0; text-transform:uppercase; letter-spacing:2px;">More
+            style="text-align:center; padding:40px 20px; margin:20px 0; background:#000000; border:2px dashed var(--neon-yellow); min-height:200px; display:flex; flex-direction:column; justify-content:space-around; align-items:center;">
+            <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-bottom:25px;">
+                <img src="assets/images/vinyl_record.png" alt="Vinyl" style="width:120px; height:auto;">
+                <img src="assets/images/retro_boombox.png" alt="Boombox" style="width:120px; height:auto;">
+                <img src="assets/images/neon_cannabis.png" alt="Cannabis" style="width:120px; height:auto;">
+            </div>
+            <p
+                style="color:var(--neon-yellow); margin:20px 0; text-transform:uppercase; letter-spacing:2px; font-size:18px; font-weight:bold;">
+                More
                 Reviews Coming Soon</p>
-            <img src="assets/images/neon_music_note.png" alt="Music" style="width:88px; height:31px; margin:0 5px;">
-            <img src="https://i.imgur.com/vx9fT8J.gif" alt="New" style="height:40px; margin:0 5px;">
-            <img src="assets/images/neon_headphones.png" alt="Headphones"
-                style="width:88px; height:31px; margin:0 5px;">
+            <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:25px;">
+                <img src="assets/images/neon_music_note.png" alt="Music" style="width:120px; height:auto;">
+                <img src="assets/images/neon_headphones.png" alt="Headphones" style="width:120px; height:auto;">
+                <img src="assets/images/retro_speaker.png" alt="Speaker" style="width:120px; height:auto;">
+            </div>
         </div>
 
         <!-- Visitor Counter -->
         <div
             style="text-align:center; padding:15px; background:var(--box-bg); border:2px solid var(--neon-cyan); margin:20px 0;">
             <p style="color:var(--neon-green); font-size:11px; margin-bottom:8px;">YOU ARE VISITOR NUMBER:</p>
-            <img src="https://i.imgur.com/eG71yDu.gif" alt="Counter" style="height:20px;">
+            <div style="font-family: 'Courier New'; font-size: 24px; color: var(--neon-yellow); font-weight: bold; letter-spacing: 3px;"
+                id="visitorCounter">000000</div>
         </div>
     </div>
 
     <footer>
-        <p>AstroCartel © 2025 // Personal Music Reviews</p>
+        <p>AstroCartel © 2026 // Personal Music Reviews</p>
         <div class="footer-links">
             <a href="guestbook.html">Sign Guestbook</a>
             <a href="about.html">About</a>
         </div>
         <p style="margin-top:15px; color:var(--neon-magenta);">Made with ♥ by pe_szew</p>
-
-        <!-- Classic web badges -->
-        <div style="margin-top:20px;">
-            <img src="https://i.imgur.com/3tM0P2X.gif" alt="Netscape" style="width:88px; height:31px; margin:5px;">
-            <img src="https://i.imgur.com/0wS0y8a.gif" alt="IE" style="width:88px; height:31px; margin:5px;">
-        </div>
     </footer>
 
     <script>
@@ -632,6 +603,74 @@
         document.querySelectorAll('.article-card').forEach(card => {
             observer.observe(card);
         });
+
+        // Scroll-triggered 420 counter with smooth animation
+        let counterTriggered = false;
+
+        function animate420Counter() {
+            if (counterTriggered) return;
+            counterTriggered = true;
+
+            const counter = document.getElementById('visitorCounter');
+            const startTime = performance.now();
+            const duration = 2000; // 2 seconds to reach 419
+
+            // Easing function for smooth animation
+            function easeOutQuad(t) {
+                return t * (2 - t);
+            }
+
+            // Smooth count from 0 to 419
+            function countTo419(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutQuad(progress);
+                const currentValue = Math.floor(easedProgress * 419);
+
+                counter.textContent = String(currentValue).padStart(6, '0');
+
+                if (progress < 1) {
+                    requestAnimationFrame(countTo419);
+                } else {
+                    // After reaching 419, slowly count to 420
+                    setTimeout(() => {
+                        const finalStart = performance.now();
+                        const finalDuration = 1500; // 1.5 seconds for final increment
+
+                        function updateTo420(currentTime) {
+                            const elapsed = currentTime - finalStart;
+                            const progress = Math.min(elapsed / finalDuration, 1);
+
+                            if (progress >= 1) {
+                                counter.textContent = '000420';
+                            } else {
+                                requestAnimationFrame(updateTo420);
+                            }
+                        }
+                        requestAnimationFrame(updateTo420);
+                    }, 300); // Brief pause at 419
+                }
+            }
+
+            requestAnimationFrame(countTo419);
+        }
+
+        // Create observer for visitor counter
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counterTriggered) {
+                    animate420Counter();
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        // Observe the counter
+        const counterElement = document.getElementById('visitorCounter');
+        if (counterElement) {
+            counterObserver.observe(counterElement);
+        }
     </script>
 </body>
 
