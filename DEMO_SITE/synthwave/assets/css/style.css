@@ -1,0 +1,523 @@
+/* ============================================
+   ASTROCARTEL NEOCITIES RETRO CSS FRAMEWORK
+   ============================================ */
+
+/* === PIXEL FONTS === */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* === COLOR PALETTE === */
+:root {
+    /* Background Colors */
+    --bg-black: #000000;
+    --bg-dark-blue: #000033;
+    --bg-darker-blue: #000044;
+    --bg-purple: #330066;
+    --bg-dark-purple: #220022;
+    --bg-deepest-purple: #330033;
+    
+    /* Accent Colors */
+    --neon-cyan: #00FFFF;
+    --neon-magenta: #FF00FF;
+    --neon-yellow: #FFFF00;
+    --neon-green: #00FF00;
+    --neon-orange: #FF9900;
+    --neon-red: #FF0000;
+    
+    /* Windows 98 Colors */
+    --win98-gray: #c0c0c0;
+    --win98-dark-gray: #808080;
+    --win98-blue: #000080;
+    --win98-title-gradient-start: #0a246a;
+    --win98-title-gradient-end: #a6caf0;
+}
+
+/* === BASE STYLES === */
+body {
+    background-color: var(--bg-black);
+    background-image: url('https://web.archive.org/web/20071113053944if_/http://www.geocities.com/farid_fery2000/STARS-BG.gif');
+    font-family: "Comic Sans MS", "Arial", sans-serif;
+    color: var(--neon-green);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* === CONTAINER === */
+#container {
+    max-width: 850px;
+    width: 90%;
+    margin: 10px auto;
+    background-color: var(--bg-dark-blue);
+    border: 8px ridge var(--neon-magenta);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 1024px) {
+    #container {
+        transform: skew(-2deg, 0deg);
+    }
+}
+
+/* === BANNER / HEADER === */
+#banner {
+    text-align: center;
+    background-color: #000066;
+    border: 4px groove var(--neon-cyan);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 7vw;
+    color: var(--neon-yellow);
+    margin: 5px 0;
+    font-family: "Impact", "Arial Black", sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 0 var(--neon-magenta);
+}
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 36px;
+    }
+}
+
+/* === NAVIGATION BAR === */
+.nav-bar {
+    background-color: var(--bg-purple);
+    padding: 5px;
+    text-align: center;
+    border: 2px solid var(--neon-green);
+    margin: 10px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.nav-bar a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: bold;
+    font-size: 3.5vw;
+    transition: all 0.3s ease;
+}
+
+.nav-bar a:hover,
+.nav-bar a.active {
+    color: var(--neon-yellow);
+    text-decoration: underline overline;
+}
+
+@media (min-width: 600px) {
+    .nav-bar a {
+        font-size: 14px;
+    }
+}
+
+/* === MARQUEE === */
+.marquee {
+    background-color: var(--bg-purple);
+    color: var(--neon-cyan);
+    padding: 3px;
+    border: 2px dotted var(--neon-magenta);
+    margin: 5px 0;
+    font-weight: bold;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* === CONTENT BOXES === */
+.content-box {
+    background-color: var(--bg-darker-blue);
+    border: 3px groove var(--neon-cyan);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+h2 {
+    color: var(--neon-orange);
+    border-bottom: 2px dashed var(--neon-magenta);
+    padding-bottom: 3px;
+    font-size: 5vw;
+    background-color: var(--bg-deepest-purple);
+    padding: 5px;
+}
+
+@media (min-width: 600px) {
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/* === WINDOWS 98 STYLE ELEMENTS === */
+.win98-window {
+    background: linear-gradient(to bottom, #d4d0c8, #f0f0f0);
+    border: 2px solid #003c74;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.win98-titlebar {
+    background: linear-gradient(to bottom, var(--win98-title-gradient-start), var(--win98-title-gradient-end));
+    color: white;
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: "Tahoma", "Arial", sans-serif;
+}
+
+.win98-btn {
+    padding: 8px 15px;
+    border: 2px outset var(--win98-gray);
+    background: linear-gradient(to bottom, #f0f0f0, var(--win98-gray));
+    cursor: pointer;
+    font-family: "Tahoma", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.win98-btn:hover {
+    background: linear-gradient(to bottom, #e0e0e0, #b0b0b0);
+}
+
+.win98-btn:active {
+    border-style: inset;
+}
+
+/* === 88x31 BADGES === */
+.badge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: var(--bg-dark-purple);
+    border: 2px ridge var(--neon-cyan);
+}
+
+.badge-grid img {
+    width: 88px;
+    height: 31px;
+    border: 1px solid var(--neon-magenta);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.badge-grid img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* === GIF CONTAINER === */
+.gif-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.gif-container img {
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+/* === PIXEL FONT STYLES === */
+.pixel-font {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.pixel-font-small {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    line-height: 2;
+}
+
+.retro-font {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+/* === VISITOR COUNTER === */
+.counter {
+    background-color: var(--bg-black);
+    color: var(--neon-red);
+    padding: 3px;
+    border: 2px solid var(--neon-green);
+    text-align: center;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    margin: 10px auto;
+    width: fit-content;
+    min-width: 200px;
+}
+
+.counter span {
+    display: inline-block;
+    min-width: 70px;
+    text-align: center;
+}
+
+/* === BLINK ANIMATION === */
+.blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    to { visibility: hidden; }
+}
+
+/* === CURSOR TRAIL === */
+.cursor-trail {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--neon-magenta);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 9999;
+}
+
+/* === SIGNATURE/FOOTER === */
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: var(--neon-magenta);
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* === RETRO BUTTONS === */
+.retro-btn {
+    display: inline-block;
+    background: var(--bg-purple);
+    color: var(--neon-cyan);
+    padding: 10px 20px;
+    border: 3px outset var(--neon-green);
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive;
+    transition: all 0.3s ease;
+}
+
+.retro-btn:hover {
+    background: #550088;
+    color: var(--neon-yellow);
+    transform: translateY(-2px);
+}
+
+.retro-btn:active {
+    border-style: inset;
+    transform: translateY(0);
+}
+
+/* === MUSIC PLAYER STYLES === */
+.music-player {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 3px ridge var(--neon-cyan);
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.player-display {
+    background: #000;
+    color: var(--neon-green);
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    padding: 10px;
+    border: 2px inset var(--win98-dark-gray);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.player-btn {
+    background: linear-gradient(to bottom, #4a4a4a, #2a2a2a);
+    color: var(--neon-cyan);
+    border: 2px outset #666;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+}
+
+.player-btn:hover {
+    background: linear-gradient(to bottom, #5a5a5a, #3a3a3a);
+    color: var(--neon-yellow);
+}
+
+.player-btn:active {
+    border-style: inset;
+}
+
+/* === ALBUM GRID === */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.album {
+    background-color: var(--bg-dark-purple);
+    border: 2px solid var(--neon-magenta);
+    padding: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.album:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+.album img {
+    border: 2px ridge var(--neon-cyan);
+    max-width: 100%;
+    height: auto;
+}
+
+.album h3 {
+    color: var(--neon-yellow);
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.album p {
+    font-size: 12px;
+    color: var(--neon-green);
+}
+
+/* === GUESTBOOK === */
+.guestbook {
+    background-color: var(--bg-deepest-purple);
+    border: 3px double var(--neon-yellow);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.guestbook h2 {
+    color: var(--neon-cyan);
+}
+
+.guestbook-entry {
+    background-color: var(--bg-darker-blue);
+    border: 1px dotted var(--neon-magenta);
+    padding: 5px;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+/* === CONSTRUCTION === */
+.construction {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* === AUDIO ELEMENT === */
+audio {
+    width: 100%;
+    margin: 5px 0;
+    background-color: #000;
+    border: 2px ridge var(--neon-green);
+}
+
+/* === SIDEBAR (for badges and widgets) === */
+.sidebar {
+    background-color: var(--bg-darker-blue);
+    border: 3px groove var(--neon-magenta);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.sidebar h3 {
+    color: var(--neon-yellow);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 600px) {
+    .badge-grid {
+        grid-template-columns: repeat(auto-fill, minmax(88px, 88px));
+        justify-content: center;
+    }
+    
+    .player-controls {
+        flex-wrap: wrap;
+    }
+    
+    .player-btn {
+        font-size: 6px;
+        padding: 6px 10px;
+    }
+}
+
+/* === FLOATING ELEMENTS === */
+#floating420 {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: none;
+    animation: floatBounce 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 5px var(--neon-green));
+}
+
+@keyframes floatBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(-5deg); }
+}
+
+#floating420 img {
+    width: 150px;
+    border: 3px dashed var(--neon-magenta);
+    border-radius: 50%;
+    background: black;
+    padding: 5px;
+}
+
+/* === WEBRING FOOTER === */
+.webring {
+    background-color: var(--bg-dark-purple);
+    border: 2px ridge var(--neon-cyan);
+    padding: 10px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.webring-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.webring-links a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.webring-links a:hover {
+    color: var(--neon-yellow);
+}

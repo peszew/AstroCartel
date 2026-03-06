@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroCartel - Theme Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050510;
+            color: #0ff;
+            font-family: 'VT323', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.5rem;
+            color: #f0f;
+            text-shadow: 4px 4px 0px #0ff;
+            margin-bottom: 2rem;
+            letter-spacing: 4px;
+        }
+        .container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+        }
+        .card {
+            border: 4px double #0ff;
+            padding: 2rem;
+            width: 250px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            background: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px #f0f;
+            border-color: #f0f;
+        }
+        .card h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .classic { border-color: #00ffff; color: #00ffff; }
+        .cyberpunk { border-color: #ff0055; color: #ff0055; }
+        .synthwave { border-color: #f0f; color: #f0f; }
+
+        p {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            color: #ff0;
+        }
+        .badge {
+            background: #ff0;
+            color: #000;
+            padding: 5px 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="badge">ESTY DEMO MODE</div>
+    <h1>CHOOSE YOUR VIBE</h1>
+    <div class="container">
+        <a href="classic/index.html" class="card classic">
+            <h2>Classic</h2>
+            <p>Retro neon blue & cyan. The original Neocities feel.</p>
+        </a>
+        <a href="cyberpunk/index.html" class="card cyberpunk">
+            <h2>Cyberpunk</h2>
+            <p>High-contrast red & gold. Sharp and aggressive.</p>
+        </a>
+        <a href="synthwave/index.html" class="card synthwave">
+            <h2>Synthwave</h2>
+            <p>Dark purple & hot pink. Late-night aesthetic.</p>
+        </a>
+    </div>
+    <p>★ Custom Multi-Page Blogs for Hobbyists ★</p>
+</body>
+</html>

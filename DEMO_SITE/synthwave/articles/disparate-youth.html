@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disparate Youth - Santigold | AstroCartel</title>
+    <meta name="description" content="Review of Disparate Youth by Santigold">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-cyan: #00ffff;
+            --neon-magenta: #ff00ff;
+            --neon-green: #00fa9a;
+            --neon-yellow: #fce817;
+            --bg-black: #1a0b2e;
+            --box-bg: #2b1055;
+        }
+
+        body {
+            background: var(--bg-black);
+            background-image: url('https://web.archive.org/web/20071113053944if_/http://www.geocities.com/farid_fery2000/STARS-BG.gif');
+            background-size: 400px;
+            color: #cccccc;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4a0e4e 0%, #1a0b2e 100%);
+            border-bottom: 3px double var(--neon-cyan);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: clamp(24px, 6vw, 36px);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+            margin-bottom: 4px;
+        }
+
+        h1 small {
+            display: block;
+            font-size: 0.5em;
+            color: var(--neon-yellow);
+            margin-top: 8px;
+        }
+
+        nav {
+            background: var(--box-bg);
+            border: 2px dashed var(--neon-magenta);
+            margin: 20px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--neon-yellow);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border: 1px solid var(--neon-yellow);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--neon-yellow);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px var(--neon-yellow);
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .article-header {
+            background: var(--box-bg);
+            border: 2px double var(--neon-cyan);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .article-image {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border: 2px solid var(--neon-yellow);
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--neon-green);
+            border-top: 1px dashed var(--neon-cyan);
+            border-bottom: 1px dashed var(--neon-cyan);
+            padding: 12px 0;
+            margin: 15px 0;
+        }
+
+        .article-content {
+            background: var(--box-bg);
+            border: 2px double var(--neon-magenta);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .listen-btn {
+            display: inline-block;
+            background: var(--neon-green);
+            color: var(--bg-black);
+            padding: 14px 28px;
+            border: none;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px var(--neon-green);
+        }
+
+        .listen-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--neon-green);
+        }
+
+        .back-link {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .back-link a {
+            color: var(--neon-magenta);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .back-link a:hover {
+            text-shadow: 0 0 10px var(--neon-magenta);
+        }
+
+        .lang-switcher {
+            text-align: center;
+            padding: 10px;
+            background: var(--box-bg);
+            border: 2px solid var(--neon-cyan);
+            margin: 20px;
+        }
+
+        .lang-switcher button {
+            background: transparent;
+            border: 2px solid var(--neon-yellow);
+            color: var(--neon-yellow);
+            padding: 5px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-family: 'Courier New';
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .lang-switcher button.active {
+            background: var(--neon-yellow);
+            color: var(--bg-black);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Disparate Youth<small>by Santigold</small></h1>
+    </header>
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="../guestbook.html">GUESTBOOK</a>
+        <a href="../about.html">ABOUT</a>
+    </nav>
+    <div class="lang-switcher">
+        <span style="color:var(--neon-green); font-size:11px; margin-right:10px;">LANGUAGE:</span>
+        <button onclick="setLanguage('en')" id="lang-en">EN</button>
+        <button onclick="setLanguage('es')" id="lang-es">ES</button>
+        <button onclick="setLanguage('pl')" id="lang-pl">PL</button>
+    </div>
+    <div class="container">
+        <div class="article-header">
+            <img src="https://i.imgur.com/OZj5ajQ.png" alt="Disparate Youth" class="article-image">
+            <div class="article-meta">
+                <span>Published: 2025-05-08</span>
+                <span>★★★★★</span>
+            </div>
+        </div>
+        <div class="article-content" id="article-content"></div>
+        <div style="text-align:center; margin:30px 0;">
+            <a href="https://soundcloud.com/isabel-bracamontes-cetina/santigold-performing-disparate" target="_blank"
+                class="listen-btn">▶ LISTEN NOW</a>
+        </div>
+        <div class="back-link">
+            <a href="../index.html">← Back to All Reviews</a>
+        </div>
+    </div>
+    <script>
+        const content = {
+            en: "What comes to my mind when listening to this track: sitting in the backseat of a car, sunset outside the window, staring at it. Coming back from a journey. Goooood shit. A strong, melancholic sound from Santigold – or rather, Santi White. A track that encourages thought and reflection. Highly recommended!",
+            es: "Lo que me viene a la mente al escuchar esta canción: viajando en el asiento trasero del coche, viendo el atardecer por la ventana. Volviendo de un viaje. Buenísima. Un sonido fuerte y melancólico de Santigold, o mejor dicho, Santi White. Una canción que invita a la reflexión. ¡Escúchala!",
+            pl: "Co mi się kojarzy, gdy słucham tego utworu: jazda autem na tylnym siedzeniu, zachód słońca i wpatrywanie się w nie przez okno. Powrót z podróży. Goooood shit. Mocne, melancholijne brzmienie od Santigold, a tak właściwie od Santi White. Nuta zachęcająca do przemyśleń i refleksji. Zapraszam do odsłuchu!"
+        };
+        let currentLanguage = localStorage.getItem('language') || 'en';
+        document.getElementById('article-content').innerHTML = '<p>' + content[currentLanguage] + '</p>';
+        document.getElementById('lang-' + currentLanguage).classList.add('active');
+        function setLanguage(lang) { localStorage.setItem('language', lang); location.reload(); }
+    </script>
+</body>
+
+</html>

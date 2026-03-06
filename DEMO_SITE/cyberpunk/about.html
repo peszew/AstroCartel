@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | AstroCartel</title>
+    <meta name="description" content="About AstroCartel - Music Reviews and Vibes">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-cyan: #ff0055;
+            --neon-magenta: #f39c12;
+            --neon-green: #00ff9f;
+            --neon-yellow: #f1c40f;
+            --bg-black: #1a1a1a;
+            --box-bg: #111111;
+        }
+
+        body {
+            background: var(--bg-black);
+            background-image: url('https://web.archive.org/web/20071113053944if_/http://www.geocities.com/farid_fery2000/STARS-BG.gif');
+            background-size: 400px;
+            color: #cccccc;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #110000 0%, #220000 100%);
+            border-bottom: 3px double var(--neon-cyan);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: clamp(28px, 8vw, 48px);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--neon-cyan);
+            text-shadow:
+                0 0 10px var(--neon-cyan),
+                0 0 20px var(--neon-cyan),
+                0 0 30px var(--neon-magenta);
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            color: var(--neon-magenta);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+        }
+
+        nav {
+            background: var(--box-bg);
+            border: 2px dashed var(--neon-magenta);
+            margin: 20px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--neon-yellow);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border: 1px solid var(--neon-yellow);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--neon-yellow);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px var(--neon-yellow);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about-section {
+            background: var(--box-bg);
+            border: 2px double var(--neon-cyan);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .about-section h2 {
+            color: var(--neon-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 2px dashed var(--neon-cyan);
+            padding-bottom: 10px;
+        }
+
+        .about-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .profile-icon {
+            text-align: center;
+            font-size: 80px;
+            margin: 20px 0;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            background: transparent;
+            border: 2px solid var(--neon-magenta);
+            color: var(--neon-magenta);
+            padding: 10px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--neon-magenta);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px var(--neon-magenta);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #1a0033, #330066);
+            border: 2px solid var(--neon-green);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Equalizer Animation */
+        .equalizer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 5px;
+            height: 40px;
+            margin-bottom: 15px;
+        }
+
+        .eq-bar {
+            width: 8px;
+            background: linear-gradient(to top, var(--neon-magenta), var(--neon-cyan));
+            animation: eq-bounce 0.8s ease-in-out infinite;
+        }
+
+        .eq-bar:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .eq-bar:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .eq-bar:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .eq-bar:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .eq-bar:nth-child(5) {
+            animation-delay: 0.1s;
+        }
+
+        .eq-bar:nth-child(6) {
+            animation-delay: 0s;
+        }
+
+        .eq-bar:nth-child(7) {
+            animation-delay: 0.1s;
+        }
+
+        .eq-bar:nth-child(8) {
+            animation-delay: 0.2s;
+        }
+
+        .eq-bar:nth-child(9) {
+            animation-delay: 0.3s;
+        }
+
+        .eq-bar:nth-child(10) {
+            animation-delay: 0.4s;
+        }
+
+        .eq-bar:nth-child(11) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes eq-bounce {
+
+            0%,
+            100% {
+                height: 15px;
+            }
+
+            50% {
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Equalizer -->
+        <div class="equalizer">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+        </div>
+        <h1>ABOUT</h1>
+        <p class="tagline">★ who am i? ★</p>
+    </header>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="guestbook.html">GUESTBOOK</a>
+        <a href="about.html">ABOUT</a>
+    </nav>
+
+    <div class="container">
+        <div class="about-section">
+            <div class="profile-icon">
+                <img src="assets/images/alien-dance.gif" alt="Dancing Alien" style="height:80px;">
+            </div>
+            <h2>About AstroCartel</h2>
+            <p>
+                Welcome to AstroCartel - a personal space for music reviews, vibes, and discoveries.
+                This blog is all about sharing tracks that hit different, from underground gems to
+                mainstream bangers that deserve recognition.
+            </p>
+            <p>
+                Inspired by the cyber-vaporwave aesthetic and early web culture, AstroCartel combines
+                retro design with modern music commentary. Every review is personal, honest, and
+                written from the heart.
+            </p>
+            <p>
+                Whether it's hip-hop, electronic, grime, reggaeton, or house - if it's good music,
+                it belongs here.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Tech Stack</h2>
+            <p>
+                Built with pure HTML, CSS, and vanilla JavaScript. No frameworks, no database,
+                no backend. Just clean code and neon aesthetics.
+            </p>
+            <p>
+                Language support for English, Spanish, and Polish thanks to client-side JavaScript.
+                Each article is hand-written and carefully curated.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Reviews</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Good Vibes</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer style="text-align:center; padding:40px 20px; border-top:2px dashed var(--neon-cyan); margin-top:40px;">
+        <p style="color:#666; font-size:11px;">AstroCartel © 2026 // Personal Music Reviews</p>
+        <p style="margin-top:15px; color:var(--neon-magenta);">Made with ♥ by pe_szew</p>
+    </footer>
+</body>
+
+</html>

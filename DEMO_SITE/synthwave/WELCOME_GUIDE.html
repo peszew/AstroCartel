@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroCartel - Welcome Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00ffff;
+            --neon-magenta: #ff00ff;
+            --neon-green: #00fa9a;
+            --neon-yellow: #fce817;
+            --bg-black: #050505;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #fff;
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.4;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 4px double var(--neon-cyan);
+            padding: 40px;
+            background: rgba(10, 10, 30, 0.9);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 24px;
+            color: var(--neon-magenta);
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0 var(--neon-cyan);
+        }
+
+        .step {
+            margin-bottom: 40px;
+            border-left: 3px solid var(--neon-green);
+            padding-left: 20px;
+        }
+
+        .step-number {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            color: var(--neon-yellow);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-size: 28px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        code {
+            background: #222;
+            color: var(--neon-green);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .link-box {
+            background: #111;
+            border: 1px dashed var(--neon-magenta);
+            padding: 10px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        a {
+            color: var(--neon-yellow);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 16px;
+            color: #666;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--neon-magenta);
+            color: #000;
+            padding: 5px 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Removed @media print to keep neon colors in PDF */
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div style="text-align: center;">
+            <div class="badge">SYSTEM INITIALIZED</div>
+        </div>
+        <h1>YOUR RETRO BLOG IS READY! 🌌</h1>
+        <p style="text-align: center; margin-bottom: 40px;">
+            Welcome to the <strong>AstroCartel</strong> family. You now own a custom-coded, 
+            high-performance blog inspired by the golden age of the web.
+        </p>
+
+        <div class="step">
+            <span class="step-number">PHASE 01</span>
+            <div class="step-title">UNZIP YOUR FILES 📂</div>
+            <p>
+                Download the <code>.zip</code> folder from your Etsy orders. Right-click and select 
+                <strong>"Extract All"</strong>. You will see a folder containing your 
+                <code>index.html</code>, <code>assets</code>, and <code>articles</code>.
+            </p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">PHASE 02</span>
+            <div class="step-title">LAUNCH WITH NETLIFY 🚢</div>
+            <p>
+                We use <strong>Netlify Drop</strong> for free, professional hosting. 
+                It's the fastest way to get your site live on your own domain.
+            </p>
+            <div class="link-box">
+                URL: <a href="https://app.netlify.com/drop" target="_blank">app.netlify.com/drop</a>
+            </div>
+            <ol>
+                <li>Drag your entire extracted folder into the big box on the page.</li>
+                <li>Wait 10 seconds. Your site is now <strong>LIVE</strong>!</li>
+                <li><strong>Claim your site:</strong> Click "Sign Up" to create a free account so your site stays online forever.</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <span class="step-number">PHASE 03</span>
+            <div class="step-title">CONNECT YOUR DOMAIN 🌐</div>
+            <p>
+                Want to use <code>www.yourname.com</code>? It takes 2 minutes:
+            </p>
+            <ul>
+                <li>In Netlify, go to <strong>Domain Settings</strong> &gt; <strong>Add Custom Domain</strong>.</li>
+                <li>Type in the domain you bought (from Namecheap, GoDaddy, etc.).</li>
+                <li>Netlify will give you 4 "Nameservers". Copy them.</li>
+                <li>Paste those into your domain provider's DNS settings. <strong>Done!</strong></li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <span class="step-number">PRO TIP</span>
+            <div class="step-title">GUESTBOOK ACTIVATION ✍️</div>
+            <p>
+                To make your guestbook live, I recommend using a free service like 
+                <strong>123Guestbook.com</strong> or <strong>SmartGuestbook.com</strong>. 
+                Just create an account and paste the link on your <code>guestbook.html</code> page 
+                so your visitors can leave messages!
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>ASTROCARTEL © 2026 // PERSONAL MUSIC REVIEWS</p>
+            <p>Need help? Message me on Etsy anytime! 👽✨</p>
+        </div>
+    </div>
+</body>
+</html>
