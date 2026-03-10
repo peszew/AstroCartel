@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hire Me | AstroCartel Web Design</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --neon-cyan: #00ffff;
             --neon-magenta: #ff00ff;
@@ -14,6 +20,7 @@
             --bg-black: #000000;
             --box-bg: #0a0a0a;
         }
+
         body {
             background: var(--bg-black);
             background-image: url('https://web.archive.org/web/20071113053944if_/http://www.geocities.com/farid_fery2000/STARS-BG.gif');
@@ -21,17 +28,20 @@
             font-family: 'Courier New', monospace;
             line-height: 1.6;
         }
+
         header {
             background: linear-gradient(135deg, #0a0033 0%, #1a001a 100%);
             border-bottom: 3px double var(--neon-cyan);
             padding: 20px;
             text-align: center;
         }
+
         h1 {
             color: var(--neon-cyan);
             text-shadow: 0 0 10px var(--neon-cyan);
             letter-spacing: 4px;
         }
+
         nav {
             background: var(--box-bg);
             border: 2px dashed var(--neon-magenta);
@@ -41,19 +51,59 @@
             justify-content: center;
             gap: 20px;
         }
-        nav a { color: var(--neon-yellow); text-decoration: none; font-weight: bold; padding: 5px 10px; border: 1px solid var(--neon-yellow); }
-        nav a:hover { background: var(--neon-yellow); color: #000; }
-        
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+        nav a {
+            color: var(--neon-yellow);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid var(--neon-yellow);
+        }
+
+        nav a:hover {
+            background: var(--neon-yellow);
+            color: #000;
+        }
+
+        @media (max-width: 767px) {
+            nav {
+                flex-wrap: wrap;
+            }
+
+            nav a[href="hire.html"] {
+                flex-basis: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .service-card {
             background: var(--box-bg);
             border: 2px double var(--neon-green);
             padding: 30px;
             margin-bottom: 30px;
         }
-        .service-card h2 { color: var(--neon-green); margin-bottom: 15px; text-transform: uppercase; }
-        .price-tag { color: var(--neon-yellow); font-size: 24px; font-weight: bold; margin-bottom: 15px; display: block; }
-        
+
+        .service-card h2 {
+            color: var(--neon-green);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .price-tag {
+            color: var(--neon-yellow);
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
         .contact-btn {
             display: inline-block;
             background: var(--neon-magenta);
@@ -65,12 +115,23 @@
             margin-top: 20px;
             box-shadow: 0 0 15px var(--neon-magenta);
         }
-        .contact-btn:hover { transform: scale(1.05); }
 
-        .feature-list { list-style: none; margin: 15px 0; }
-        .feature-list li::before { content: "★ "; color: var(--neon-yellow); }
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .feature-list li::before {
+            content: "★ ";
+            color: var(--neon-yellow);
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>COMMISSIONS OPEN</h1>
@@ -87,7 +148,8 @@
         <div class="service-card">
             <h2>The "AstroCartel" Special</h2>
             <span class="price-tag">Starting at $XX.XX</span>
-            <p>I will build you a custom, multi-page hobby blog or portfolio exactly like the site you are seeing right now.</p>
+            <p>I will build you a custom, multi-page hobby blog or portfolio exactly like the site you are seeing right
+                now.</p>
             <ul class="feature-list">
                 <li>Custom Color Theme (Cyberpunk, Vaporwave, etc.)</li>
                 <li>Fully Responsive (Mobile + Desktop)</li>
@@ -100,9 +162,12 @@
 
         <div class="service-card" style="border-color: var(--neon-cyan);">
             <h2>Bespoke Web Design</h2>
-            <p>Need something totally unique? A custom landing page, a store front, or a gallery? Let's bring your vision to life with a retro-future aesthetic.</p>
-            <a href="https://www.etsy.com/shop/AstroCartel" class="contact-btn" style="background:var(--neon-cyan)">Order via Etsy</a>
+            <p>Need something totally unique? A custom landing page, a store front, or a gallery? Let's bring your
+                vision to life with a retro-future aesthetic.</p>
+            <a href="https://www.etsy.com/shop/AstroCartel" class="contact-btn"
+                style="background:var(--neon-cyan)">Order via Etsy</a>
         </div>
     </div>
 </body>
+
 </html>
